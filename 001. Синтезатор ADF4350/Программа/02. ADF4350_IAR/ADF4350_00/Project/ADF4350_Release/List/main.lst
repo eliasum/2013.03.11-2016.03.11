@@ -1,0 +1,692 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.50.0.50277/W32 for Atmel AVR    24/Sep/2013  15:45:19 #
+# Copyright (C) 1996-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Source file  =  D:\_IAR projects\ADF4350_IAR_ver.1\ADF4350_00\main.c     #
+#    Command line =  "D:\_IAR projects\ADF4350_IAR_ver.1\ADF4350_00\main.c"   #
+#                    --cpu=m1280 -ms -o "D:\_IAR                              #
+#                    projects\ADF4350_IAR_ver.1\ADF4350_00\Project\ADF4350_Re #
+#                    lease\Obj\" -D NDEBUG -lCN "D:\_IAR                      #
+#                    projects\ADF4350_IAR_ver.1\ADF4350_00\Project\ADF4350_Re #
+#                    lease\List\" -y --initializers_in_flash -s2 --no_cse     #
+#                    --no_inline --no_code_motion --no_cross_call             #
+#                    --no_clustering --no_tbaa -DENABLE_BIT_DEFINITIONS -e    #
+#                    -I "E:\Program Files\IAR Systems\Embedded Workbench      #
+#                    5.4\avr\INC\" -I "E:\Program Files\IAR Systems\Embedded  #
+#                    Workbench 5.4\avr\INC\CLIB\" --eeprom_size 4096          #
+#    List file    =  D:\_IAR projects\ADF4350_IAR_ver.1\ADF4350_00\Project\AD #
+#                    F4350_Release\List\main.lst                              #
+#    Object file  =  D:\_IAR projects\ADF4350_IAR_ver.1\ADF4350_00\Project\AD #
+#                    F4350_Release\Obj\main.r90                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\_IAR projects\ADF4350_IAR_ver.1\ADF4350_00\main.c
+      1          /************************************************************************************************************/
+      2          /*                                                                                                          */
+      3          /*                      Управляющая программа для ATmega1280 в проекте "Интерфейс ADF4350"                  */
+      4          /*                                       Версия 1.0 (2013.08.30_15-11)                                      */
+      5          /*                                                                                                          */
+      6          /************************************************************************************************************/
+      7          #include "main.h"
+
+   \                                 In  segment NEAR_F, align 1, keep-with-next
+   \   unsigned char const __flash Title[51]
+   \                     Title:
+   \   00000000   444134463533       DC8 41H, 44H, 46H, 34H, 33H, 35H, 30H, 20H
+   \              2030        
+   \   00000008   202D69576564       DC8 2DH, 20H, 57H, 69H, 64H, 65H, 62H, 61H
+   \              6162        
+   \   00000010   646E53206E79       DC8 6EH, 64H, 20H, 53H, 79H, 6EH, 74H, 68H
+   \              6874        
+   \   00000018   73657A697265       DC8 65H, 73H, 69H, 7AH, 65H, 72H, 20H, 77H
+   \              7720        
+   \   00000020   746920686E49       DC8 69H, 74H, 68H, 20H, 49H, 6EH, 74H, 65H
+   \              6574        
+   \   00000028   726774616465       DC8 67H, 72H, 61H, 74H, 65H, 64H, 20H, 56H
+   \              5620        
+   \   00000030   4F4300             DC8 43H, 4FH, 0
+
+   \                                 In  segment ABSOLUTE, at 0x10a
+   \   <__C51> volatile __ext_io _A_DDRL
+   \                     _A_DDRL:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x107
+   \   <__C60> volatile __ext_io _A_DDRK
+   \                     _A_DDRK:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x104
+   \   <__C69> volatile __ext_io _A_DDRJ
+   \                     _A_DDRJ:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x101
+   \   <__C78> volatile __ext_io _A_DDRH
+   \                     _A_DDRH:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc6
+   \   <__C115> volatile __io _A_UDR0
+   \                     _A_UDR0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc4
+   \   <__C119> volatile __io _A_UBRR0
+   \                     _A_UBRR0:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0xc2
+   \   <__C123> volatile __io _A_UCSR0C
+   \                     _A_UCSR0C:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc1
+   \   <__C126> volatile __io _A_UCSR0B
+   \                     _A_UCSR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc0
+   \   <__C129> volatile __io _A_UCSR0A
+   \                     _A_UCSR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x6e
+   \   <__C293> volatile __io _A_TIMSK0
+   \                     _A_TIMSK0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x60
+   \   <__C325> volatile __io _A_WDTCSR
+   \                     _A_WDTCSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4e
+   \   <__C359> volatile __io _A_SPDR
+   \                     _A_SPDR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4d
+   \   <__C362> volatile __io _A_SPSR
+   \                     _A_SPSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4c
+   \   <__C365> volatile __io _A_SPCR
+   \                     _A_SPCR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x46
+   \   <__C375> volatile __io _A_TCNT0
+   \                     _A_TCNT0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x45
+   \   <__C378> volatile __io _A_TCCR0B
+   \                     _A_TCCR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x44
+   \   <__C381> volatile __io _A_TCCR0A
+   \                     _A_TCCR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x34
+   \   <__C425> volatile __io _A_PORTG
+   \                     _A_PORTG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x33
+   \   <__C428> volatile __io _A_DDRG
+   \                     _A_DDRG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x30
+   \   <__C437> volatile __io _A_DDRF
+   \                     _A_DDRF:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2e
+   \   <__C443> volatile __io _A_PORTE
+   \                     _A_PORTE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2d
+   \   <__C446> volatile __io _A_DDRE
+   \                     _A_DDRE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2a
+   \   <__C455> volatile __io _A_DDRD
+   \                     _A_DDRD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x29
+   \   <__C458> volatile __io _A_PIND
+   \                     _A_PIND:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x27
+   \   <__C464> volatile __io _A_DDRC
+   \                     _A_DDRC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x24
+   \   <__C473> volatile __io _A_DDRB
+   \                     _A_DDRB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x23
+   \   <__C476> volatile __io _A_PINB
+   \                     _A_PINB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x21
+   \   <__C482> volatile __io _A_DDRA
+   \                     _A_DDRA:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char mode
+   \                     mode:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile count_bod
+   \                     count_bod:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile t_led_on
+   \                     t_led_on:
+   \   00000000                      DS8 1
+      8          #include <math.h>
+      9          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+     10          /*                                                                                                          */
+     11          /*                                        Главная функция программы                                         */
+     12          /*                                                                                                          */
+     13          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     14          int main( void )
+   \                     main:
+     15          {
+   \   00000000   938A               ST      -Y, R24
+     16            // задание интервала сброса WDT: 
+     17            __watchdog_reset();                          // WDTCSR = WDIF WDIE WDP3 WDCE WDE WDP2 WDP1 WDP0 (XXXX XXXX)
+   \   00000002   95A8               WDR
+     18            WDTCSR |= (1<<WDCE) | (1<<WDE);              // разрешение настройки/системного сброса WDT      (XXX1 1XXX)
+   \   00000004   9100....           LDS     R16, _A_WDTCSR
+   \   00000008   6108               ORI     R16, 0x18
+   \   0000000A   9300....           STS     _A_WDTCSR, R16
+     19            WDTCSR  = (1<<WDE)  | (1<<WDP3);             // установка тайм-аута = 512K циклов (~ 4.0 с)     (0010 1000)  
+   \   0000000E   E208               LDI     R16, 40
+   \   00000010   9300....           STS     _A_WDTCSR, R16
+     20            
+     21            DDRA = (1<<IN1_01)|(1<<IN1_02)|(1<<IN1_03)|(1<<IN1_04)|(1<<IN1_05)|(1<<IN1_06)|(1<<IN1_07)|(1<<IN1_08); // выходы
+   \   00000014   EF0F               LDI     R16, 255
+   \   00000016   B901               OUT     0x01, R16
+     22            
+     23            DDRB = (1<<IN_SS0)|(1<<IN_SCK)|(1<<IN_MOSI)|(1<<IN_SS1)|(1<<IN_SS2)|(1<<IN_LE); // выходы
+   \   00000018   E707               LDI     R16, 119
+   \   0000001A   B904               OUT     0x04, R16
+     24            
+     25            DDRC = (1<<IN1_09)|(1<<IN1_10)|(1<<IN1_11)|(1<<IN1_12)|(1<<IN1_13)|(1<<IN1_14)|(1<<IN1_15)|(1<<IN1_16); // выходы
+   \   0000001C   EF0F               LDI     R16, 255
+   \   0000001E   B907               OUT     0x07, R16
+     26          
+     27            DDRD = (1<<IN2_01)|(1<<IN2_02)|(1<<IN2_03)|(1<<IN2_04)|(1<<IN2_05)|(1<<IN2_06)|(1<<IN2_07)|(1<<IN2_08); // выходы
+   \   00000020   EF0F               LDI     R16, 255
+   \   00000022   B90A               OUT     0x0A, R16
+     28          
+     29            PORTE = (1<<RX)|(1<<TX); // подтяжка на питание или 1 на выходе
+   \   00000024   E003               LDI     R16, 3
+   \   00000026   B90E               OUT     0x0E, R16
+     30            DDRE = (1<<TX)|(1<<ADLIN1_D0)|(1<<ADLIN1_D1)|(1<<ADLIN1_D2)|(1<<ADLIN1_D3)|(1<<ADLIN1_D4)|(1<<ADLIN1_D5); // выходы
+   \   00000028   EF0E               LDI     R16, 254
+   \   0000002A   B90D               OUT     0x0D, R16
+     31          
+     32            DDRF = (1<<ADLIN1_D6)|(1<<ADLIN2_D0)|(1<<ADLIN2_D1)|(1<<ADLIN2_D2)|(1<<ADLIN2_D3)|(1<<ADLIN2_D4)|(1<<ADLIN2_D5)|(1<<ADLIN2_D6); // выходы
+   \   0000002C   EF0F               LDI     R16, 255
+   \   0000002E   BB00               OUT     0x10, R16
+     33            
+     34            PORTG = (1<<LED); // 1 на выходе
+   \   00000030   E200               LDI     R16, 32
+   \   00000032   BB04               OUT     0x14, R16
+     35            DDRG = (1<<IN4_09)|(1<<IN4_10)|(1<<IN4_11)|(1<<IN4_12)|(1<<IN4_13)|(1<<LED); // выходы
+   \   00000034   E30F               LDI     R16, 63
+   \   00000036   BB03               OUT     0x13, R16
+     36            
+     37            DDRH = (1<<IN2_09)|(1<<IN2_10)|(1<<IN2_11)|(1<<IN2_12)|(1<<IN2_13)|(1<<IN2_14)|(1<<IN2_15)|(1<<IN2_16); // выходы
+   \   00000038   EF0F               LDI     R16, 255
+   \   0000003A   9300....           STS     _A_DDRH, R16
+     38            
+     39            DDRJ = (1<<IN3_01)|(1<<IN3_02)|(1<<IN3_03)|(1<<IN3_04)|(1<<IN3_05)|(1<<IN3_06)|(1<<IN3_07)|(1<<IN3_08); // выходы
+   \   0000003E   E70F               LDI     R16, 127
+   \   00000040   9300....           STS     _A_DDRJ, R16
+     40          
+     41            DDRK = (1<<IN3_09)|(1<<IN3_10)|(1<<IN3_11)|(1<<IN3_12)|(1<<IN3_13)|(1<<IN3_14); // выходы
+   \   00000044   E70E               LDI     R16, 126
+   \   00000046   9300....           STS     _A_DDRK, R16
+     42          
+     43            DDRL = (1<<IN4_01)|(1<<IN4_02)|(1<<IN4_03)|(1<<IN4_04)|(1<<IN4_05)|(1<<IN4_06)|(1<<IN4_07)|(1<<IN4_08); // выходы
+   \   0000004A   EF0F               LDI     R16, 255
+   \   0000004C   9300....           STS     _A_DDRL, R16
+     44          
+     45            if (PINB & (1<<DEBUG)) mode = 1; else mode = 0; // выбор режима работы устройства
+   \   00000050   9B1F               SBIS    0x03, 0x07
+   \   00000052   C004               RJMP    ??main_0
+   \   00000054   E001               LDI     R16, 1
+   \   00000056   9300....           STS     mode, R16
+   \   0000005A   C003               RJMP    ??main_1
+   \                     ??main_0:
+   \   0000005C   E000               LDI     R16, 0
+   \   0000005E   9300....           STS     mode, R16
+     46            
+     47            count_bod = 1;                                  // минимум 1 прерывание
+   \                     ??main_1:
+   \   00000062   E001               LDI     R16, 1
+   \   00000064   9300....           STS     count_bod, R16
+     48            t_led_on  = 0;                                  // время индикации
+   \   00000068   E000               LDI     R16, 0
+   \   0000006A   9300....           STS     t_led_on, R16
+     49            
+     50            __watchdog_reset();                             // 1-й "простой" cброс сторожевого таймера
+   \   0000006E   95A8               WDR
+     51            __enable_interrupt();                           // прерывания разрешаем
+   \   00000070   9478               SEI
+     52            
+     53          //////////////////////////////////////////Режим отладки/////////////////////////////////////////////////////// 
+     54            if(!mode)
+   \   00000072   9100....           LDS     R16, mode
+   \   00000076   2300               TST     R16
+   \   00000078   F009               BREQ    $+2+2
+   \   0000007A   C05C               RJMP    ??main_2
+     55            {
+     56              // инициализация USART (2400):
+     57              UCSR0A = 0x00;                             // запрет настроек USART на время установки скорости передачи
+   \   0000007C   E000               LDI     R16, 0
+   \   0000007E   9300....           STS     _A_UCSR0A, R16
+     58              UCSR0B = 0x00;                             
+   \   00000082   E000               LDI     R16, 0
+   \   00000084   9300....           STS     _A_UCSR0B, R16
+     59              UCSR0C = 0x06;                             // размер слова данных 8 бит
+   \   00000088   E006               LDI     R16, 6
+   \   0000008A   9300....           STS     _A_UCSR0C, R16
+     60              UBRR0L = UBBR_2K4L;                        // задание скорости 2400
+   \   0000008E   E90F               LDI     R16, 159
+   \   00000090   9300....           STS     _A_UBRR0, R16
+     61              UBRR0H = UBBR_2K4L;   
+   \   00000094   E90F               LDI     R16, 159
+   \   00000096   930000C5           STS     197, R16
+     62              UCSR0B = 0x0C;                             // разрешение передачи (TXENn = 1); 9-Bit
+   \   0000009A   E00C               LDI     R16, 12
+   \   0000009C   9300....           STS     _A_UCSR0B, R16
+     63          
+     64              // инициализация Т/С0:
+     65              TCCR0B = 0x00;                             // останов Т/С0
+   \   000000A0   E000               LDI     R16, 0
+   \   000000A2   BD05               OUT     0x25, R16
+     66              TCNT0  = RELOAD_TIM0;                      // нач. знач-е
+   \   000000A4   E908               LDI     R16, 152
+   \   000000A6   BD06               OUT     0x26, R16
+     67              TCCR0A = 0x00;
+   \   000000A8   E000               LDI     R16, 0
+   \   000000AA   BD04               OUT     0x24, R16
+     68              TCCR0B = START_TIM0;                       // таймер запускаем
+   \   000000AC   E004               LDI     R16, 4
+   \   000000AE   BD05               OUT     0x25, R16
+     69              TIMSK0 = 0x01;                             // Т/С0 <- источник прерываний
+   \   000000B0   E001               LDI     R16, 1
+   \   000000B2   9300....           STS     _A_TIMSK0, R16
+     70              
+     71              SPI_MasterInit();                          // инициализация SPI в режиме Master
+   \   000000B6   ....               RCALL   SPI_MasterInit
+     72             
+     73              // вывод строки из ПЗУ, uart_putc(0x0a); - перевод на след. строку  
+     74              uart_puts_p(Title);                                 uart_putc(0x0d); uart_putc(0x0a);                        
+   \   000000B8   ....               LDI     R16, LOW(Title)
+   \   000000BA   ....               LDI     R17, (Title) >> 8
+   \   000000BC   ........           CALL    uart_puts_p
+   \   000000C0   E00D               LDI     R16, 13
+   \   000000C2   ........           CALL    uart_putc
+   \   000000C6   E00A               LDI     R16, 10
+   \   000000C8   ........           CALL    uart_putc
+     75              uart_puts("------------------------------------");  uart_putc(0x0d); uart_putc(0x0a);
+   \   000000CC   ....               LDI     R16, LOW(`?<Constant "---------------------...">`)
+   \   000000CE   ....               LDI     R17, (`?<Constant "---------------------...">`) >> 8
+   \   000000D0   ........           CALL    uart_puts
+   \   000000D4   E00D               LDI     R16, 13
+   \   000000D6   ........           CALL    uart_putc
+   \   000000DA   E00A               LDI     R16, 10
+   \   000000DC   ........           CALL    uart_putc
+     76          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     77                    
+     78                                             //Организация работы линии обмена                   
+     79                    
+     80          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     81          /*
+     82              Организация работы линии обмена.
+     83              В системе может быть несколько ведомых устройств. Поэтому чтобы не было коллизий, когда устройства 
+     84              одновременно посылают информацию в линию обмена, организована работа по принципу запрос - ответ.
+     85              Команда запроса в общей сложности занимает одно 11-битное слово. Первый бит слова - старт-бит, всегда является
+     86              нулем. Старт-бит может быть только один. Затем идут 9 информационных бит (9-битовая передача информации), 
+     87              начиная с младшего. Если старший бит является единицей, то передается команда (запрос), если же нуль - данные
+     88              (ответ). Скорость обмена по линии составляет 2400 бит/с. Она сложилась исторически и связана с процессом работы
+     89              информационной техники предыдущих поколений. Затем идет один стоп-бит. Вообще их может быть 1 или 2. Если 
+     90              стоп-битов 2, то будет более точная проверка передачи слова, но более медленная скорость обработки. 
+     91              Перед командой запроса всегда есть синхропауза (логическая 1), которая свидетельствует о том, что по линии 
+     92              передается команда, а не данные. Это нужно для безошибочной работы по линии, т.к. система асинхронная и ведомое
+     93              устройство может включиться не одновременно с ведущим устройством. Даже если устройство включится уже после 
+     94              начала передачи ведущим команды, оно примет команду только после "полной" синхропаузы, которую будет ожидать в
+     95              течение определённого протоколом обмена времени. Синхропауза всегда немного длиннее, чем 11-битное слово.
+     96              Применение асинхронной системы позволяет использовать простой канал связи, который гораздо дешевле, чем при 
+     97              синхронной системе. 
+     98          */    
+     99              for (;;)
+    100              {  
+    101                UCSR0B &= ~(1<<RXEN0);                   // отключение приемника USART
+   \                     ??main_3:
+   \   000000E0   910000C1           LDS     R16, 193
+   \   000000E4   7E0F               ANDI    R16, 0xEF
+   \   000000E6   930000C1           STS     193, R16
+    102                count_bod = CBOD;                        // счетчик БОД
+   \   000000EA   E004               LDI     R16, 4
+   \   000000EC   9300....           STS     count_bod, R16
+    103          
+    104                do
+    105                {
+    106                  if (!(PIND & (1<<RX))) count_bod = CBOD;
+   \                     ??main_4:
+   \   000000F0   9948               SBIC    0x09, 0x00
+   \   000000F2   C003               RJMP    ??main_5
+   \   000000F4   E004               LDI     R16, 4
+   \   000000F6   9300....           STS     count_bod, R16
+    107                } while (count_bod);                     // ожидание СИНХРО-ПАУЗЫ (всегда только перед командой)
+   \                     ??main_5:
+   \   000000FA   9100....           LDS     R16, count_bod
+   \   000000FE   2300               TST     R16
+   \   00000100   F7B9               BRNE    ??main_4
+    108          /*
+    109                Выполнять присваивание count_bod = CBOD = 4, если RX = 0, пока count_bod - истина. Если же в течение четырёх
+    110                периодов переполнения таймера0 с частотой 600 Гц, т.е. 6.7 мс, будет выполнено условие RX = 1, тогда
+    111                программа уменьшит значение count_bod до нуля, условие while (count_bod) станет ложным и произойдёт 
+    112                выход из цикла do/while. Только теперь устройство включится на приём. Таким образом, значение синхропаузы 
+    113                составляет 6.7 мс.
+    114          */        
+    115                UCSR0B |= (1<<RXEN0);                    // включение приемника USART
+   \   00000102   910000C1           LDS     R16, 193
+   \   00000106   6100               ORI     R16, 0x10
+   \   00000108   930000C1           STS     193, R16
+    116          
+    117                while (!(UCSR0A & (1<<RXC0)));           // ждем завершение приема байта 
+   \                     ??main_6:
+   \   0000010C   9100....           LDS     R16, _A_UCSR0A
+   \   00000110   2F10               MOV     R17, R16
+   \   00000112   FF17               SBRS    R17, 7
+   \   00000114   CFFB               RJMP    ??main_6
+    118          
+    119                if (UCSR0B & (1<<RXB80))                 // если 9-й бит =1, то принята команда
+   \   00000116   9100....           LDS     R16, _A_UCSR0B
+   \   0000011A   2F10               MOV     R17, R16
+   \   0000011C   FF11               SBRS    R17, 1
+   \   0000011E   CFE0               RJMP    ??main_3
+    120                {
+    121                  unsigned char var;
+    122                  var  = UDR0;                           // UDRn - USART I/O Data Register n
+   \   00000120   9100....           LDS     R16, _A_UDR0
+   \   00000124   2F80               MOV     R24, R16
+    123                  var &= 0x0f;                           // адрес датчика д/б не более 15
+   \   00000126   708F               ANDI    R24, 0x0F
+    124                  if (var == ADF4350)                    // обратились к этому устройству?
+   \   00000128   3085               CPI     R24, 5
+   \   0000012A   F6D1               BRNE    ??main_3
+    125                  { 
+    126                    uart_putc(ADF4350);                  // ответ ведущему о готовности принять данные
+   \   0000012C   E005               LDI     R16, 5
+   \   0000012E   ........           CALL    uart_putc
+   \   00000132   CFD6               RJMP    ??main_3
+    127                  }    
+    128             }
+    129            }
+    130           }
+    131            return 0;
+   \                     ??main_2:
+   \   00000134   E000               LDI     R16, 0
+   \   00000136   E010               LDI     R17, 0
+   \   00000138   9189               LD      R24, Y+
+   \   0000013A   9508               RET
+   \   0000013C                      REQUIRE _A_DDRL
+   \   0000013C                      REQUIRE _A_DDRK
+   \   0000013C                      REQUIRE _A_DDRJ
+   \   0000013C                      REQUIRE _A_DDRH
+   \   0000013C                      REQUIRE _A_UDR0
+   \   0000013C                      REQUIRE _A_UBRR0
+   \   0000013C                      REQUIRE _A_UCSR0C
+   \   0000013C                      REQUIRE _A_UCSR0B
+   \   0000013C                      REQUIRE _A_UCSR0A
+   \   0000013C                      REQUIRE _A_TIMSK0
+   \   0000013C                      REQUIRE _A_WDTCSR
+   \   0000013C                      REQUIRE _A_TCNT0
+   \   0000013C                      REQUIRE _A_TCCR0B
+   \   0000013C                      REQUIRE _A_TCCR0A
+   \   0000013C                      REQUIRE _A_PORTG
+   \   0000013C                      REQUIRE _A_DDRG
+   \   0000013C                      REQUIRE _A_DDRF
+   \   0000013C                      REQUIRE _A_PORTE
+   \   0000013C                      REQUIRE _A_DDRE
+   \   0000013C                      REQUIRE _A_DDRD
+   \   0000013C                      REQUIRE _A_PIND
+   \   0000013C                      REQUIRE _A_DDRC
+   \   0000013C                      REQUIRE _A_DDRB
+   \   0000013C                      REQUIRE _A_PINB
+   \   0000013C                      REQUIRE _A_DDRA
+    132          }
+    133          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    134          /*                                                                                                          */
+    135          /*                                               Подпрограммы                                               */
+    136          /*                                                                                                          */
+    137          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    138          #pragma vector=TIMER0_OVF_vect         // директива определяет вектор функции прерывания, описание которой следует за ней                 
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    139          __interrupt void timer0_ovf_isr(void)  // функция прерывания по переполнению таймера0 
+   \                     timer0_ovf_isr:
+    140          {
+   \   00000000   932A               ST      -Y, R18
+   \   00000002   931A               ST      -Y, R17
+   \   00000004   930A               ST      -Y, R16
+   \   00000006   B71F               IN      R17, 0x3F
+   \   00000008   B72B               IN      R18, 0x3B
+    141            //TIMER0 has overflowed
+    142            TCNT0  = RELOAD_TIM0;                // reload counter value
+   \   0000000A   E908               LDI     R16, 152
+   \   0000000C   BD06               OUT     0x26, R16
+    143          
+    144            if (count_bod)  count_bod--;
+   \   0000000E   9100....           LDS     R16, count_bod
+   \   00000012   2300               TST     R16
+   \   00000014   F029               BREQ    ??timer0_ovf_isr_0
+   \   00000016   9100....           LDS     R16, count_bod
+   \   0000001A   950A               DEC     R16
+   \   0000001C   9300....           STS     count_bod, R16
+    145          
+    146            if(t_led_on)  t_led_on--;            // время подсвечивания --
+   \                     ??timer0_ovf_isr_0:
+   \   00000020   9100....           LDS     R16, t_led_on
+   \   00000024   2300               TST     R16
+   \   00000026   F031               BREQ    ??timer0_ovf_isr_1
+   \   00000028   9100....           LDS     R16, t_led_on
+   \   0000002C   950A               DEC     R16
+   \   0000002E   9300....           STS     t_led_on, R16
+   \   00000032   C001               RJMP    ??timer0_ovf_isr_2
+    147            else          LED_OFF;               // LED-OFF
+   \                     ??timer0_ovf_isr_1:
+   \   00000034   9AA5               SBI     0x14, 0x05
+    148          /*
+    149            Частота переполнения таймера0 SYSTEM_TICK выбрана 600 Гц. Поэтому период переполнения таймера0 Tovf 
+    150            составляет 1.7 мс, а константа перезагрузки 'TIM0' составляет RELOAD_TIM0 = 152(0x98). Подпрограмма 
+    151            обработки прерывания по переполнению таймера0 вызывается каждые 1.7 мс, заново загружает константу 
+    152            перезагрузки 'TIM0' и каждый раз уменьшает значение count_bod и t_led_on на единицу, пока значение 
+    153            count_bod > 0 и t_led_on > 0. 
+    154            Время горения светодиода будет T_LED_ON*Tovf = 120*1.7мс = 0.2c.
+    155          */
+    156          }
+   \                     ??timer0_ovf_isr_2:
+   \   00000036   BF2B               OUT     0x3B, R18
+   \   00000038   BF1F               OUT     0x3F, R17
+   \   0000003A   9109               LD      R16, Y+
+   \   0000003C   9119               LD      R17, Y+
+   \   0000003E   9129               LD      R18, Y+
+   \   00000040   9518               RETI
+   \   00000042                      REQUIRE _A_TCNT0
+   \   00000042                      REQUIRE _A_PORTG
+    157          
+    158          // Подпрограмма инициализации SPI в режиме Master
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    159          void SPI_MasterInit(void)
+   \                     SPI_MasterInit:
+    160          {
+    161          /* 
+    162            - Разрешение SPI в режиме мастера,
+    163            - CPOL = 0 - генерируются тактовые импульсы положительной полярности,
+    164            - CPHA = 0 - обработка данных производится по переднему фронту импульсов сигнала SCK,
+    165            - установка скорости обмена fck/128 
+    166          */
+    167            SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0);
+   \   00000000   E503               LDI     R16, 83
+   \   00000002   BD0C               OUT     0x2C, R16
+    168          }
+   \   00000004   9508               RET
+   \   00000006                      REQUIRE _A_SPCR
+    169          
+    170          // Подпрограмма записи/чтения через SPI
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    171          unsigned char SPI_WriteRead(unsigned char dataout)
+   \                     SPI_WriteRead:
+    172          {
+   \   00000000   2F10               MOV     R17, R16
+    173            // Запись байта в регист данных ведущего (инициализация передачи)
+    174            SPDR = dataout;
+   \   00000002   BD1E               OUT     0x2E, R17
+    175            // Ожидание завершения передачи (пока бит SPIF не установлен)
+    176            while(!(SPSR & (1<<SPIF)));
+   \                     ??SPI_WriteRead_0:
+   \   00000004   B50D               IN      R16, 0x2D
+   \   00000006   2F20               MOV     R18, R16
+   \   00000008   FF27               SBRS    R18, 7
+   \   0000000A   CFFC               RJMP    ??SPI_WriteRead_0
+    177            // Чтение принятых данных и выход из процедуры
+    178            return SPDR;
+   \   0000000C   B50E               IN      R16, 0x2E
+   \   0000000E   9508               RET
+   \   00000010                      REQUIRE _A_SPDR
+   \   00000010                      REQUIRE _A_SPSR
+    179          }
+
+   \                                 In  segment INTVEC, offset 0x5c, root
+   \                     `??timer0_ovf_isr??INTVEC 92`:
+   \   0000005C   ........           JMP     timer0_ovf_isr
+
+   \                                 In  segment NEAR_ID, align 1, keep-with-next
+   \                     `?<Initializer for <Constant "-----------------`:
+   \   00000000   2D2D2D2D2D2D       DC8 "------------------------------------"
+   \              2D2D2D2D2D2D
+   \              2D2D2D2D2D2D
+   \              2D2D2D2D2D2D
+   \              2D2D2D2D2D2D
+   \              2D2D2D2D2D2D
+   \              00          
+
+   \                                 In  segment NEAR_I, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_I>`
+   \                     `?<Constant "---------------------...">`:
+   \   00000000                      DS8 37
+   \   00000025                      REQUIRE `?<Initializer for <Constant "-----------------`
+
+   Maximum stack usage in bytes:
+
+     Function            CSTACK RSTACK
+     --------            ------ ------
+     SPI_MasterInit          0      2
+     SPI_WriteRead           0      2
+     main                    1      2
+       -> SPI_MasterInit     1      2
+       -> uart_puts_p        1      2
+       -> uart_putc          1      2
+       -> uart_putc          1      2
+       -> uart_puts          1      2
+       -> uart_putc          1      2
+       -> uart_putc          1      2
+       -> uart_putc          1      2
+     timer0_ovf_isr          3      2
+
+
+   Segment part sizes:
+
+     Function/Label                                 Bytes
+     --------------                                 -----
+     Title                                            51
+     _A_DDRL                                           1
+     _A_DDRK                                           1
+     _A_DDRJ                                           1
+     _A_DDRH                                           1
+     _A_UDR0                                           1
+     _A_UBRR0                                          2
+     _A_UCSR0C                                         1
+     _A_UCSR0B                                         1
+     _A_UCSR0A                                         1
+     _A_TIMSK0                                         1
+     _A_WDTCSR                                         1
+     _A_SPDR                                           1
+     _A_SPSR                                           1
+     _A_SPCR                                           1
+     _A_TCNT0                                          1
+     _A_TCCR0B                                         1
+     _A_TCCR0A                                         1
+     _A_PORTG                                          1
+     _A_DDRG                                           1
+     _A_DDRF                                           1
+     _A_PORTE                                          1
+     _A_DDRE                                           1
+     _A_DDRD                                           1
+     _A_PIND                                           1
+     _A_DDRC                                           1
+     _A_DDRB                                           1
+     _A_PINB                                           1
+     _A_DDRA                                           1
+     mode                                              1
+     count_bod                                         1
+     t_led_on                                          1
+     main                                            316
+     timer0_ovf_isr                                   66
+     SPI_MasterInit                                    6
+     SPI_WriteRead                                    16
+     ??timer0_ovf_isr??INTVEC 92                       4
+     ?<Initializer for <Constant "-----------------   37
+     ?<Constant "---------------------...">           37
+      Others                                          14
+
+ 
+  29 bytes in segment ABSOLUTE
+ 404 bytes in segment CODE
+  14 bytes in segment INITTAB
+   4 bytes in segment INTVEC
+  51 bytes in segment NEAR_F
+  37 bytes in segment NEAR_I
+  37 bytes in segment NEAR_ID
+   3 bytes in segment NEAR_Z
+ 
+ 492 bytes of CODE memory (+ 18 bytes shared)
+  40 bytes of DATA memory (+ 29 bytes shared)
+
+Errors: none
+Warnings: none

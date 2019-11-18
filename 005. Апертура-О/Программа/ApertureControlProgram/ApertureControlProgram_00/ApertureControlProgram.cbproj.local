@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.531,E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\SelfControl.h=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.531,E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\SelfControl.cpp=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.453,=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.234,=C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.937,C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Unit1.cpp=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\ApertureControlProgram_main.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.718,=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.984,C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Project1.cbproj=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\ApertureControlProgram.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.937,C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Unit1.h=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\ApertureControlProgram_main.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.734,=d:\Work\006. Апертура-О\Программа\ApertureControlProgram_00\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.218,=C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.937,C:\Documents and Settings\larisa\Мои документы\RAD Studio\Projects\Unit1.dfm=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\ApertureControlProgram_main.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.531,E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\SelfControl.dfm=E:\2013.03.11-XXX.XX.XX\006. Апертура-О\Программа\ApertureControlProgram_00\Unit2.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

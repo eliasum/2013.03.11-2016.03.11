@@ -1,0 +1,822 @@
+object F_SelfControl: TF_SelfControl
+  Left = 0
+  Top = 0
+  Caption = #1044#1072#1085#1085#1099#1077' '#1074' '#1088#1077#1078#1080#1084#1077' '#1057#1072#1084#1086#1082#1086#1085#1090#1088#1086#1083#1100
+  ClientHeight = 608
+  ClientWidth = 1072
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel3: TPanel
+    Left = 72
+    Top = 128
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'P '#1089#1080#1075#1085#1072#1083#1072' 5,6 '#1043#1043#1094':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Panel4: TPanel
+    Left = 72
+    Top = 168
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'P '#1089#1080#1075#1085#1072#1083#1072' 6,2 '#1043#1043#1094':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+  end
+  object Panel5: TPanel
+    Left = 72
+    Top = 208
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'P '#1089#1080#1075#1085#1072#1083#1072' 7,2 '#1043#1043#1094':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+  end
+  object Panel10: TPanel
+    Left = 72
+    Top = 248
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'P '#1089#1080#1075#1085#1072#1083#1072' 7,7 '#1043#1043#1094':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+  end
+  object Panel12: TPanel
+    Left = 192
+    Top = 128
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Panel11: TPanel
+    Left = 312
+    Top = 128
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+  end
+  object Panel13: TPanel
+    Left = 192
+    Top = 168
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+  end
+  object Panel14: TPanel
+    Left = 312
+    Top = 168
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+  end
+  object Panel15: TPanel
+    Left = 192
+    Top = 208
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+  end
+  object Panel16: TPanel
+    Left = 312
+    Top = 208
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+  end
+  object Panel17: TPanel
+    Left = 192
+    Top = 248
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 10
+  end
+  object Panel18: TPanel
+    Left = 312
+    Top = 248
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+  end
+  object Panel19: TPanel
+    Left = 432
+    Top = 128
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 12
+  end
+  object Panel20: TPanel
+    Left = 552
+    Top = 128
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 13
+  end
+  object Panel21: TPanel
+    Left = 432
+    Top = 168
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 14
+  end
+  object Panel22: TPanel
+    Left = 552
+    Top = 168
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 15
+  end
+  object Panel23: TPanel
+    Left = 432
+    Top = 208
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 16
+  end
+  object Panel24: TPanel
+    Left = 552
+    Top = 208
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 17
+  end
+  object Panel25: TPanel
+    Left = 432
+    Top = 248
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 18
+  end
+  object Panel26: TPanel
+    Left = 552
+    Top = 248
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 19
+  end
+  object Panel27: TPanel
+    Left = 192
+    Top = 88
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1055#1056#1052
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 20
+    object Panel2: TPanel
+      Left = 0
+      Top = 0
+      Width = 121
+      Height = 41
+      BevelOuter = bvSpace
+      Caption = #1055#1056#1052
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object Panel28: TPanel
+    Left = 312
+    Top = 88
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1055#1056#1044
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 21
+  end
+  object Panel29: TPanel
+    Left = 432
+    Top = 88
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1055#1056#1052
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 22
+  end
+  object Panel30: TPanel
+    Left = 552
+    Top = 88
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1055#1056#1044
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 23
+  end
+  object Panel9: TPanel
+    Left = 192
+    Top = 48
+    Width = 241
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1054#1089#1085#1086#1074#1085#1086#1081' '#1073#1083#1086#1082':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 24
+  end
+  object Panel8: TPanel
+    Left = 432
+    Top = 48
+    Width = 241
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1042#1089#1087#1086#1084#1086#1075#1072#1090#1077#1083#1100#1085#1099#1081' '#1073#1083#1086#1082':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 25
+  end
+  object Panel31: TPanel
+    Left = 192
+    Top = 8
+    Width = 481
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1057#1080#1085#1090#1077#1079#1072#1090#1086#1088':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 26
+  end
+  object Panel1: TPanel
+    Left = 672
+    Top = 8
+    Width = 1
+    Height = 281
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 27
+  end
+  object Panel6: TPanel
+    Left = 8
+    Top = 8
+    Width = 1
+    Height = 281
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 28
+  end
+  object Panel32: TPanel
+    Left = 8
+    Top = 8
+    Width = 665
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 29
+  end
+  object Panel33: TPanel
+    Left = 192
+    Top = 8
+    Width = 1
+    Height = 281
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 30
+  end
+  object Panel34: TPanel
+    Left = 8
+    Top = 128
+    Width = 665
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 31
+  end
+  object Panel35: TPanel
+    Left = 8
+    Top = 168
+    Width = 665
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 32
+  end
+  object Panel36: TPanel
+    Left = 8
+    Top = 208
+    Width = 665
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 33
+  end
+  object Panel37: TPanel
+    Left = 8
+    Top = 248
+    Width = 665
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 34
+  end
+  object Panel38: TPanel
+    Left = 192
+    Top = 88
+    Width = 481
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 35
+  end
+  object Panel39: TPanel
+    Left = 192
+    Top = 48
+    Width = 481
+    Height = 1
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 36
+  end
+  object Panel40: TPanel
+    Left = 432
+    Top = 48
+    Width = 1
+    Height = 241
+    BevelOuter = bvSpace
+    Caption = #1055#1056#1044
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 37
+  end
+  object Panel41: TPanel
+    Left = 552
+    Top = 88
+    Width = 1
+    Height = 201
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 38
+  end
+  object Panel42: TPanel
+    Left = 312
+    Top = 88
+    Width = 1
+    Height = 201
+    BevelOuter = bvSpace
+    Caption = '0 '#1076#1041#1084
+    Color = clBackground
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 39
+  end
+  object Panel43: TPanel
+    Left = 72
+    Top = 288
+    Width = 241
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = #1042#1048#1055':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 40
+  end
+  object Panel7: TPanel
+    Left = 72
+    Top = 328
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'U +12 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 41
+  end
+  object Panel44: TPanel
+    Left = 192
+    Top = 328
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 42
+  end
+  object Panel45: TPanel
+    Left = 72
+    Top = 368
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'U +5 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 43
+  end
+  object Panel46: TPanel
+    Left = 192
+    Top = 368
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 44
+  end
+  object Panel47: TPanel
+    Left = 72
+    Top = 408
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'U +27 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 45
+  end
+  object Panel48: TPanel
+    Left = 192
+    Top = 408
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1042
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 46
+  end
+  object Panel49: TPanel
+    Left = 72
+    Top = 448
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'I '#1074#1099#1085#1086#1089#1085'. '#1055#1056#1052
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 47
+  end
+  object Panel50: TPanel
+    Left = 192
+    Top = 448
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1040
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 48
+  end
+  object Panel51: TPanel
+    Left = 72
+    Top = 488
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = 'I '#1074#1099#1085#1086#1089#1085'. '#1055#1056#1044
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 49
+  end
+  object Panel52: TPanel
+    Left = 192
+    Top = 488
+    Width = 121
+    Height = 41
+    BevelOuter = bvSpace
+    Caption = '0 '#1040
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 50
+  end
+end

@@ -1,0 +1,1589 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.50.0.50277/W32 for Atmel AVR    18/Jul/2014  14:02:38 #
+# Copyright (C) 1996-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Source file  =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_01\mai #
+#                    n.c                                                      #
+#    Command line =  "d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_01\ma #
+#                    in.c" --cpu=m1280 -ms -o "d:\_IAR projects\002.          #
+#                    Aperture_IAR_ver.1\Aperture_01\Project\Aperture_Release\ #
+#                    Obj\" -D NDEBUG -lCN "d:\_IAR projects\002.              #
+#                    Aperture_IAR_ver.1\Aperture_01\Project\Aperture_Release\ #
+#                    List\" -y --initializers_in_flash -s2 --no_cse           #
+#                    --no_inline --no_code_motion --no_cross_call             #
+#                    --no_clustering --no_tbaa -DENABLE_BIT_DEFINITIONS -e    #
+#                    -I "F:\Program Files\IAR Systems\Embedded Workbench      #
+#                    5.4\avr\INC\" -I "F:\Program Files\IAR Systems\Embedded  #
+#                    Workbench 5.4\avr\INC\CLIB\" --eeprom_size 4096          #
+#    List file    =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_01\Pro #
+#                    ject\Aperture_Release\List\main.lst                      #
+#    Object file  =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_01\Pro #
+#                    ject\Aperture_Release\Obj\main.r90                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_01\main.c
+      1          /************************************************************************************************************/
+      2          /*                                                                                                          */
+      3          /*                          Управляющая программа для ATmega1280 в проекте "Апертура"                       */
+      4          /*                                       Версия 1.1 (2014.07.16_11-22)                                      */
+      5          /*                                                                                                          */
+      6          /************************************************************************************************************/
+      7          #include "main.h"
+
+   \                                 In  segment NEAR_F, align 1, keep-with-next
+   \   unsigned char const __flash Title[51]
+   \                     Title:
+   \   00000000   444134463533       DC8 41H, 44H, 46H, 34H, 33H, 35H, 30H, 20H
+   \              2030        
+   \   00000008   202D69576564       DC8 2DH, 20H, 57H, 69H, 64H, 65H, 62H, 61H
+   \              6162        
+   \   00000010   646E53206E79       DC8 6EH, 64H, 20H, 53H, 79H, 6EH, 74H, 68H
+   \              6874        
+   \   00000018   73657A697265       DC8 65H, 73H, 69H, 7AH, 65H, 72H, 20H, 77H
+   \              7720        
+   \   00000020   746920686E49       DC8 69H, 74H, 68H, 20H, 49H, 6EH, 74H, 65H
+   \              6574        
+   \   00000028   726774616465       DC8 67H, 72H, 61H, 74H, 65H, 64H, 20H, 56H
+   \              5620        
+   \   00000030   4F4300             DC8 43H, 4FH, 0
+
+   \                                 In  segment ABSOLUTE, at 0x10a
+   \   <__C51> volatile __ext_io _A_DDRL
+   \                     _A_DDRL:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x107
+   \   <__C60> volatile __ext_io _A_DDRK
+   \                     _A_DDRK:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x104
+   \   <__C69> volatile __ext_io _A_DDRJ
+   \                     _A_DDRJ:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x101
+   \   <__C78> volatile __ext_io _A_DDRH
+   \                     _A_DDRH:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc6
+   \   <__C115> volatile __io _A_UDR0
+   \                     _A_UDR0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc4
+   \   <__C119> volatile __io _A_UBRR0
+   \                     _A_UBRR0:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0xc2
+   \   <__C123> volatile __io _A_UCSR0C
+   \                     _A_UCSR0C:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc1
+   \   <__C126> volatile __io _A_UCSR0B
+   \                     _A_UCSR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc0
+   \   <__C129> volatile __io _A_UCSR0A
+   \                     _A_UCSR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x6e
+   \   <__C293> volatile __io _A_TIMSK0
+   \                     _A_TIMSK0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x60
+   \   <__C325> volatile __io _A_WDTCSR
+   \                     _A_WDTCSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4e
+   \   <__C359> volatile __io _A_SPDR
+   \                     _A_SPDR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4d
+   \   <__C362> volatile __io _A_SPSR
+   \                     _A_SPSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4c
+   \   <__C365> volatile __io _A_SPCR
+   \                     _A_SPCR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x46
+   \   <__C375> volatile __io _A_TCNT0
+   \                     _A_TCNT0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x45
+   \   <__C378> volatile __io _A_TCCR0B
+   \                     _A_TCCR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x44
+   \   <__C381> volatile __io _A_TCCR0A
+   \                     _A_TCCR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x34
+   \   <__C425> volatile __io _A_PORTG
+   \                     _A_PORTG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x33
+   \   <__C428> volatile __io _A_DDRG
+   \                     _A_DDRG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x30
+   \   <__C437> volatile __io _A_DDRF
+   \                     _A_DDRF:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2e
+   \   <__C443> volatile __io _A_PORTE
+   \                     _A_PORTE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2d
+   \   <__C446> volatile __io _A_DDRE
+   \                     _A_DDRE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2c
+   \   <__C449> volatile __io _A_PINE
+   \                     _A_PINE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2a
+   \   <__C455> volatile __io _A_DDRD
+   \                     _A_DDRD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x27
+   \   <__C464> volatile __io _A_DDRC
+   \                     _A_DDRC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   <__C470> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x24
+   \   <__C473> volatile __io _A_DDRB
+   \                     _A_DDRB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x21
+   \   <__C482> volatile __io _A_DDRA
+   \                     _A_DDRA:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char count
+   \                     count:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile count_bod
+   \                     count_bod:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile t_led_on
+   \                     t_led_on:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char R[1604]
+   \                     R:
+   \   00000000                      DS8 1604
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Command6[4]
+   \                     Command6:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Command7[4]
+   \                     Command7:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com6[4]
+   \                     Com6:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com7[4]
+   \                     Com7:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com8[4]
+   \                     Com8:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com9[4]
+   \                     Com9:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com10[4]
+   \                     Com10:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com11[4]
+   \                     Com11:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com12[4]
+   \                     Com12:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com13[4]
+   \                     Com13:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com14[4]
+   \                     Com14:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com15[4]
+   \                     Com15:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com16[4]
+   \                     Com16:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com17[4]
+   \                     Com17:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com18[4]
+   \                     Com18:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com19[4]
+   \                     Com19:
+   \   00000000                      DS8 8
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   int Com20[4]
+   \                     Com20:
+   \   00000000                      DS8 8
+      8          #include <math.h>     
+      9          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+     10          /*                                                                                                          */
+     11          /*                                        Главная функция программы                                         */
+     12          /*                                                                                                          */
+     13          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     14          void main( void )
+   \                     main:
+     15          {
+   \   00000000   ........           CALL    ?PROLOGUE4_L09
+     16            // задание интервала сброса WDT: 
+     17            __watchdog_reset();                        // WDTCSR = WDIF WDIE WDP3 WDCE WDE WDP2 WDP1 WDP0 (XXXX XXXX)
+   \   00000004   95A8               WDR
+     18            WDTCSR |= (1<<WDCE) | (1<<WDE);            // разрешение настройки/системного сброса WDT      (XXX1 1XXX)
+   \   00000006   9100....           LDS     R16, _A_WDTCSR
+   \   0000000A   6108               ORI     R16, 0x18
+   \   0000000C   9300....           STS     _A_WDTCSR, R16
+     19            WDTCSR  = (1<<WDE)  | (1<<WDP3);           // установка тайм-аута = 512K циклов (~ 4.0 с)     (0010 1000)  
+   \   00000010   E208               LDI     R16, 40
+   \   00000012   9300....           STS     _A_WDTCSR, R16
+     20            
+     21            // инициализация портов:
+     22            DDRA = (1<<IN1_01)|(1<<IN1_02)|(1<<IN1_03)|(1<<IN1_04)|(1<<IN1_05)|(1<<IN1_06)|(1<<IN1_07)|(1<<IN1_08); // выходы
+   \   00000016   EF0F               LDI     R16, 255
+   \   00000018   B901               OUT     0x01, R16
+     23            
+     24            PORTB = (1<<IN_SS0)|(1<<IN_SS1)|(1<<IN_SS2); // 1 на выходе
+   \   0000001A   E301               LDI     R16, 49
+   \   0000001C   B905               OUT     0x05, R16
+     25            DDRB = (1<<IN_SS0)|(1<<IN_SCK)|(1<<IN_MOSI)|(1<<IN_SS1)|(1<<IN_SS2)|(1<<IN_LE); // выходы
+   \   0000001E   E707               LDI     R16, 119
+   \   00000020   B904               OUT     0x04, R16
+     26            
+     27            DDRC = (1<<IN1_09)|(1<<IN1_10)|(1<<IN1_11)|(1<<IN1_12)|(1<<IN1_13)|(1<<IN1_14)|(1<<IN1_15)|(1<<IN1_16); // выходы
+   \   00000022   EF0F               LDI     R16, 255
+   \   00000024   B907               OUT     0x07, R16
+     28          
+     29            DDRD = (1<<IN2_01)|(1<<IN2_02)|(1<<IN2_03)|(1<<IN2_04)|(1<<IN2_05)|(1<<IN2_06)|(1<<IN2_07)|(1<<IN2_08); // выходы
+   \   00000026   EF0F               LDI     R16, 255
+   \   00000028   B90A               OUT     0x0A, R16
+     30          
+     31            PORTE = (1<<RX)|(1<<TX); // подтяжка на питание или 1 на выходе
+   \   0000002A   E003               LDI     R16, 3
+   \   0000002C   B90E               OUT     0x0E, R16
+     32            DDRE = (1<<TX)|(1<<ADLIN1_D0)|(1<<ADLIN1_D1)|(1<<ADLIN1_D2)|(1<<ADLIN1_D3)|(1<<ADLIN1_D4)|(1<<ADLIN1_D5); // выходы
+   \   0000002E   EF0E               LDI     R16, 254
+   \   00000030   B90D               OUT     0x0D, R16
+     33          
+     34            DDRF = (1<<ADLIN1_D6)|(1<<ADLIN2_D0)|(1<<ADLIN2_D1)|(1<<ADLIN2_D2)|(1<<ADLIN2_D3)|(1<<ADLIN2_D4)|(1<<ADLIN2_D5)|(1<<ADLIN2_D6); // выходы
+   \   00000032   EF0F               LDI     R16, 255
+   \   00000034   BB00               OUT     0x10, R16
+     35            
+     36            PORTG = (1<<LED); // 1 на выходе
+   \   00000036   E200               LDI     R16, 32
+   \   00000038   BB04               OUT     0x14, R16
+     37            DDRG = (1<<IN4_09)|(1<<IN4_10)|(1<<IN4_11)|(1<<IN4_12)|(1<<IN4_13)|(1<<LED); // выходы
+   \   0000003A   E30F               LDI     R16, 63
+   \   0000003C   BB03               OUT     0x13, R16
+     38            
+     39            DDRH = (1<<IN2_09)|(1<<IN2_10)|(1<<IN2_11)|(1<<IN2_12)|(1<<IN2_13)|(1<<IN2_14)|(1<<IN2_15)|(1<<IN2_16); // выходы
+   \   0000003E   EF0F               LDI     R16, 255
+   \   00000040   9300....           STS     _A_DDRH, R16
+     40            
+     41            DDRJ = (1<<IN3_01)|(1<<IN3_02)|(1<<IN3_03)|(1<<IN3_04)|(1<<IN3_05)|(1<<IN3_06)|(1<<IN3_07)|(1<<IN3_08); // выходы
+   \   00000044   EF0F               LDI     R16, 255
+   \   00000046   9300....           STS     _A_DDRJ, R16
+     42          
+     43            DDRK = (1<<IN3_09)|(1<<IN3_10)|(1<<IN3_11)|(1<<IN3_12)|(1<<IN3_13)|(1<<IN3_14)|(1<<IN3_15)|(1<<IN3_16); // выходы
+   \   0000004A   EF0F               LDI     R16, 255
+   \   0000004C   9300....           STS     _A_DDRK, R16
+     44          
+     45            DDRL = (1<<IN4_01)|(1<<IN4_02)|(1<<IN4_03)|(1<<IN4_04)|(1<<IN4_05)|(1<<IN4_06)|(1<<IN4_07)|(1<<IN4_08); // выходы
+   \   00000050   EF0F               LDI     R16, 255
+   \   00000052   9300....           STS     _A_DDRL, R16
+     46          
+     47            count_bod = 1;                             // минимум 1 прерывание
+   \   00000056   E001               LDI     R16, 1
+   \   00000058   9300....           STS     count_bod, R16
+     48            t_led_on  = 0;                             // время индикации
+   \   0000005C   E000               LDI     R16, 0
+   \   0000005E   9300....           STS     t_led_on, R16
+     49            
+     50            __watchdog_reset();                        // 1-й "простой" cброс сторожевого таймера
+   \   00000062   95A8               WDR
+     51            __enable_interrupt();                      // прерывания разрешаем
+   \   00000064   9478               SEI
+     52            
+     53            // инициализация USART (2400):
+     54            UCSR0A = 0x00;                             // запрет настроек USART на время установки скорости передачи
+   \   00000066   E000               LDI     R16, 0
+   \   00000068   9300....           STS     _A_UCSR0A, R16
+     55            UCSR0B = 0x00;                             
+   \   0000006C   E000               LDI     R16, 0
+   \   0000006E   9300....           STS     _A_UCSR0B, R16
+     56            UCSR0C = 0x06;                             // размер слова данных 8 бит
+   \   00000072   E006               LDI     R16, 6
+   \   00000074   9300....           STS     _A_UCSR0C, R16
+     57            UBRR0L = UBBR_2K4L;                        // задание скорости 57600
+   \   00000078   E100               LDI     R16, 16
+   \   0000007A   9300....           STS     _A_UBRR0, R16
+     58            UBRR0H = UBBR_2K4H;   
+   \   0000007E   E000               LDI     R16, 0
+   \   00000080   930000C5           STS     197, R16
+     59            UCSR0B = 0x08;                             // разрешение передачи (TXENn = 1)
+   \   00000084   E008               LDI     R16, 8
+   \   00000086   9300....           STS     _A_UCSR0B, R16
+     60          
+     61            // инициализация Т/С0:
+     62            TCCR0B = 0x00;                             // останов Т/С0
+   \   0000008A   E000               LDI     R16, 0
+   \   0000008C   BD05               OUT     0x25, R16
+     63            TCNT0  = RELOAD_TIM0;                      // нач. знач-е
+   \   0000008E   E908               LDI     R16, 152
+   \   00000090   BD06               OUT     0x26, R16
+     64            TCCR0A = 0x00;
+   \   00000092   E000               LDI     R16, 0
+   \   00000094   BD04               OUT     0x24, R16
+     65            TCCR0B = START_TIM0;                       // таймер запускаем
+   \   00000096   E004               LDI     R16, 4
+   \   00000098   BD05               OUT     0x25, R16
+     66            TIMSK0 = 0x01;                             // Т/С0 <- источник прерываний
+   \   0000009A   E001               LDI     R16, 1
+   \   0000009C   9300....           STS     _A_TIMSK0, R16
+     67              
+     68            SPI_MasterInit();                          // инициализация SPI в режиме Master
+   \   000000A0   ....               RCALL   SPI_MasterInit
+     69          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     70                    
+     71                                             //Организация работы линии обмена                   
+     72                    
+     73          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     74          /*
+     75            Перед началом передачи пакета данных всегда есть синхропауза (логическая 1). Это нужно для безошибочной работы
+     76            по линии, т.к. система асинхронная и ведомое устройство может включиться не одновременно с ведущим устройством. 
+     77            Даже если устройство включится уже после начала передачи ведущим, оно примет данные только после "полной" 
+     78            синхропаузы, которую будет ожидать. Длина синхропаузы больше, чем длина одного слова данных.
+     79            Применение асинхронной системы позволяет использовать простой канал связи, который гораздо дешевле, чем при 
+     80            синхронной системе. 
+     81          */    
+     82            for (;;)
+     83            {     
+     84              UCSR0B &= ~(1<<RXEN0);                   // отключение приемника USART
+   \                     ??main_0:
+   \   000000A2   910000C1           LDS     R16, 193
+   \   000000A6   7E0F               ANDI    R16, 0xEF
+   \   000000A8   930000C1           STS     193, R16
+     85              count_bod = CBOD;                        // счетчик БОД
+   \   000000AC   E004               LDI     R16, 4
+   \   000000AE   9300....           STS     count_bod, R16
+     86          
+     87              do
+     88              {
+     89                if (!(PINE & (1<<RX))) count_bod = CBOD;
+   \                     ??main_1:
+   \   000000B2   9960               SBIC    0x0C, 0x00
+   \   000000B4   C003               RJMP    ??main_2
+   \   000000B6   E004               LDI     R16, 4
+   \   000000B8   9300....           STS     count_bod, R16
+     90              } while (count_bod);                     // ожидание СИНХРО-ПАУЗЫ (всегда только перед командой)
+   \                     ??main_2:
+   \   000000BC   9100....           LDS     R16, count_bod
+   \   000000C0   2300               TST     R16
+   \   000000C2   F7B9               BRNE    ??main_1
+     91          /*
+     92              Выполнять присваивание count_bod = CBOD = 4, если RX = 0, пока count_bod - истина. Если же в течение четырёх
+     93              периодов переполнения таймера0 с частотой 600 Гц, т.е. 6.7 мс, будет выполнено условие RX = 1, тогда
+     94              программа уменьшит значение count_bod до нуля, условие while (count_bod) станет ложным и произойдёт 
+     95              выход из цикла do/while. Только теперь устройство включится на приём. Таким образом, значение синхропаузы 
+     96              составляет 6.7 мс. Начало приёма происходит при обнаружении старт-бита (логический 0).
+     97          */    
+     98              // приём данных по UART:
+     99          /*
+    100              Вперёд старший регистр. Вперёд старший байт.
+    101          */
+    102              UCSR0B |= (1<<RXEN0);                    // включение приемника USART
+   \   000000C4   910000C1           LDS     R16, 193
+   \   000000C8   6100               ORI     R16, 0x10
+   \   000000CA   930000C1           STS     193, R16
+    103              unsigned char var;                       // маркер передачи на контроллер
+    104              unsigned char command_code=0;            // код команды    
+   \   000000CE   E080               LDI     R24, 0
+    105              
+    106              while (!(UCSR0A & (1<<RXC0)));           // ждем завершение приема байта
+   \                     ??main_3:
+   \   000000D0   9100....           LDS     R16, _A_UCSR0A
+   \   000000D4   2F10               MOV     R17, R16
+   \   000000D6   FF17               SBRS    R17, 7
+   \   000000D8   CFFB               RJMP    ??main_3
+    107              var=UDR0;                                // UDRn - USART I/O Data Register n
+   \   000000DA   9100....           LDS     R16, _A_UDR0
+   \   000000DE   2F90               MOV     R25, R16
+    108          
+    109              while(command_code!=0xAA)
+   \                     ??main_4:
+   \   000000E0   3A8A               CPI     R24, 170
+   \   000000E2   F409               BRNE    $+2+2
+   \   000000E4   C1A8               RJMP    ??main_5
+    110              {    
+    111              while (!(UCSR0A & (1<<RXC0)));           // ждем завершение приема байта
+   \                     ??main_6:
+   \   000000E6   9100....           LDS     R16, _A_UCSR0A
+   \   000000EA   2F10               MOV     R17, R16
+   \   000000EC   FF17               SBRS    R17, 7
+   \   000000EE   CFFB               RJMP    ??main_6
+    112              command_code=UDR0;
+   \   000000F0   9100....           LDS     R16, _A_UDR0
+   \   000000F4   2F80               MOV     R24, R16
+    113              
+    114              switch(command_code)
+   \   000000F6   2F08               MOV     R16, R24
+   \   000000F8   ....               LDI     R30, LOW(`?<Jumptable for main>_0`)
+   \   000000FA   ....               LDI     R31, (`?<Jumptable for main>_0`) >> 16
+   \   000000FC   BFFB               OUT     0x3B, R31
+   \   000000FE   ....               LDI     R31, HIGH(`?<Jumptable for main>_0`)
+   \   00000100   ........           JMP     ?CV_SWITCH_L06
+    115              {
+    116                case 6:
+    117                  for(int i=1; i<4; i++)                   
+   \                     ??main_7:
+   \   00000104   E0A1               LDI     R26, 1
+   \   00000106   E0B0               LDI     R27, 0
+   \                     ??main_8:
+   \   00000108   30A4               CPI     R26, 4
+   \   0000010A   E000               LDI     R16, 0
+   \   0000010C   07B0               CPC     R27, R16
+   \   0000010E   F494               BRGE    ??main_9
+    118                  {
+    119                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_10:
+   \   00000110   9100....           LDS     R16, _A_UCSR0A
+   \   00000114   2F10               MOV     R17, R16
+   \   00000116   FF17               SBRS    R17, 7
+   \   00000118   CFFB               RJMP    ??main_10
+    120                    Command6[i] = UDR0;                
+   \   0000011A   9120....           LDS     R18, _A_UDR0
+   \   0000011E   E030               LDI     R19, 0
+   \   00000120   018D               MOVW    R17:R16, R27:R26
+   \   00000122   0F00               LSL     R16
+   \   00000124   1F11               ROL     R17
+   \   00000126   01F8               MOVW    R31:R30, R17:R16
+   \   00000128   ....               SUBI    R30, LOW((-(Command6) & 0xFFFF))
+   \   0000012A   ....               SBCI    R31, (-(Command6) & 0xFFFF) >> 8
+   \   0000012C   8320               ST      Z, R18
+   \   0000012E   8331               STD     Z+1, R19
+    121                  }
+   \   00000130   9611               ADIW    R27:R26, 1
+   \   00000132   CFEA               RJMP    ??main_8
+    122                  
+    123                case 7:
+    124                  for(int i=1; i<4; i++)                   
+   \                     ??main_9:
+   \   00000134   E0A1               LDI     R26, 1
+   \   00000136   E0B0               LDI     R27, 0
+   \                     ??main_11:
+   \   00000138   30A4               CPI     R26, 4
+   \   0000013A   E000               LDI     R16, 0
+   \   0000013C   07B0               CPC     R27, R16
+   \   0000013E   F494               BRGE    ??main_12
+    125                  {
+    126                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_13:
+   \   00000140   9100....           LDS     R16, _A_UCSR0A
+   \   00000144   2F10               MOV     R17, R16
+   \   00000146   FF17               SBRS    R17, 7
+   \   00000148   CFFB               RJMP    ??main_13
+    127                    Command7[i] = UDR0;                
+   \   0000014A   9120....           LDS     R18, _A_UDR0
+   \   0000014E   E030               LDI     R19, 0
+   \   00000150   018D               MOVW    R17:R16, R27:R26
+   \   00000152   0F00               LSL     R16
+   \   00000154   1F11               ROL     R17
+   \   00000156   01F8               MOVW    R31:R30, R17:R16
+   \   00000158   ....               SUBI    R30, LOW((-(Command7) & 0xFFFF))
+   \   0000015A   ....               SBCI    R31, (-(Command7) & 0xFFFF) >> 8
+   \   0000015C   8320               ST      Z, R18
+   \   0000015E   8331               STD     Z+1, R19
+    128                  }        
+   \   00000160   9611               ADIW    R27:R26, 1
+   \   00000162   CFEA               RJMP    ??main_11
+    129                  
+    130                case 230:
+    131                  for(int i=1; i<4; i++)                   
+   \                     ??main_12:
+   \   00000164   E0A1               LDI     R26, 1
+   \   00000166   E0B0               LDI     R27, 0
+   \                     ??main_14:
+   \   00000168   30A4               CPI     R26, 4
+   \   0000016A   E000               LDI     R16, 0
+   \   0000016C   07B0               CPC     R27, R16
+   \   0000016E   F494               BRGE    ??main_15
+    132                  {
+    133                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_16:
+   \   00000170   9100....           LDS     R16, _A_UCSR0A
+   \   00000174   2F10               MOV     R17, R16
+   \   00000176   FF17               SBRS    R17, 7
+   \   00000178   CFFB               RJMP    ??main_16
+    134                    Com6[i] = UDR0;                
+   \   0000017A   9120....           LDS     R18, _A_UDR0
+   \   0000017E   E030               LDI     R19, 0
+   \   00000180   018D               MOVW    R17:R16, R27:R26
+   \   00000182   0F00               LSL     R16
+   \   00000184   1F11               ROL     R17
+   \   00000186   01F8               MOVW    R31:R30, R17:R16
+   \   00000188   ....               SUBI    R30, LOW((-(Com6) & 0xFFFF))
+   \   0000018A   ....               SBCI    R31, (-(Com6) & 0xFFFF) >> 8
+   \   0000018C   8320               ST      Z, R18
+   \   0000018E   8331               STD     Z+1, R19
+    135                  }     
+   \   00000190   9611               ADIW    R27:R26, 1
+   \   00000192   CFEA               RJMP    ??main_14
+    136                  
+    137                case 231:
+    138                  for(int i=1; i<4; i++)                   
+   \                     ??main_15:
+   \   00000194   E0A1               LDI     R26, 1
+   \   00000196   E0B0               LDI     R27, 0
+   \                     ??main_17:
+   \   00000198   30A4               CPI     R26, 4
+   \   0000019A   E000               LDI     R16, 0
+   \   0000019C   07B0               CPC     R27, R16
+   \   0000019E   F494               BRGE    ??main_18
+    139                  {
+    140                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_19:
+   \   000001A0   9100....           LDS     R16, _A_UCSR0A
+   \   000001A4   2F10               MOV     R17, R16
+   \   000001A6   FF17               SBRS    R17, 7
+   \   000001A8   CFFB               RJMP    ??main_19
+    141                    Com7[i] = UDR0;                
+   \   000001AA   9120....           LDS     R18, _A_UDR0
+   \   000001AE   E030               LDI     R19, 0
+   \   000001B0   018D               MOVW    R17:R16, R27:R26
+   \   000001B2   0F00               LSL     R16
+   \   000001B4   1F11               ROL     R17
+   \   000001B6   01F8               MOVW    R31:R30, R17:R16
+   \   000001B8   ....               SUBI    R30, LOW((-(Com7) & 0xFFFF))
+   \   000001BA   ....               SBCI    R31, (-(Com7) & 0xFFFF) >> 8
+   \   000001BC   8320               ST      Z, R18
+   \   000001BE   8331               STD     Z+1, R19
+    142                  } 
+   \   000001C0   9611               ADIW    R27:R26, 1
+   \   000001C2   CFEA               RJMP    ??main_17
+    143          
+    144                case 232:
+    145                  for(int i=1; i<4; i++)                   
+   \                     ??main_18:
+   \   000001C4   E0A1               LDI     R26, 1
+   \   000001C6   E0B0               LDI     R27, 0
+   \                     ??main_20:
+   \   000001C8   30A4               CPI     R26, 4
+   \   000001CA   E000               LDI     R16, 0
+   \   000001CC   07B0               CPC     R27, R16
+   \   000001CE   F494               BRGE    ??main_21
+    146                  {
+    147                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_22:
+   \   000001D0   9100....           LDS     R16, _A_UCSR0A
+   \   000001D4   2F10               MOV     R17, R16
+   \   000001D6   FF17               SBRS    R17, 7
+   \   000001D8   CFFB               RJMP    ??main_22
+    148                    Com8[i] = UDR0;                
+   \   000001DA   9120....           LDS     R18, _A_UDR0
+   \   000001DE   E030               LDI     R19, 0
+   \   000001E0   018D               MOVW    R17:R16, R27:R26
+   \   000001E2   0F00               LSL     R16
+   \   000001E4   1F11               ROL     R17
+   \   000001E6   01F8               MOVW    R31:R30, R17:R16
+   \   000001E8   ....               SUBI    R30, LOW((-(Com8) & 0xFFFF))
+   \   000001EA   ....               SBCI    R31, (-(Com8) & 0xFFFF) >> 8
+   \   000001EC   8320               ST      Z, R18
+   \   000001EE   8331               STD     Z+1, R19
+    149                  } 
+   \   000001F0   9611               ADIW    R27:R26, 1
+   \   000001F2   CFEA               RJMP    ??main_20
+    150          
+    151                case 233:
+    152                  for(int i=1; i<4; i++)                   
+   \                     ??main_21:
+   \   000001F4   E0A1               LDI     R26, 1
+   \   000001F6   E0B0               LDI     R27, 0
+   \                     ??main_23:
+   \   000001F8   30A4               CPI     R26, 4
+   \   000001FA   E000               LDI     R16, 0
+   \   000001FC   07B0               CPC     R27, R16
+   \   000001FE   F494               BRGE    ??main_24
+    153                  {
+    154                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_25:
+   \   00000200   9100....           LDS     R16, _A_UCSR0A
+   \   00000204   2F10               MOV     R17, R16
+   \   00000206   FF17               SBRS    R17, 7
+   \   00000208   CFFB               RJMP    ??main_25
+    155                    Com9[i] = UDR0;                
+   \   0000020A   9120....           LDS     R18, _A_UDR0
+   \   0000020E   E030               LDI     R19, 0
+   \   00000210   018D               MOVW    R17:R16, R27:R26
+   \   00000212   0F00               LSL     R16
+   \   00000214   1F11               ROL     R17
+   \   00000216   01F8               MOVW    R31:R30, R17:R16
+   \   00000218   ....               SUBI    R30, LOW((-(Com9) & 0xFFFF))
+   \   0000021A   ....               SBCI    R31, (-(Com9) & 0xFFFF) >> 8
+   \   0000021C   8320               ST      Z, R18
+   \   0000021E   8331               STD     Z+1, R19
+    156                  }   
+   \   00000220   9611               ADIW    R27:R26, 1
+   \   00000222   CFEA               RJMP    ??main_23
+    157                  
+    158                case 234:
+    159                  for(int i=1; i<4; i++)                   
+   \                     ??main_24:
+   \   00000224   E0A1               LDI     R26, 1
+   \   00000226   E0B0               LDI     R27, 0
+   \                     ??main_26:
+   \   00000228   30A4               CPI     R26, 4
+   \   0000022A   E000               LDI     R16, 0
+   \   0000022C   07B0               CPC     R27, R16
+   \   0000022E   F494               BRGE    ??main_27
+    160                  {
+    161                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_28:
+   \   00000230   9100....           LDS     R16, _A_UCSR0A
+   \   00000234   2F10               MOV     R17, R16
+   \   00000236   FF17               SBRS    R17, 7
+   \   00000238   CFFB               RJMP    ??main_28
+    162                    Com10[i] = UDR0;                
+   \   0000023A   9120....           LDS     R18, _A_UDR0
+   \   0000023E   E030               LDI     R19, 0
+   \   00000240   018D               MOVW    R17:R16, R27:R26
+   \   00000242   0F00               LSL     R16
+   \   00000244   1F11               ROL     R17
+   \   00000246   01F8               MOVW    R31:R30, R17:R16
+   \   00000248   ....               SUBI    R30, LOW((-(Com10) & 0xFFFF))
+   \   0000024A   ....               SBCI    R31, (-(Com10) & 0xFFFF) >> 8
+   \   0000024C   8320               ST      Z, R18
+   \   0000024E   8331               STD     Z+1, R19
+    163                  }  
+   \   00000250   9611               ADIW    R27:R26, 1
+   \   00000252   CFEA               RJMP    ??main_26
+    164                  
+    165                case 235:
+    166                  for(int i=1; i<4; i++)                   
+   \                     ??main_27:
+   \   00000254   E0A1               LDI     R26, 1
+   \   00000256   E0B0               LDI     R27, 0
+   \                     ??main_29:
+   \   00000258   30A4               CPI     R26, 4
+   \   0000025A   E000               LDI     R16, 0
+   \   0000025C   07B0               CPC     R27, R16
+   \   0000025E   F494               BRGE    ??main_30
+    167                  {
+    168                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_31:
+   \   00000260   9100....           LDS     R16, _A_UCSR0A
+   \   00000264   2F10               MOV     R17, R16
+   \   00000266   FF17               SBRS    R17, 7
+   \   00000268   CFFB               RJMP    ??main_31
+    169                    Com11[i] = UDR0;                
+   \   0000026A   9120....           LDS     R18, _A_UDR0
+   \   0000026E   E030               LDI     R19, 0
+   \   00000270   018D               MOVW    R17:R16, R27:R26
+   \   00000272   0F00               LSL     R16
+   \   00000274   1F11               ROL     R17
+   \   00000276   01F8               MOVW    R31:R30, R17:R16
+   \   00000278   ....               SUBI    R30, LOW((-(Com11) & 0xFFFF))
+   \   0000027A   ....               SBCI    R31, (-(Com11) & 0xFFFF) >> 8
+   \   0000027C   8320               ST      Z, R18
+   \   0000027E   8331               STD     Z+1, R19
+    170                  } 
+   \   00000280   9611               ADIW    R27:R26, 1
+   \   00000282   CFEA               RJMP    ??main_29
+    171                  
+    172                case 236:
+    173                  for(int i=1; i<4; i++)                   
+   \                     ??main_30:
+   \   00000284   E0A1               LDI     R26, 1
+   \   00000286   E0B0               LDI     R27, 0
+   \                     ??main_32:
+   \   00000288   30A4               CPI     R26, 4
+   \   0000028A   E000               LDI     R16, 0
+   \   0000028C   07B0               CPC     R27, R16
+   \   0000028E   F494               BRGE    ??main_33
+    174                  {
+    175                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_34:
+   \   00000290   9100....           LDS     R16, _A_UCSR0A
+   \   00000294   2F10               MOV     R17, R16
+   \   00000296   FF17               SBRS    R17, 7
+   \   00000298   CFFB               RJMP    ??main_34
+    176                    Com12[i] = UDR0;                
+   \   0000029A   9120....           LDS     R18, _A_UDR0
+   \   0000029E   E030               LDI     R19, 0
+   \   000002A0   018D               MOVW    R17:R16, R27:R26
+   \   000002A2   0F00               LSL     R16
+   \   000002A4   1F11               ROL     R17
+   \   000002A6   01F8               MOVW    R31:R30, R17:R16
+   \   000002A8   ....               SUBI    R30, LOW((-(Com12) & 0xFFFF))
+   \   000002AA   ....               SBCI    R31, (-(Com12) & 0xFFFF) >> 8
+   \   000002AC   8320               ST      Z, R18
+   \   000002AE   8331               STD     Z+1, R19
+    177                  }  
+   \   000002B0   9611               ADIW    R27:R26, 1
+   \   000002B2   CFEA               RJMP    ??main_32
+    178                  
+    179                case 237:
+    180                  for(int i=1; i<4; i++)                   
+   \                     ??main_33:
+   \   000002B4   E0A1               LDI     R26, 1
+   \   000002B6   E0B0               LDI     R27, 0
+   \                     ??main_35:
+   \   000002B8   30A4               CPI     R26, 4
+   \   000002BA   E000               LDI     R16, 0
+   \   000002BC   07B0               CPC     R27, R16
+   \   000002BE   F494               BRGE    ??main_36
+    181                  {
+    182                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_37:
+   \   000002C0   9100....           LDS     R16, _A_UCSR0A
+   \   000002C4   2F10               MOV     R17, R16
+   \   000002C6   FF17               SBRS    R17, 7
+   \   000002C8   CFFB               RJMP    ??main_37
+    183                    Com13[i] = UDR0;                
+   \   000002CA   9120....           LDS     R18, _A_UDR0
+   \   000002CE   E030               LDI     R19, 0
+   \   000002D0   018D               MOVW    R17:R16, R27:R26
+   \   000002D2   0F00               LSL     R16
+   \   000002D4   1F11               ROL     R17
+   \   000002D6   01F8               MOVW    R31:R30, R17:R16
+   \   000002D8   ....               SUBI    R30, LOW((-(Com13) & 0xFFFF))
+   \   000002DA   ....               SBCI    R31, (-(Com13) & 0xFFFF) >> 8
+   \   000002DC   8320               ST      Z, R18
+   \   000002DE   8331               STD     Z+1, R19
+    184                  }         
+   \   000002E0   9611               ADIW    R27:R26, 1
+   \   000002E2   CFEA               RJMP    ??main_35
+    185                  
+    186                case 238:
+    187                  for(int i=1; i<4; i++)                   
+   \                     ??main_36:
+   \   000002E4   E0A1               LDI     R26, 1
+   \   000002E6   E0B0               LDI     R27, 0
+   \                     ??main_38:
+   \   000002E8   30A4               CPI     R26, 4
+   \   000002EA   E000               LDI     R16, 0
+   \   000002EC   07B0               CPC     R27, R16
+   \   000002EE   F494               BRGE    ??main_39
+    188                  {
+    189                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_40:
+   \   000002F0   9100....           LDS     R16, _A_UCSR0A
+   \   000002F4   2F10               MOV     R17, R16
+   \   000002F6   FF17               SBRS    R17, 7
+   \   000002F8   CFFB               RJMP    ??main_40
+    190                    Com14[i] = UDR0;                
+   \   000002FA   9120....           LDS     R18, _A_UDR0
+   \   000002FE   E030               LDI     R19, 0
+   \   00000300   018D               MOVW    R17:R16, R27:R26
+   \   00000302   0F00               LSL     R16
+   \   00000304   1F11               ROL     R17
+   \   00000306   01F8               MOVW    R31:R30, R17:R16
+   \   00000308   ....               SUBI    R30, LOW((-(Com14) & 0xFFFF))
+   \   0000030A   ....               SBCI    R31, (-(Com14) & 0xFFFF) >> 8
+   \   0000030C   8320               ST      Z, R18
+   \   0000030E   8331               STD     Z+1, R19
+    191                  } 
+   \   00000310   9611               ADIW    R27:R26, 1
+   \   00000312   CFEA               RJMP    ??main_38
+    192          
+    193                case 239:
+    194                  for(int i=1; i<4; i++)                   
+   \                     ??main_39:
+   \   00000314   E0A1               LDI     R26, 1
+   \   00000316   E0B0               LDI     R27, 0
+   \                     ??main_41:
+   \   00000318   30A4               CPI     R26, 4
+   \   0000031A   E000               LDI     R16, 0
+   \   0000031C   07B0               CPC     R27, R16
+   \   0000031E   F494               BRGE    ??main_42
+    195                  {
+    196                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_43:
+   \   00000320   9100....           LDS     R16, _A_UCSR0A
+   \   00000324   2F10               MOV     R17, R16
+   \   00000326   FF17               SBRS    R17, 7
+   \   00000328   CFFB               RJMP    ??main_43
+    197                    Com15[i] = UDR0;                
+   \   0000032A   9120....           LDS     R18, _A_UDR0
+   \   0000032E   E030               LDI     R19, 0
+   \   00000330   018D               MOVW    R17:R16, R27:R26
+   \   00000332   0F00               LSL     R16
+   \   00000334   1F11               ROL     R17
+   \   00000336   01F8               MOVW    R31:R30, R17:R16
+   \   00000338   ....               SUBI    R30, LOW((-(Com15) & 0xFFFF))
+   \   0000033A   ....               SBCI    R31, (-(Com15) & 0xFFFF) >> 8
+   \   0000033C   8320               ST      Z, R18
+   \   0000033E   8331               STD     Z+1, R19
+    198                  }
+   \   00000340   9611               ADIW    R27:R26, 1
+   \   00000342   CFEA               RJMP    ??main_41
+    199                  
+    200                case 240:
+    201                  for(int i=1; i<4; i++)                   
+   \                     ??main_42:
+   \   00000344   E0A1               LDI     R26, 1
+   \   00000346   E0B0               LDI     R27, 0
+   \                     ??main_44:
+   \   00000348   30A4               CPI     R26, 4
+   \   0000034A   E000               LDI     R16, 0
+   \   0000034C   07B0               CPC     R27, R16
+   \   0000034E   F494               BRGE    ??main_45
+    202                  {
+    203                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_46:
+   \   00000350   9100....           LDS     R16, _A_UCSR0A
+   \   00000354   2F10               MOV     R17, R16
+   \   00000356   FF17               SBRS    R17, 7
+   \   00000358   CFFB               RJMP    ??main_46
+    204                    Com16[i] = UDR0;                
+   \   0000035A   9120....           LDS     R18, _A_UDR0
+   \   0000035E   E030               LDI     R19, 0
+   \   00000360   018D               MOVW    R17:R16, R27:R26
+   \   00000362   0F00               LSL     R16
+   \   00000364   1F11               ROL     R17
+   \   00000366   01F8               MOVW    R31:R30, R17:R16
+   \   00000368   ....               SUBI    R30, LOW((-(Com16) & 0xFFFF))
+   \   0000036A   ....               SBCI    R31, (-(Com16) & 0xFFFF) >> 8
+   \   0000036C   8320               ST      Z, R18
+   \   0000036E   8331               STD     Z+1, R19
+    205                  }         
+   \   00000370   9611               ADIW    R27:R26, 1
+   \   00000372   CFEA               RJMP    ??main_44
+    206                  
+    207                case 241:
+    208                  for(int i=1; i<4; i++)                   
+   \                     ??main_45:
+   \   00000374   E0A1               LDI     R26, 1
+   \   00000376   E0B0               LDI     R27, 0
+   \                     ??main_47:
+   \   00000378   30A4               CPI     R26, 4
+   \   0000037A   E000               LDI     R16, 0
+   \   0000037C   07B0               CPC     R27, R16
+   \   0000037E   F494               BRGE    ??main_48
+    209                  {
+    210                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_49:
+   \   00000380   9100....           LDS     R16, _A_UCSR0A
+   \   00000384   2F10               MOV     R17, R16
+   \   00000386   FF17               SBRS    R17, 7
+   \   00000388   CFFB               RJMP    ??main_49
+    211                    Com17[i] = UDR0;                
+   \   0000038A   9120....           LDS     R18, _A_UDR0
+   \   0000038E   E030               LDI     R19, 0
+   \   00000390   018D               MOVW    R17:R16, R27:R26
+   \   00000392   0F00               LSL     R16
+   \   00000394   1F11               ROL     R17
+   \   00000396   01F8               MOVW    R31:R30, R17:R16
+   \   00000398   ....               SUBI    R30, LOW((-(Com17) & 0xFFFF))
+   \   0000039A   ....               SBCI    R31, (-(Com17) & 0xFFFF) >> 8
+   \   0000039C   8320               ST      Z, R18
+   \   0000039E   8331               STD     Z+1, R19
+    212                  }   
+   \   000003A0   9611               ADIW    R27:R26, 1
+   \   000003A2   CFEA               RJMP    ??main_47
+    213                  
+    214                case 242:
+    215                  for(int i=1; i<4; i++)                   
+   \                     ??main_48:
+   \   000003A4   E0A1               LDI     R26, 1
+   \   000003A6   E0B0               LDI     R27, 0
+   \                     ??main_50:
+   \   000003A8   30A4               CPI     R26, 4
+   \   000003AA   E000               LDI     R16, 0
+   \   000003AC   07B0               CPC     R27, R16
+   \   000003AE   F494               BRGE    ??main_51
+    216                  {
+    217                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_52:
+   \   000003B0   9100....           LDS     R16, _A_UCSR0A
+   \   000003B4   2F10               MOV     R17, R16
+   \   000003B6   FF17               SBRS    R17, 7
+   \   000003B8   CFFB               RJMP    ??main_52
+    218                    Com18[i] = UDR0;                
+   \   000003BA   9120....           LDS     R18, _A_UDR0
+   \   000003BE   E030               LDI     R19, 0
+   \   000003C0   018D               MOVW    R17:R16, R27:R26
+   \   000003C2   0F00               LSL     R16
+   \   000003C4   1F11               ROL     R17
+   \   000003C6   01F8               MOVW    R31:R30, R17:R16
+   \   000003C8   ....               SUBI    R30, LOW((-(Com18) & 0xFFFF))
+   \   000003CA   ....               SBCI    R31, (-(Com18) & 0xFFFF) >> 8
+   \   000003CC   8320               ST      Z, R18
+   \   000003CE   8331               STD     Z+1, R19
+    219                  }   
+   \   000003D0   9611               ADIW    R27:R26, 1
+   \   000003D2   CFEA               RJMP    ??main_50
+    220                  
+    221                case 243:
+    222                  for(int i=1; i<4; i++)                   
+   \                     ??main_51:
+   \   000003D4   E0A1               LDI     R26, 1
+   \   000003D6   E0B0               LDI     R27, 0
+   \                     ??main_53:
+   \   000003D8   30A4               CPI     R26, 4
+   \   000003DA   E000               LDI     R16, 0
+   \   000003DC   07B0               CPC     R27, R16
+   \   000003DE   F494               BRGE    ??main_54
+    223                  {
+    224                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_55:
+   \   000003E0   9100....           LDS     R16, _A_UCSR0A
+   \   000003E4   2F10               MOV     R17, R16
+   \   000003E6   FF17               SBRS    R17, 7
+   \   000003E8   CFFB               RJMP    ??main_55
+    225                    Com19[i] = UDR0;                
+   \   000003EA   9120....           LDS     R18, _A_UDR0
+   \   000003EE   E030               LDI     R19, 0
+   \   000003F0   018D               MOVW    R17:R16, R27:R26
+   \   000003F2   0F00               LSL     R16
+   \   000003F4   1F11               ROL     R17
+   \   000003F6   01F8               MOVW    R31:R30, R17:R16
+   \   000003F8   ....               SUBI    R30, LOW((-(Com19) & 0xFFFF))
+   \   000003FA   ....               SBCI    R31, (-(Com19) & 0xFFFF) >> 8
+   \   000003FC   8320               ST      Z, R18
+   \   000003FE   8331               STD     Z+1, R19
+    226                  }   
+   \   00000400   9611               ADIW    R27:R26, 1
+   \   00000402   CFEA               RJMP    ??main_53
+    227                  
+    228                case 244:
+    229                  for(int i=1; i<4; i++)                   
+   \                     ??main_54:
+   \   00000404   E0A1               LDI     R26, 1
+   \   00000406   E0B0               LDI     R27, 0
+   \                     ??main_56:
+   \   00000408   30A4               CPI     R26, 4
+   \   0000040A   E000               LDI     R16, 0
+   \   0000040C   07B0               CPC     R27, R16
+   \   0000040E   F494               BRGE    ??main_57
+    230                  {
+    231                    while (!(UCSR0A & (1<<RXC0)));     // ждем завершение приема байта
+   \                     ??main_58:
+   \   00000410   9100....           LDS     R16, _A_UCSR0A
+   \   00000414   2F10               MOV     R17, R16
+   \   00000416   FF17               SBRS    R17, 7
+   \   00000418   CFFB               RJMP    ??main_58
+    232                    Com20[i] = UDR0;                
+   \   0000041A   9120....           LDS     R18, _A_UDR0
+   \   0000041E   E030               LDI     R19, 0
+   \   00000420   018D               MOVW    R17:R16, R27:R26
+   \   00000422   0F00               LSL     R16
+   \   00000424   1F11               ROL     R17
+   \   00000426   01F8               MOVW    R31:R30, R17:R16
+   \   00000428   ....               SUBI    R30, LOW((-(Com20) & 0xFFFF))
+   \   0000042A   ....               SBCI    R31, (-(Com20) & 0xFFFF) >> 8
+   \   0000042C   8320               ST      Z, R18
+   \   0000042E   8331               STD     Z+1, R19
+    233                  }                
+   \   00000430   9611               ADIW    R27:R26, 1
+   \   00000432   CFEA               RJMP    ??main_56
+    234              }
+    235              }
+   \                     ??main_57:
+   \   00000434   CE55               RJMP    ??main_4
+    236              
+    237              if(var==0x55)                            // если маркер передачи на синтезатор и фильтры
+   \                     ??main_5:
+   \   00000436   3595               CPI     R25, 85
+   \   00000438   F009               BREQ    $+2+2
+   \   0000043A   C08C               RJMP    ??main_59
+    238              {  
+    239                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \   0000043C   E302               LDI     R16, 50
+   \   0000043E   9300....           STS     t_led_on, R16
+    240                LED_ON;   
+   \   00000442   98A5               CBI     0x14, 0x05
+    241              
+    242                // передача данных по SPI на ППРМ-2:
+    243          /*    
+    244                Передача команд:
+    245                0...767 пропустить
+    246                768...775 передать
+    247                776...1543 пропустить
+    248                1544...1603 передать
+    249                
+    250          */     
+    251                // Режим "Работа":
+    252                // Команда "Параметры СВЧ тракта":
+    253                SPI_Write(0x03);                       // байт кода команды
+   \   00000444   E003               LDI     R16, 3
+   \   00000446   ....               RCALL   SPI_Write
+    254                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000448   E000               LDI     R16, 0
+   \   0000044A   ....               RCALL   SPI_Write
+    255                SPI_Write(R[770]);                     // второй байт пакета данных       
+   \   0000044C   9100....           LDS     R16, (R + 770)
+   \   00000450   ....               RCALL   SPI_Write
+    256                SPI_Write(R[771]);                     // третий байт пакета данных       
+   \   00000452   9100....           LDS     R16, (R + 771)
+   \   00000456   ....               RCALL   SPI_Write
+    257                SPI_Write(R[775]);                     // четвертый байт пакета данных  
+   \   00000458   9100....           LDS     R16, (R + 775)
+   \   0000045C   ....               RCALL   SPI_Write
+    258                
+    259                // Режим "Контроль":
+    260                // Команда "Коэффициент ослабления приёмника и передатчика ППРМ-2":      
+    261                SPI_Write(0xE3);                       // байт кода команды
+   \   0000045E   EE03               LDI     R16, 227
+   \   00000460   ....               RCALL   SPI_Write
+    262                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000462   E000               LDI     R16, 0
+   \   00000464   ....               RCALL   SPI_Write
+    263                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   00000466   E000               LDI     R16, 0
+   \   00000468   ....               RCALL   SPI_Write
+    264                SPI_Write(R[1551]);                    // третий байт пакета данных       
+   \   0000046A   9100....           LDS     R16, (R + 1551)
+   \   0000046E   ....               RCALL   SPI_Write
+    265                SPI_Write(R[1547]);                    // четвертый байт пакета данных        
+   \   00000470   9100....           LDS     R16, (R + 1547)
+   \   00000474   ....               RCALL   SPI_Write
+    266          
+    267                // Команда "Частота среза фильтра гетеродина приёмника и передатчика ППРМ-2":      
+    268                SPI_Write(0xE4);                       // байт кода команды
+   \   00000476   EE04               LDI     R16, 228
+   \   00000478   ....               RCALL   SPI_Write
+    269                SPI_Write(R[1558]);                    // первый байт пакета данных      
+   \   0000047A   9100....           LDS     R16, (R + 1558)
+   \   0000047E   ....               RCALL   SPI_Write
+    270                SPI_Write(R[1559]);                    // второй байт пакета данных       
+   \   00000480   9100....           LDS     R16, (R + 1559)
+   \   00000484   ....               RCALL   SPI_Write
+    271                SPI_Write(R[1554]);                    // третий байт пакета данных       
+   \   00000486   9100....           LDS     R16, (R + 1554)
+   \   0000048A   ....               RCALL   SPI_Write
+    272                SPI_Write(R[1545]);                    // четвертый байт пакета данных          
+   \   0000048C   9100....           LDS     R16, (R + 1545)
+   \   00000490   ....               RCALL   SPI_Write
+    273                
+    274                // Команда "Параметры СВЧ тракта":      
+    275                SPI_Write(0xE5);                       // байт кода команды
+   \   00000492   EE05               LDI     R16, 229
+   \   00000494   ....               RCALL   SPI_Write
+    276                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000496   E000               LDI     R16, 0
+   \   00000498   ....               RCALL   SPI_Write
+    277                SPI_Write(R[1571]);                    // второй байт пакета данных       
+   \   0000049A   9100....           LDS     R16, (R + 1571)
+   \   0000049E   ....               RCALL   SPI_Write
+    278                SPI_Write(R[1563]);                    // третий байт пакета данных       
+   \   000004A0   9100....           LDS     R16, (R + 1563)
+   \   000004A4   ....               RCALL   SPI_Write
+    279                SPI_Write(R[1567]);                    // четвертый байт пакета данных         
+   \   000004A6   9100....           LDS     R16, (R + 1567)
+   \   000004AA   ....               RCALL   SPI_Write
+    280                
+    281                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 1":      
+    282                SPI_Write(0xE6);                       // байт кода команды
+   \   000004AC   EE06               LDI     R16, 230
+   \   000004AE   ....               RCALL   SPI_Write
+    283                SPI_Write(R[1573]);                    // первый байт пакета данных      
+   \   000004B0   9100....           LDS     R16, (R + 1573)
+   \   000004B4   ....               RCALL   SPI_Write
+    284                SPI_Write(R[1574]);                    // второй байт пакета данных       
+   \   000004B6   9100....           LDS     R16, (R + 1574)
+   \   000004BA   ....               RCALL   SPI_Write
+    285                SPI_Write(R[1575]);                    // третий байт пакета данных       
+   \   000004BC   9100....           LDS     R16, (R + 1575)
+   \   000004C0   ....               RCALL   SPI_Write
+    286                SPI_Write(R[1577]);                    // четвертый байт пакета данных       
+   \   000004C2   9100....           LDS     R16, (R + 1577)
+   \   000004C6   ....               RCALL   SPI_Write
+    287                
+    288                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 2":      
+    289                SPI_Write(0xE7);                       // байт кода команды
+   \   000004C8   EE07               LDI     R16, 231
+   \   000004CA   ....               RCALL   SPI_Write
+    290                SPI_Write(R[1578]);                    // первый байт пакета данных      
+   \   000004CC   9100....           LDS     R16, (R + 1578)
+   \   000004D0   ....               RCALL   SPI_Write
+    291                SPI_Write(R[1579]);                    // второй байт пакета данных       
+   \   000004D2   9100....           LDS     R16, (R + 1579)
+   \   000004D6   ....               RCALL   SPI_Write
+    292                SPI_Write(R[1581]);                    // третий байт пакета данных       
+   \   000004D8   9100....           LDS     R16, (R + 1581)
+   \   000004DC   ....               RCALL   SPI_Write
+    293                SPI_Write(R[1582]);                    // четвертый байт пакета данных       
+   \   000004DE   9100....           LDS     R16, (R + 1582)
+   \   000004E2   ....               RCALL   SPI_Write
+    294                
+    295                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 3":      
+    296                SPI_Write(0xE8);                       // байт кода команды
+   \   000004E4   EE08               LDI     R16, 232
+   \   000004E6   ....               RCALL   SPI_Write
+    297                SPI_Write(R[1583]);                    // первый байт пакета данных      
+   \   000004E8   9100....           LDS     R16, (R + 1583)
+   \   000004EC   ....               RCALL   SPI_Write
+    298                SPI_Write(R[1585]);                    // второй байт пакета данных       
+   \   000004EE   9100....           LDS     R16, (R + 1585)
+   \   000004F2   ....               RCALL   SPI_Write
+    299                SPI_Write(R[1586]);                    // третий байт пакета данных       
+   \   000004F4   9100....           LDS     R16, (R + 1586)
+   \   000004F8   ....               RCALL   SPI_Write
+    300                SPI_Write(R[1587]);                    // четвертый байт пакета данных         
+   \   000004FA   9100....           LDS     R16, (R + 1587)
+   \   000004FE   ....               RCALL   SPI_Write
+    301                
+    302                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 4":      
+    303                SPI_Write(0xE9);                       // байт кода команды
+   \   00000500   EE09               LDI     R16, 233
+   \   00000502   ....               RCALL   SPI_Write
+    304                SPI_Write(R[1589]);                    // первый байт пакета данных      
+   \   00000504   9100....           LDS     R16, (R + 1589)
+   \   00000508   ....               RCALL   SPI_Write
+    305                SPI_Write(R[1590]);                    // второй байт пакета данных       
+   \   0000050A   9100....           LDS     R16, (R + 1590)
+   \   0000050E   ....               RCALL   SPI_Write
+    306                SPI_Write(R[1591]);                    // третий байт пакета данных       
+   \   00000510   9100....           LDS     R16, (R + 1591)
+   \   00000514   ....               RCALL   SPI_Write
+    307                SPI_Write(R[1593]);                    // четвертый байт пакета данных       
+   \   00000516   9100....           LDS     R16, (R + 1593)
+   \   0000051A   ....               RCALL   SPI_Write
+    308                
+    309                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 5":      
+    310                SPI_Write(0xEA);                       // байт кода команды
+   \   0000051C   EE0A               LDI     R16, 234
+   \   0000051E   ....               RCALL   SPI_Write
+    311                SPI_Write(R[1594]);                    // первый байт пакета данных      
+   \   00000520   9100....           LDS     R16, (R + 1594)
+   \   00000524   ....               RCALL   SPI_Write
+    312                SPI_Write(R[1595]);                    // второй байт пакета данных       
+   \   00000526   9100....           LDS     R16, (R + 1595)
+   \   0000052A   ....               RCALL   SPI_Write
+    313                SPI_Write(R[1597]);                    // третий байт пакета данных       
+   \   0000052C   9100....           LDS     R16, (R + 1597)
+   \   00000530   ....               RCALL   SPI_Write
+    314                SPI_Write(R[1598]);                    // четвертый байт пакета данных  
+   \   00000532   9100....           LDS     R16, (R + 1598)
+   \   00000536   ....               RCALL   SPI_Write
+    315          
+    316                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 6":      
+    317                SPI_Write(0xEB);                       // байт кода команды
+   \   00000538   EE0B               LDI     R16, 235
+   \   0000053A   ....               RCALL   SPI_Write
+    318                SPI_Write(R[1599]);                    // первый байт пакета данных      
+   \   0000053C   9100....           LDS     R16, (R + 1599)
+   \   00000540   ....               RCALL   SPI_Write
+    319                SPI_Write(R[1601]);                    // второй байт пакета данных       
+   \   00000542   9100....           LDS     R16, (R + 1601)
+   \   00000546   ....               RCALL   SPI_Write
+    320                SPI_Write(R[1602]);                    // третий байт пакета данных       
+   \   00000548   9100....           LDS     R16, (R + 1602)
+   \   0000054C   ....               RCALL   SPI_Write
+    321                SPI_Write(R[1603]);                    // четвертый байт пакета данных
+   \   0000054E   9100....           LDS     R16, (R + 1603)
+   \   00000552   ....               RCALL   SPI_Write
+    322              }
+    323              __watchdog_reset();
+   \                     ??main_59:
+   \   00000554   95A8               WDR
+   \   00000556   CDA5               RJMP    ??main_0
+   \   00000558                      REQUIRE _A_DDRL
+   \   00000558                      REQUIRE _A_DDRK
+   \   00000558                      REQUIRE _A_DDRJ
+   \   00000558                      REQUIRE _A_DDRH
+   \   00000558                      REQUIRE _A_UDR0
+   \   00000558                      REQUIRE _A_UBRR0
+   \   00000558                      REQUIRE _A_UCSR0C
+   \   00000558                      REQUIRE _A_UCSR0B
+   \   00000558                      REQUIRE _A_UCSR0A
+   \   00000558                      REQUIRE _A_TIMSK0
+   \   00000558                      REQUIRE _A_WDTCSR
+   \   00000558                      REQUIRE _A_TCNT0
+   \   00000558                      REQUIRE _A_TCCR0B
+   \   00000558                      REQUIRE _A_TCCR0A
+   \   00000558                      REQUIRE _A_PORTG
+   \   00000558                      REQUIRE _A_DDRG
+   \   00000558                      REQUIRE _A_DDRF
+   \   00000558                      REQUIRE _A_PORTE
+   \   00000558                      REQUIRE _A_DDRE
+   \   00000558                      REQUIRE _A_PINE
+   \   00000558                      REQUIRE _A_DDRD
+   \   00000558                      REQUIRE _A_DDRC
+   \   00000558                      REQUIRE _A_PORTB
+   \   00000558                      REQUIRE _A_DDRB
+   \   00000558                      REQUIRE _A_DDRA
+    324            }
+    325          }
+    326          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    327          /*                                                                                                          */
+    328          /*                                               Подпрограммы                                               */
+    329          /*                                                                                                          */
+    330          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    331          #pragma vector=TIMER0_OVF_vect         // директива определяет вектор функции прерывания, описание которой следует за ней                 
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    332          __interrupt void timer0_ovf_isr(void)  // функция прерывания по переполнению таймера0 
+   \                     timer0_ovf_isr:
+    333          {
+   \   00000000   932A               ST      -Y, R18
+   \   00000002   931A               ST      -Y, R17
+   \   00000004   930A               ST      -Y, R16
+   \   00000006   B71F               IN      R17, 0x3F
+   \   00000008   B72B               IN      R18, 0x3B
+    334            //TIMER0 has overflowed
+    335            TCNT0  = RELOAD_TIM0;                // reload counter value
+   \   0000000A   E908               LDI     R16, 152
+   \   0000000C   BD06               OUT     0x26, R16
+    336          
+    337            if (count_bod)  count_bod--;
+   \   0000000E   9100....           LDS     R16, count_bod
+   \   00000012   2300               TST     R16
+   \   00000014   F029               BREQ    ??timer0_ovf_isr_0
+   \   00000016   9100....           LDS     R16, count_bod
+   \   0000001A   950A               DEC     R16
+   \   0000001C   9300....           STS     count_bod, R16
+    338          
+    339            if(t_led_on)  t_led_on--;            // время подсвечивания --
+   \                     ??timer0_ovf_isr_0:
+   \   00000020   9100....           LDS     R16, t_led_on
+   \   00000024   2300               TST     R16
+   \   00000026   F031               BREQ    ??timer0_ovf_isr_1
+   \   00000028   9100....           LDS     R16, t_led_on
+   \   0000002C   950A               DEC     R16
+   \   0000002E   9300....           STS     t_led_on, R16
+   \   00000032   C001               RJMP    ??timer0_ovf_isr_2
+    340            else          LED_OFF;               // LED-OFF
+   \                     ??timer0_ovf_isr_1:
+   \   00000034   9AA5               SBI     0x14, 0x05
+    341          /*
+    342            Частота переполнения таймера0 SYSTEM_TICK выбрана 600 Гц. Поэтому период переполнения таймера0 Tovf 
+    343            составляет 1.7 мс, а константа перезагрузки 'TIM0' составляет RELOAD_TIM0 = 152(0x98). Подпрограмма 
+    344            обработки прерывания по переполнению таймера0 вызывается каждые 1.7 мс, заново загружает константу 
+    345            перезагрузки 'TIM0' и каждый раз уменьшает значение count_bod и t_led_on на единицу, пока значение 
+    346            count_bod > 0 и t_led_on > 0. 
+    347            Время горения светодиода будет T_LED_ON*Tovf = 120*1.7мс = 0.2c.
+    348          */
+    349          }
+   \                     ??timer0_ovf_isr_2:
+   \   00000036   BF2B               OUT     0x3B, R18
+   \   00000038   BF1F               OUT     0x3F, R17
+   \   0000003A   9109               LD      R16, Y+
+   \   0000003C   9119               LD      R17, Y+
+   \   0000003E   9129               LD      R18, Y+
+   \   00000040   9518               RETI
+   \   00000042                      REQUIRE _A_TCNT0
+   \   00000042                      REQUIRE _A_PORTG
+    350          
+    351          // Подпрограмма инициализации SPI в режиме Master
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    352          void SPI_MasterInit(void)
+   \                     SPI_MasterInit:
+    353          {
+    354          /* 
+    355            - Разрешение SPI в режиме мастера,
+    356            - CPOL = 1 - генерируются тактовые импульсы отрицательной полярности,
+    357            - CPHA = 0 - обработка данных производится по переднему спадающему фронту импульсов сигнала SCK,
+    358            - установка скорости обмена fck/128=16МГц/128=125кГц 
+    359          */
+    360            SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0)|(1<<CPOL);
+   \   00000000   E50B               LDI     R16, 91
+   \   00000002   BD0C               OUT     0x2C, R16
+    361          }
+   \   00000004   9508               RET
+   \   00000006                      REQUIRE _A_SPCR
+    362          
+    363          // Подпрограмма записи по SPI
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    364          void SPI_Write(unsigned char dataout)
+   \                     SPI_Write:
+    365          {
+    366            // Запись байта в регист данных ведущего (инициализация передачи)
+    367            SPDR = dataout;
+   \   00000000   BD0E               OUT     0x2E, R16
+    368            // Ожидание завершения передачи (пока бит SPIF не установлен)
+    369            while(!(SPSR & (1<<SPIF)));
+   \                     ??SPI_Write_0:
+   \   00000002   B51D               IN      R17, 0x2D
+   \   00000004   2F21               MOV     R18, R17
+   \   00000006   FF27               SBRS    R18, 7
+   \   00000008   CFFC               RJMP    ??SPI_Write_0
+    370          }
+   \   0000000A   9508               RET
+   \   0000000C                      REQUIRE _A_SPDR
+   \   0000000C                      REQUIRE _A_SPSR
+
+   \                                 In  segment INTVEC, offset 0x5c, root
+   \                     `??timer0_ovf_isr??INTVEC 92`:
+   \   0000005C   ........           JMP     timer0_ovf_isr
+
+   \                                 In  segment SWITCH, align 2, keep-with-next
+   \                     `?<Jumptable for main>_0`:
+   \   00000000   06                 DB      6
+   \   00000001   01                 DB      1
+   \   00000002   ....               DW      (??main_4) /2
+   \   00000004   ....               DW      (??main_7) /2
+   \   00000006   01                 DB      0x1
+   \   00000007   ....               DW      (??main_9) /2
+   \   00000009   DF                 DB      0xdf
+   \   0000000A   ....               DW      (??main_12) /2
+   \   0000000C   01                 DB      0x1
+   \   0000000D   ....               DW      (??main_15) /2
+   \   0000000F   01                 DB      0x1
+   \   00000010   ....               DW      (??main_18) /2
+   \   00000012   01                 DB      0x1
+   \   00000013   ....               DW      (??main_21) /2
+   \   00000015   01                 DB      0x1
+   \   00000016   ....               DW      (??main_24) /2
+   \   00000018   01                 DB      0x1
+   \   00000019   ....               DW      (??main_27) /2
+   \   0000001B   01                 DB      0x1
+   \   0000001C   ....               DW      (??main_30) /2
+   \   0000001E   01                 DB      0x1
+   \   0000001F   ....               DW      (??main_33) /2
+   \   00000021   01                 DB      0x1
+   \   00000022   ....               DW      (??main_36) /2
+   \   00000024   01                 DB      0x1
+   \   00000025   ....               DW      (??main_39) /2
+   \   00000027   01                 DB      0x1
+   \   00000028   ....               DW      (??main_42) /2
+   \   0000002A   01                 DB      0x1
+   \   0000002B   ....               DW      (??main_45) /2
+   \   0000002D   01                 DB      0x1
+   \   0000002E   ....               DW      (??main_48) /2
+   \   00000030   01                 DB      0x1
+   \   00000031   ....               DW      (??main_51) /2
+   \   00000033   01                 DB      0x1
+   \   00000034   ....               DW      (??main_54) /2
+   \   00000036   FB                 DB      251
+   \   00000037   00                 DB      0
+
+   Maximum stack usage in bytes:
+
+     Function            CSTACK RSTACK
+     --------            ------ ------
+     SPI_MasterInit          0      2
+     SPI_Write               0      2
+     main                    4      2
+       -> SPI_MasterInit     4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+     timer0_ovf_isr          3      2
+
+
+   Segment part sizes:
+
+     Function/Label              Bytes
+     --------------              -----
+     Title                         51
+     _A_DDRL                        1
+     _A_DDRK                        1
+     _A_DDRJ                        1
+     _A_DDRH                        1
+     _A_UDR0                        1
+     _A_UBRR0                       2
+     _A_UCSR0C                      1
+     _A_UCSR0B                      1
+     _A_UCSR0A                      1
+     _A_TIMSK0                      1
+     _A_WDTCSR                      1
+     _A_SPDR                        1
+     _A_SPSR                        1
+     _A_SPCR                        1
+     _A_TCNT0                       1
+     _A_TCCR0B                      1
+     _A_TCCR0A                      1
+     _A_PORTG                       1
+     _A_DDRG                        1
+     _A_DDRF                        1
+     _A_PORTE                       1
+     _A_DDRE                        1
+     _A_PINE                        1
+     _A_DDRD                        1
+     _A_DDRC                        1
+     _A_PORTB                       1
+     _A_DDRB                        1
+     _A_DDRA                        1
+     count                          1
+     count_bod                      1
+     t_led_on                       1
+     R                           1604
+     Command6                       8
+     Command7                       8
+     Com6                           8
+     Com7                           8
+     Com8                           8
+     Com9                           8
+     Com10                          8
+     Com11                          8
+     Com12                          8
+     Com13                          8
+     Com14                          8
+     Com15                          8
+     Com16                          8
+     Com17                          8
+     Com18                          8
+     Com19                          8
+     Com20                          8
+     main                        1368
+     timer0_ovf_isr                66
+     SPI_MasterInit                 6
+     SPI_Write                     12
+     ??timer0_ovf_isr??INTVEC 92    4
+     ?<Jumptable for main>_0       56
+      Others                        7
+
+ 
+    29 bytes in segment ABSOLUTE
+ 1 452 bytes in segment CODE
+     7 bytes in segment INITTAB
+     4 bytes in segment INTVEC
+    51 bytes in segment NEAR_F
+ 1 743 bytes in segment NEAR_Z
+    56 bytes in segment SWITCH
+ 
+ 1 559 bytes of CODE memory (+ 11 bytes shared)
+ 1 743 bytes of DATA memory (+ 29 bytes shared)
+
+Errors: none
+Warnings: none

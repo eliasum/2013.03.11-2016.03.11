@@ -1,0 +1,10 @@
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\bin\Debug\StendOdnocvetnik.exe
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\bin\Debug\StendOdnocvetnik.pdb
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\ResolveAssemblyReference.cache
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.Properties.Resources.resources
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.csproj.GenerateResource.Cache
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.exe
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.pdb
+d:\Work\004. Стенд 2013\Программа\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.MainForm.resources
+d:\Work\004. Стенд 2013\Программа\StendOdnocvetnik\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.exe
+d:\Work\004. Стенд 2013\Программа\StendOdnocvetnik\_Microsoft Visual C# 2008\StendOdnocvetnik_00\StendOdnocvetnik\obj\Debug\StendOdnocvetnik.pdb

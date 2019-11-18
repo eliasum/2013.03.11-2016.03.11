@@ -1,0 +1,1044 @@
+// файл реализации формы Main_Form
+//---------------------------------------------------------------------------
+// директивы препроцессора #include подключают в данный файл тексты указанных в них файлов
+#include <vcl.h>  // объявления, используемые в библиотеке визуальных компонентов С++Builder
+#pragma hdrstop   // конец списка общих заголовочных файлов для всех модулей проекта
+
+#include "BlazePoint_main.h"
+#include "BT.h"
+#include "Sar1.h"
+#include "Sar2.h"
+#include "Sar3.h"
+#include "Sar4.h"
+#include "AboutBox.h"
+#include "Error.h"
+#include "Help.h"
+#include <iostream>
+/*
+iostream — заголовочный файл с классами, функциями и переменными для организации ввода-вывода
+в языке программирования C++. Он включён в стандартную библиотеку C++. Название образовано от
+Input/Output Stream («поток ввода-вывода»). В языке C++ и его предшественнике, языке
+программирования Си, нет встроенной поддержки ввода-вывода, вместо этого используется библиотека
+функций. iostream управляет вводом-выводом, как и stdio.h в Си. iostream использует объекты cin,
+cout, cerr и clog для передачи информации в и из стандартных потоков ввода, вывода, ошибок
+(без буферизации) и ошибок (с буферизацией) соответственно. Являясь частью стандартной
+библиотеки C++, эти объекты также являются частью стандартного пространства имён — std.
+*/
+#include <fstream> // Файловые операции ввода-вывода
+#include <string>
+/*
+string — заголовочный файл с классами, функциями и переменными для организации работы со строками
+в языке программирования C++. Он включён в стандартную библиотеку C++. Название образовано от имени
+строчного типа данных (англ. string). В языке C++ и его предшественнике, языке программирования Си,
+нет встроенной поддержки строкового типа данных, вместо этого используется массив символов. string
+управляет строками, как и string.h в Си. string использует единственный объект string для организации
+работы со строками. Являясь частью стандартной библиотеки C++, эти объекты также являются частью
+стандартного пространства имён — std.
+*/
+
+using namespace std;
+Boolean c1=true;    // флаг запрета добавления строк в LV_Sar1
+Boolean c2=true;    // флаг запрета добавления строк в LV_Sar2
+Boolean c3=true;    // флаг запрета добавления строк в LV_Sar3
+Boolean c4=true;    // флаг запрета добавления строк в LV_Sar4
+
+// Массивы для сохранения параметров Ложной Цели
+int XString[32];
+int YString[32];
+int EPRString[32];
+
+// Переменные
+int OldIndex=0;
+
+//  Константные определения ошибок
+const int NotInBorders=0;
+const int NotFloat=1;
+const int NotInt=2;
+const int FileNotExist=3;
+
+double tmpX,tmpY;
+//---------------------------------------------------------------------------
+#pragma package(smart_init)   /* директива определяет последовательность инициализации пакетов такой, какая
+устанавливается взаимными ссылками использующих их модулей */
+#pragma resource "*.dfm"  // для формы надо использовать файл .dfm с тем же именем, что и имя данного файла
+TMain_Form *Main_Form;  // объявление указателя на объект формы Main_Form
+TIniFile *Ini;
+//---------------------------------------------------------------------------
+// вызов конструктора формы Main_Form
+__fastcall TMain_Form::TMain_Form(TComponent* Owner)
+  : TForm(Owner)
+{
+  if(!DirectoryExists(My_Patch + "Данные_БТ"))
+  {
+    if(!CreateDir(My_Patch + "Данные_БТ"))
+      ShowMessage("Не удается создать директорию хранения данных БТ!");
+    else
+      ShowMessage("Создана директория для хранения данных БТ!");
+  }
+
+  if(!DirectoryExists(My_Patch + "Данные_РЛС_и_модуля"))
+  {
+    if(!CreateDir(My_Patch + "Данные_РЛС_и_модуля"))
+      ShowMessage("Не удается создать директорию хранения данных РЛС и модуля!");
+    else
+      ShowMessage("Создана директория для хранения данных РЛС и модуля!");
+  }
+/*
+  Boolean DirectoryExists(AnsiString DirectoryName);
+  Функция DirectoryExists возвращает True, если данный DirectoryName файл существует.
+  Каталог разыскивается в текущем каталоге. False может быть возвращена, если пользователю не
+  разрешено видеть файл.
+
+  Boolean CreateDir(AnsiString Dir);
+  Функция CreateDir создаёт папку в текущей директории.
+  Если папка была создана, то функция вернёт True, если нет, то ошибка может быть получена
+  с помощью функции GetLastError.
+*/
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::LoadBlpClick(TObject *Sender) // нажатие на кнопку "Открыть файл .blp"
+{
+  OpenDialog->DefaultExt=".blp";
+  OpenDialog->FileName="*.blp";
+  OpenDialog->Filter="Файл данных БТ (*.blp)|*.blp";
+  OpenDialog->Title=" Загрузка файла данных БТ";
+
+  String File;
+
+  if(OpenDialog->Execute())
+  {
+    File=OpenDialog->FileName;
+    BlpFName=File;
+
+    if(FileExists(File))
+    {
+      Ini= new TIniFile(File);
+/*
+      Ini->ReadString("Название секции","Имя переменной", "значение");
+*/
+       edLCBT->Text=Ini->ReadString("Файл данных БТ","Количество БТ","1");  // считать из файла в массив
+
+      for(int i=0; i<StrToInt(edLCBT->Text); i++)
+      {
+        // Координата X БТ
+        XString[i]=StrToInt(Ini->ReadString("Файл данных БТ","Координата X блестящей точки (БТ)"+IntToStr(i+1)+"\"","0"));  // считать из файла в массив
+        // Координата Y БТ
+        YString[i]=StrToInt(Ini->ReadString("Файл данных БТ","Координата Y блестящей точки (БТ)"+IntToStr(i+1)+"\"","0"));  // считать из файла в массив
+        // ЭПР БТ
+        EPRString[i]=StrToInt(Ini->ReadString("Файл данных БТ","ЭПР блестящей точки (БТ)"+IntToStr(i+1)+"\"","0"));  // считать из файла в массив
+      }
+      cbLCnBT->Clear();                // очистить предыдущее количество БТ
+
+      for(int i=0;i<StrToInt(edLCBT->Text);i++)
+      {
+        cbLCnBT->Items->Add(IntToStr(i+1)); // увеличить количество БТ в полях "Номер блестящей точки"
+      }
+
+      cbLCnBT->ItemIndex=OldIndex;    // номер БТ по умолчанию при изменении числа БТ
+      edLCx->Text=XString[OldIndex];  // показать текущие значения
+      edLCy->Text=YString[OldIndex];
+      LE_EPR->Text=EPRString[OldIndex];
+
+      edLCBT->Enabled=false;          // запретить поле "Количество блестящих точек"
+      btnReDrawLC->Enabled=true;      // разрешить кнопку "Обновить график"
+      edLCx->Enabled=true;            // разрешить поле "Координата X"
+      edLCy->Enabled=true;            // разрешить поле "Координата Y"
+      LE_EPR->Enabled=true;           // разрешить поле "ЭПР"
+      B_Sbros->Enabled=true;          // разрешить кнопку "Сбросить БТ"
+      DrawLC();                       // обновить график
+      edLCBT->Color=clWindow;
+
+      delete Ini;
+    }
+    else
+    {
+      ShowError(FileNotExist, 0, 0, "");
+      return;
+    }
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::SaveBlpClick(TObject *Sender) // нажатие на кнопку "Сохранить файл .blp"
+{
+  SaveDialog->InitialDir=My_Patch + "Данные_БТ";
+  SaveDialog->FileName="*.blp";
+  SaveDialog->Title=" Сохранение файла данных БТ";
+  SaveDialog->Filter="данные БТ (*.blp)|*.blp";
+  
+  String File;
+  FILE *F;
+
+  if(SaveDialog->Execute())
+  {
+    File=SaveDialog->FileName;
+    BlpFName=File;
+    if(F!=NULL)
+    {
+      F=fopen(File.c_str(),"w+"); // открыть файл с перезаписью
+      fclose(F);                  // закрыть файл
+    }
+    Ini= new TIniFile(File); // создание нового файла .ini
+/*
+    Ini->WriteString("Название секции","Имя переменной", "значение");
+*/
+    Ini->WriteString("Файл данных БТ","Количество БТ",edLCBT->Text);
+    // Координата X БТ
+    for(int i=0; i<StrToInt(edLCBT->Text); i++)
+    {
+      Ini->WriteString("Файл данных БТ","Координата X блестящей точки (БТ)"+IntToStr(i+1)+"\"",XString[i]);  // запись из массива в файл
+    }
+    // Координата Y БТ
+    for(int i=0; i<StrToInt(edLCBT->Text); i++)
+    {
+      Ini->WriteString("Файл данных БТ","Координата Y блестящей точки (БТ)"+IntToStr(i+1)+"\"",YString[i]);  // запись из массива в файл
+    }
+    // ЭПР БТ
+    for(int i=0; i<StrToInt(edLCBT->Text); i++)
+    {
+      Ini->WriteString("Файл данных БТ","ЭПР блестящей точки (БТ)"+IntToStr(i+1)+"\"",EPRString[i]);  // запись из массива в файл
+    }
+
+    delete Ini;
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::ExitClick(TObject *Sender)
+{
+  Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LV_Sar1DblClick(TObject *Sender)
+{
+  if (LV_Sar1->Selected!= NULL) F_Sar1->ShowModal(); // если выбранная строка LV_Sar1 не пуста, открыть форму
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_AddSar2Click(TObject *Sender) // нажатие на кнопку "Добвить данные Sar2"
+{
+  if(c2)                                      // если нет запрета добавления строк в LV_Sar2
+  {
+    TListItem *Item = LV_Sar2->Items->Add();  // добавить новую строку LV_Sar2
+    // заполнить колонки значениями по умолчанию
+    Item->Caption = 0;                        // Ку усилителя 1 [дБ]
+    Item->SubItems->Add(0);                   // Ку усилителя 2 [дБ]
+    Item->SubItems->Add(970);                 // f среза фильтра 1 [град.]
+    Item->SubItems->Add(970);                 // f среза фильтра 2 [град.]
+    Item->SubItems->Add(1);                   // Wраб. приёмника
+    Item->SubItems->Add(1);                   // Wраб. передатчика
+    c2=false;                                 // запретить добавление строк в LV_Sar2
+    B_AddSar2->Enabled=false;                 // отключить кнопку "Добвить данные Sar2"
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_DeleteSar2Click(TObject *Sender) // нажатие на кнопку "Удалить данные Sar2"
+{
+  if (LV_Sar2->Selected != NULL)  // если выбранная строка LV_Sar2 не пуста
+  {
+    LV_Sar2->Selected->Delete();  // удалить выбранную строку
+    c2=true;                      // разрешить добавления строк в LV_Sar2
+    B_AddSar2->Enabled=true;      // включить кнопки "Добвить данные Sar2"
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LV_Sar2DblClick(TObject *Sender)
+{
+  if (LV_Sar2->Selected!= NULL) F_Sar2->ShowModal(); // если выбранная строка LV_Sar2 не пуста, открыть форму
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LoadSarClick(TObject *Sender)
+{
+/*
+  Потоки для работы с файлами создаются как объекты следующих классов:
+
+  ofstream - для вывода (записи) данных в файл;
+  ifstream - для ввода (чтения) данных из файла;
+  fstream - для чтения и для записи данных (двунаправленный обмен).
+
+  Чтобы использовать эти классы, в текст программы необходимо включить дополнительный заголовочный
+  файл fstream.h. После этого в программе можно определять конкретные файловые потоки, соответствующих
+  типов (объекты классов ofstream, ifstream, fstream), например, таким образом:
+
+  ofstream outFile; // Выходной файловый поток.
+  ifstream inFile; // Входной файловый поток.
+  fstream ioFile; // Файловый поток для ввода и вывода.
+
+  Создание файлового потока (объекта соответствующего класса) связывает имя потока с выделяемым для него
+  буфером и инициализирует переменные состояния потока. Так как перечисленные классы файловых потоков
+  наследуют свойства класса ios, то и переменные состояния каждого файлового потока наследуются из этого
+  базового класса. Так как файловые классы являются производными от классов ostream (класс ofstream),
+  istream (класс ifstream), stream (класс fstream), то они поддерживают описанный в предыдущих шагах
+  форматированный и бесформатный обмен с файлами. Однако прежде чем выполнить обмен, необходимо открыть
+  соответствующий файл и связать его с файловым потоком.
+
+  Открытие файла в самом общем смысле означает процедуру, информирующую систему о тех действиях, которые
+  предполагается выполнять с файлом. Существуют функции стандартной библиотеки языка С для открытия файлов
+  fopen(), open(). Но работая с файловыми потоками библиотеки ввода-вывода языка С++, удобнее пользоваться
+  компонентными функциями соответствующих классов.
+
+  Создав файловый поток, можно "присоединить" его к конкретному файлу с помощью компонентной функции open().
+  Функция open() унаследована каждым из файловых классов ofstream, ifsream, fstream от класса fstreambase.
+  С ее помощью можно не только открыть файл, но и связать его с уже определенным потоком.
+*/
+  ifstream infile; // Входной файловый поток.
+
+  if(OpenDialog1->Execute())          // если выбран диалог OpenDialog1 
+/*
+  virtual __fastcall bool Execute(HWND ParentWnd);
+  Отображает диалог выбора файлов.
+  Возвращает true, если пользователь выбрал файл и нажал кнопку "Открыть" ("Open") в диалоге.
+  Если пользователь нажал кнопку "Отмена" ("Cancel"), то Execute возвращает false.
+*/
+  {
+    SarFName = OpenDialog1->FileName; // имя выбранного файла сохраняется в переменной BlpFName
+    LV_Sar1->Items->Clear();          // очистка LV_Sar1
+    LV_Sar2->Items->Clear();          // очистка LV_Sar2
+    LV_Sar3->Items->Clear();          // очистка LV_Sar3
+    LV_Sar4->Items->Clear();          // очистка LV_Sar4
+    Update_Dump_sar();                // загрузка файла SarFName в LV_Sar1 и LV_Sar2
+    c1=false;                         // запретить добавление строк в LV_Sar1
+    B_AddSar1->Enabled=false;         // отключить кнопку "Добвить данные Sar1"
+    c2=false;                         // запретить добавление строк в LV_Sar2
+    B_AddSar2->Enabled=false;         // отключить кнопку "Добвить данные Sar2"
+    c3=false;                         // запретить добавление строк в LV_Sar3
+    B_AddSar3->Enabled=false;         // отключить кнопку "Добвить данные Sar3"
+    c4=false;                         // запретить добавление строк в LV_Sar4
+    B_AddSar4->Enabled=false;         // отключить кнопку "Добвить данные Sar4"
+  }
+  if(!infile)                         // если не входной файловый поток
+  {
+    MessageBox(NULL,"Файл не удается открыть!","Ошибка!",MB_OK|MB_ICONERROR);
+    return;
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::SaveSarClick(TObject *Sender)
+{
+  SaveDialog1->InitialDir=My_Patch + "Данные_РЛС_и_модуля";
+  SaveDialog1->FileName="*.sar";
+  SaveDialog1->Title=" Сохранение файла данных РЛС и модуля";
+  SaveDialog1->Filter="данные РЛС и модуля (*.sar)|*.sar";
+  
+  if (SaveDialog1->Execute())         // если выбран диалог SaveDialog1
+/*
+  virtual __fastcall bool Execute(HWND ParentWnd);
+  Отображает диалог выбора файлов.
+  Возвращает true, если пользователь выбрал файл и нажал кнопку "Открыть" ("Open") в диалоге.
+  Если пользователь нажал кнопку "Отмена" ("Cancel"), то Execute возвращает false.
+*/  
+  {
+    SarFName = SaveDialog1->FileName; // имя выбранного файла сохраняется в переменной SarFName
+    Save_Dump_sar();                  // сохранить данные Sar в файл
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::Update_Dump_sar() // открыть дамп sar
+{
+  TListItem *pItem;               // указатель на объект типа TListItem (первый столбец строки ListView)
+  std::ifstream ifile(SarFName.c_str()); // Входной файловый поток (файл открывается для ввода (чтения))
+  std::string line;               // строка line класса string
+/*
+  Функция std::getline (string) служит для заполнения строки из входного потока.
+  (1) istream& getline (istream& is, string& str, char delim);
+  (2) istream& getline (istream& is, string& str);
+  Извлекает символы из is и сохраняет их в str пока не встретится разделительный символ delim
+  (или символ новой строки, '\n', для пункта (2)).
+  Извлечение так же прекращается, если достигнут конец файла в is или если возникли некоторые ошибки
+  во время операции ввода (чтения).
+  Если разделитель найден, он извлекается и отбрасывается, т.е он не сохраняется и следующая операция
+  начинается посленего.
+*/
+  while(std::getline(ifile,line))                  // пока заполняется строка из входного потока
+  {
+    if(line == "*")                                // если встретился этот символ
+      if(std::getline(ifile,line))                 // если заполняется строка из входного потока
+      {
+        pItem = LV_Sar1->Items->Add();             // добавить объект pItem
+        pItem->Caption =AnsiString(line.c_str());  // заполнить объект pItem
+      }
+    if(line == "**")                               // если встретился этот символ
+      if(std::getline(ifile,line))                 // если заполняется строка из входного потока
+        pItem->SubItems->Add(line.c_str());        // добавить объект SubItem
+
+    if(line == "***")                              // если встретился этот символ
+      if(std::getline(ifile,line))                 // если заполняется строка из входного потока
+      {
+        pItem = LV_Sar2->Items->Add();             // добавить объект pItem
+        pItem->Caption =AnsiString(line.c_str());  // заполнить объект pItem
+      }
+    if(line == "****")                             // если встретился этот символ
+      if (std::getline(ifile,line))                // если заполняется строка из входного потока
+        pItem->SubItems->Add(line.c_str());        // добавить объект SubItem
+
+    if(line == "*****")                            // если встретился этот символ
+      if(std::getline(ifile,line))                 // если заполняется строка из входного потока
+      {
+        pItem = LV_Sar3->Items->Add();             // добавить объект pItem
+        pItem->Caption =AnsiString(line.c_str());  // заполнить объект pItem
+      }
+    if(line == "******")                           // если встретился этот символ
+      if (std::getline(ifile,line))                // если заполняется строка из входного потока
+        pItem->SubItems->Add(line.c_str());        // добавить объект SubItem
+
+    if(line == "*******")                          // если встретился этот символ
+      if(std::getline(ifile,line))                 // если заполняется строка из входного потока
+      {
+        pItem = LV_Sar4->Items->Add();             // добавить объект pItem
+        pItem->Caption =AnsiString(line.c_str());  // заполнить объект pItem
+      }
+    if(line == "********")                         // если встретился этот символ
+      if (std::getline(ifile,line))                // если заполняется строка из входного потока
+        pItem->SubItems->Add(line.c_str());        // добавить объект SubItem
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::Save_Dump_sar()  // сохранить дамп sar
+{
+/*
+  std::ofstream - класс выходного потока для работы с файлами.
+  std::ofstream SaveFile - выходной файловый поток (файл открывается для вывода (записи)).
+  std::ios_base::out - способ открытия файла для вывода данных.
+  Функция std::endl кроме переноса строки, производит сброс буферов потока вывода (записи) данных в файл;
+*/
+  ofstream SaveFile;
+  SaveFile.open(SarFName.c_str(), ios::out);
+  
+  for (int i=0; i<LV_Sar1->Items->Count; i++) // перебор Items
+  {
+    SaveFile<<"*"<<endl;                      // записать символ в файл, закончить строку
+    SaveFile<<LV_Sar1->Items->Item[i]->Caption.c_str()<<endl; // записать значение i-го Item, закончить строку
+    for (int j=0; j<LV_Sar1->Items->Item[i]->SubItems->Count; j++) // перебор SubItems
+    {
+      SaveFile<<"**"<<endl;                   // записать символ в файл, закончить строку
+      SaveFile<<LV_Sar1->Items->Item[i]->SubItems->Strings[j].c_str()<<endl; // записать значение j-го SubItem, закончить строку
+    }
+    SaveFile<<endl;                           // записать пустую строку в файл
+  }
+
+  for (int i=0; i<LV_Sar2->Items->Count; i++) // перебор Items
+  {
+    SaveFile<<"***"<<endl;                    // записать символ в файл, закончить строку
+    SaveFile<<LV_Sar2->Items->Item[i]->Caption.c_str()<<endl; // записать значение i-го Item, закончить строку
+    for (int j=0; j<LV_Sar2->Items->Item[i]->SubItems->Count; j++) // перебор SubItems
+    {
+      SaveFile<<"****"<<endl;                 // записать символ в файл, закончить строку
+      SaveFile<<LV_Sar2->Items->Item[i]->SubItems->Strings[j].c_str()<<endl; // записать значение j-го SubItem, закончить строку
+    }
+    SaveFile<<endl;                           // записать пустую строку в файл
+  }
+
+  for (int i=0; i<LV_Sar3->Items->Count; i++) // перебор Items
+  {
+    SaveFile<<"*****"<<endl;                  // записать символ в файл, закончить строку
+    SaveFile<<LV_Sar3->Items->Item[i]->Caption.c_str()<<endl; // записать значение i-го Item, закончить строку
+    for (int j=0; j<LV_Sar3->Items->Item[i]->SubItems->Count; j++) // перебор SubItems
+    {
+      SaveFile<<"******"<<endl;               // записать символ в файл, закончить строку
+      SaveFile<<LV_Sar3->Items->Item[i]->SubItems->Strings[j].c_str()<<endl; // записать значение j-го SubItem, закончить строку
+    }
+    SaveFile<<endl;                           // записать пустую строку в файл
+  }
+
+  for (int i=0; i<LV_Sar4->Items->Count; i++) // перебор Items
+  {
+    SaveFile<<"*******"<<endl;                // записать символ в файл, закончить строку
+    SaveFile<<LV_Sar4->Items->Item[i]->Caption.c_str()<<endl; // записать значение i-го Item, закончить строку
+    for (int j=0; j<LV_Sar4->Items->Item[i]->SubItems->Count; j++) // перебор SubItems
+    {
+      SaveFile<<"********"<<endl;             // записать символ в файл, закончить строку
+      SaveFile<<LV_Sar4->Items->Item[i]->SubItems->Strings[j].c_str()<<endl; // записать значение j-го SubItem, закончить строку
+    }
+    SaveFile<<endl;                           // записать пустую строку в файл
+  }
+  
+  SaveFile.close();                           // закрыть записанный файл
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_AddSar3Click(TObject *Sender) // нажатие на кнопку "Добвить данные Sar2"
+{
+  if(c3)                                      // если нет запрета добавления строк в LV_Sar3
+  {
+    TListItem *Item = LV_Sar3->Items->Add();  // добавить новую строку LV_Sar3
+    // заполнить колонки значениями по умолчанию
+    // Reg[0]=0x00C80000;
+    Item->Caption = IntToHex(0, 2);           // Байт 1  (R0_1)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 2  (R0_2)
+    Item->SubItems->Add(IntToHex(200, 2));    // Байт 3  (R0_3)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 4  (R0_4)
+    // Reg[1]=0x080080C9;
+    Item->SubItems->Add(IntToHex(201, 2));    // Байт 5  (R1_1)
+    Item->SubItems->Add(IntToHex(128, 2));    // Байт 6  (R1_2)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 7  (R1_3)
+    Item->SubItems->Add(IntToHex(8, 2));      // Байт 8  (R1_4)
+    // Reg[2]=0x00004EC2;
+    Item->SubItems->Add(IntToHex(194, 2));    // Байт 9  (R2_1)
+    Item->SubItems->Add(IntToHex(78, 2));     // Байт 10 (R2_2)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 11 (R2_3)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 12 (R2_4)
+    c3=false;                                 // запрет добавления строк в LV_Sar3
+    B_AddSar3->Enabled=false;                 // отключение кнопки "Добвить данные Sar3"
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::B_AddSar4Click(TObject *Sender)
+{
+  if(c4)                                      // если нет запрета добавления строк в LV_Sar4
+  {
+    TListItem *Item = LV_Sar4->Items->Add();  // добавить новую строку LV_Sar4
+    // заполнить колонки значениями по умолчанию
+    // Reg[3]=0x000004B3;
+    Item->Caption = IntToHex(179, 2);         // Байт 13 (R3_1)
+    Item->SubItems->Add(IntToHex(4, 2));      // Байт 14 (R3_2)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 15 (R3_3)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 16 (R3_4)
+    // Reg[4]=0x00A5003C;
+    Item->SubItems->Add(IntToHex(60, 2));     // Байт 17 (R4_1)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 18 (R4_2)
+    Item->SubItems->Add(IntToHex(165, 2));    // Байт 19 (R4_3)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 20 (R4_4)
+    // Reg[5]=0x00580005;
+    Item->SubItems->Add(IntToHex(5, 2));      // Байт 21 (R5_1)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 22 (R5_2)
+    Item->SubItems->Add(IntToHex(88, 2));     // Байт 23 (R5_3)
+    Item->SubItems->Add(IntToHex(0, 2));      // Байт 24 (R5_4)
+    c4=false;                                 // запрет добавления строк в LV_Sar4
+    B_AddSar4->Enabled=false;                 // отключение кнопки "Добвить данные Sar4"
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::B_DeleteSar3Click(TObject *Sender) // нажатие на кнопку "Удалить данные Sar3"
+{
+  if (LV_Sar3->Selected != NULL)  // если выбранная строка LV_Sar3 не пуста
+  {
+    LV_Sar3->Selected->Delete();  // удалить выбранную строку
+    c3=true;                      // разрешить добавления строк в LV_Sar3
+    B_AddSar3->Enabled=true;      // включить кнопку "Добвить данные Sar3"
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::B_DeleteSar4Click(TObject *Sender)
+{
+  if (LV_Sar4->Selected != NULL)  // если выбранная строка LV_Sar4 не пуста
+  {
+    LV_Sar4->Selected->Delete();  // удалить выбранную строку
+    c4=true;                      // разрешить добавления строк в LV_Sar4
+    B_AddSar4->Enabled=true;      // включить кнопку "Добвить данные Sar4"
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LV_Sar3DblClick(TObject *Sender)
+{
+  if (LV_Sar3->Selected!= NULL) F_Sar3->ShowModal(); // если выбранная строка LV_Sar3 не пуста, открыть форму
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LV_Sar4DblClick(TObject *Sender)
+{
+  if (LV_Sar4->Selected!= NULL) F_Sar4->ShowModal(); // если выбранная строка LV_Sar4 не пуста, открыть форму   
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::edLCBTExit(TObject *Sender)
+// когда поле "Количество блестящих точек" неактивно
+{
+  bool b;
+  int min=1;                                   // минимальное значение
+  int max=32;                                  // максимальное значение
+  int delta=1;
+  String EdIzm="";                             // единица измерения
+  String value;                                // строка значения
+
+  value=edLCBT->Text;                          // значение
+
+  b=IsValidInt(min,max,value,EdIzm);           // проверка правильности диапазона значений
+  if(b)                                        // если правильно
+  {
+    edLCBT->Text=RoundValue(delta,value);
+    cbLCnBT->Clear();                          // очистить предыдущее количество БТ
+
+    for(int i=0;i<StrToInt(edLCBT->Text);i++)
+    {
+      cbLCnBT->Items->Add(IntToStr(i+1));      // увеличить количество БТ в полях "Номер блестящей точки"
+
+      XString[i]=StrToInt(edLCx->Text);        // заполнение массива данных!!!
+      YString[i]=StrToInt(edLCy->Text);
+      EPRString[i]=StrToInt(LE_EPR->Text);
+    }
+    cbLCnBT->ItemIndex=0;                      // номер БТ по умолчанию при изменении числа БТ
+  }
+  else                                         // если не правильно
+  {
+    edLCBT->SetFocus();                        // фокус на поле "Количество блестящих точек"
+    ErrorForm->SetFocus();                     // вывод сообщения об ошибке
+  }
+
+  edLCBT->Enabled=false;                       // запретить поле "Количество блестящих точек"
+  edLCx->Enabled=true;                         // разрешить поле "Координата X"
+  edLCy->Enabled=true;                         // разрешить поле "Координата Y"
+  LE_EPR->Enabled=true;                        // разрешить поле "ЭПР"
+  B_Sbros->Enabled=true;                       // разрешить кнопку "Сбросить БТ"
+  btnReDrawLC->Enabled=true;                   // разрешить кнопку "Обновить график"
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::PIntKeyPress(TObject *Sender, char &Key)
+// запрет введения любых символов, кроме чисел 0...9
+{
+/*
+  Класс set поддерживает множество, в котором не уникальным(в общем случае)
+  ключам соответствуют определенные значения. Спецификация его шаблона имеет следующий вид
+
+  template <class Key, class Comp = less<Key>, class Allocator = allocator<Key>> class set
+
+  Здесь Key - тип данных ключей, a Comp - функция, которая сравнивает два ключа.
+  Класс set имеет следующие конструкторы.
+
+  explicit set(const Comp &cmpfn = Comp(), const Allocator &a = Allocator));
+  set(const set<Key, Comp, Allocator> &ob);
+  template  <class InIter> set(InIter start, InIter end,
+	const Comp &cmpfn = Comp(), const Allocator &a = Allocator());
+
+  Первая форма конструктора создает пустое множество, Вторая создает множество,
+  которое содержит те же элементы, что и множество ob. Третья создает множество, которое
+  содержит элементы в диапазоне, заданном параметрами start и end. Функция, заданная
+  параметром cmpfn(если она задана), определяет упорядочение множества.
+
+  Для класса set определены следующие операторы сравнения: ==, <, <=, !=, > и >=.
+
+  Строго говоря, set обеспечивает следующую функциональность:
+  - добавить элемент в рассматриваемое множество, при этом исключая возможность появления дублей;
+  - удалить элемент из множества;
+  - узнать количество (различных) элементов в контейнере;
+  - проверить, присутствует ли в контейнере некоторый элемент.
+*/
+  Set<char,0,255>Dig;
+	Dig<<'0'<<'1'<<'2'<<'3'<<'4'<<'5'<<'6'<<'7'<<'8'<<'9'<<8<<'-';
+	if(!Dig.Contains(Key))
+	{
+	  Key=0;
+	  return;
+	}
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::cbLCnBTChange(TObject *Sender)
+// по изменении номера БТ
+{
+  int i;
+  i=cbLCnBT->ItemIndex;                       // записать новый порядковый номер БТ
+
+  XString[OldIndex]=StrToInt(edLCx->Text);    // записать значения в массивы
+  YString[OldIndex]=StrToInt(edLCy->Text);
+  EPRString[OldIndex]=StrToInt(LE_EPR->Text);
+
+  OldIndex=i;                                 // сохранить текущий порядковый номер
+
+  edLCx->Text=XString[i];                     // показать текущие значения
+  edLCy->Text=YString[i];
+  LE_EPR->Text=EPRString[i];
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::edLCxChange(TObject *Sender)
+{
+  int Comm;
+  if(edLCx->Text=="") edLCx->Text=0;
+  Comm=StrToInt(edLCx->Text);
+  XString[OldIndex]=Comm;
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::edLCxExit(TObject *Sender)
+{
+  bool b;
+  int min=0;                                    // минимальное значение
+  int max=850;                                  // максимальное значение
+  int delta=1;
+  String EdIzm="м";                             // единица измерения
+  String value;                                 // строка значения
+
+  value=edLCx->Text;                            // значение
+
+  b=IsValidInt(min,max,value,EdIzm);            // проверка правильности диапазона значений
+  if(b)                                         // если правильно
+  {
+    if(StrToInt(edLCx->Text)>100)               // если вне запрещённой зоны
+    {
+      edLCx->Text=RoundValue(delta,value);
+      XString[OldIndex]=StrToInt(edLCx->Text);  // записать значение в массив
+      DrawLC();                                 // обновить график
+    }
+  }
+  else
+  {
+    edLCx->SetFocus();                          // фокус на поле "Количество блестящих точек"
+    ErrorForm->SetFocus();                      // вывод сообщения об ошибке
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::edLCyChange(TObject *Sender)
+{
+  int Comm;
+  if(edLCy->Text=="") edLCy->Text=0;
+  Comm=StrToInt(edLCy->Text);
+  YString[OldIndex]=Comm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::edLCyExit(TObject *Sender)
+{
+  bool b;
+  int min=0;                                  // минимальное значение
+  int max=850;                                // максимальное значение
+  int delta=1;
+  String EdIzm="м";                           // единица измерения
+  String value;                               // строка значения
+
+  value=edLCy->Text;                          // значение
+
+  b=IsValidInt(min,max,value,EdIzm);          // проверка правильности диапазона значений
+  if(b)                                       // если правильно
+  {
+    edLCy->Text=RoundValue(delta,value);
+    YString[OldIndex]=StrToInt(edLCy->Text);  // записать значение в массив
+    DrawLC();                                 // обновить график
+  }
+  else
+  {
+    edLCy->SetFocus();                        // фокус на поле "Количество блестящих точек"
+    ErrorForm->SetFocus();                    // вывод сообщения об ошибке
+  }  
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::btnReDrawLCClick(TObject *Sender)
+{
+  if(StrToInt(edLCx->Text)>100)
+  {
+    DrawLC();                               // обновить график
+  }
+}
+//---------------------------------------------------------------------------
+bool TMain_Form::IsValidInt(int min, int max, String value, String EdIzm)
+// проверка правильности диапазона значений
+{
+  int temp;
+
+  try
+  {
+    temp=StrToInt(value);
+
+    if((temp>max)||(temp<min))
+    {
+      ShowError(NotInBorders,min,max,EdIzm);
+      return false;
+    }
+
+  }
+
+  catch(...)
+  {
+    ShowError(NotInt,0,0,"");
+    return false;
+  }
+  
+  return true;
+}
+//---------------------------------------------------------------------------
+String TMain_Form::RoundValue(float delta, String value)
+{
+  float temp;
+  float temp1;
+
+  temp=StrToFloat(value);
+  temp1=Log10(delta);
+  value=RoundTo(temp,temp1);
+
+  return value;
+}
+//---------------------------------------------------------------------------
+void TMain_Form::DrawLC(void)
+// обновить график
+{
+  int X,Y,xmax,xmin,ymax,ymin;
+  int I=StrToInt(edLCBT->Text);
+
+  Series1->Clear();
+
+  if(edLCBT->Text=="") return;
+
+  I=StrToInt(edLCBT->Text);
+
+  xmax=0;
+  xmin=0;
+  ymax=0;
+  ymin=0;
+
+  for(int i=0;i<I;i++)
+  {
+    X=StrToInt(XString[i]);
+    Y=StrToInt(YString[i]);
+
+    Series1->AddXY(Y,X);
+
+    if(X>xmax) xmax=X;
+    if(Y>ymax) ymax=Y;
+    if(X<xmin) xmin=X;
+    if(Y<ymin) ymin=Y;         
+  }
+
+  ChartLC->BottomAxis->Increment=abs(ymax-ymin)/5.;
+  ChartLC->DepthAxis->Increment=abs(xmax-xmin)/5.;
+}
+//---------------------------------------------------------------------------
+void TMain_Form::ShowError(int ErrorNum, float Par1, float Par2, String Par3)
+{
+  switch(ErrorNum)
+  {
+    case NotInBorders:
+      ErrorForm->Visible=true;
+      ErrorForm->Caption="Ошибка";
+      ErrorForm->Panel1->Caption="Ошибка ввода данных. Введенное значение вне допустимого диапазона.";
+      ErrorForm->Panel2->Caption="Значение должно лежать в диапазоне от "+ FloatToStrF(Par1,ffGeneral,5,2)+" до "+FloatToStrF(Par2,ffGeneral,5,2)+" "+Par3+".";
+    break;
+
+    case NotFloat:
+      ErrorForm->Visible=true;
+      ErrorForm->Caption="Ошибка";
+      ErrorForm->Panel1->Caption="Ошибка ввода данных. Введенное значение не является вещественным.";
+      ErrorForm->Panel2->Caption="Необходимо вводить вещественные значения. Например, \"-2,2e+3\".";
+    break;
+
+    case NotInt:
+      ErrorForm->Visible=true;
+      ErrorForm->Caption="Ошибка";
+      ErrorForm->Panel1->Caption="Ошибка ввода данных. Введенное значение не является целым.";
+      ErrorForm->Panel2->Caption="Необходимо вводить целые значения. Например, \"-25\".";
+    break;
+
+    case FileNotExist:
+      ErrorForm->Visible=true;
+      ErrorForm->Caption="Ошибка";
+      ErrorForm->Panel1->Caption="Невозможно загрузить не существующий файл. Для создания нового файла";
+      ErrorForm->Panel2->Caption="воспользуйтесь командами \"Сохранить\" и \"Сохранить как...\".";
+    break;
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_SbrosClick(TObject *Sender)
+{
+  edLCBT->Text="";
+  cbLCnBT->Clear();
+  edLCx->Text="0";
+  edLCy->Text="0";
+  LE_EPR->Text="0";
+
+  for(int i=0;i<32;i++)
+  {
+    XString[i]=0;                  // заполнение массива данных!!!
+    YString[i]=0;
+    EPRString[i]=0;
+  }
+
+  edLCBT->Enabled=true;            // разрешить поле "Количество блестящих точек"
+  edLCBT->Color=clYellow;
+  cbLCnBT->Enabled=false;          // запретить поле "Номер БТ"
+  edLCx->Enabled=false;            // запретить поле "Координата X"
+  edLCy->Enabled=false;            // запретить поле "Координата Y"
+  LE_EPR->Enabled=false;           // запретить поле "ЭПР"
+  btnReDrawLC->Enabled=false;      // запретить кнопку "Обновить график"
+  Series1->Clear();                // очистить график
+  B_Sbros->Enabled=false;          // запретить кнопку "Сбросить БТ"
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::FormCreate(TObject *Sender)
+{
+  Series1->FillSampleValues(30);  // <-- some random values
+  OldX = -1;                      // initialize variables
+  CrossHairColor = clRed;
+  CrossHairStyle = psSolid;
+  ChartLC->Cursor = crCross;
+
+  Series1->Clear();               // очистить график
+}
+//---------------------------------------------------------------------------
+// This procedure draws the crosshair lines }
+void TMain_Form::DrawCross(int ax, int ay)
+{
+  TColor tmp;
+  tmp = ChartLC->BackColor;
+  if (tmp == clTeeColor)
+    tmp = clBtnFace;
+  ChartLC->Canvas->Pen->Color = (TColor)(CrossHairColor ^ ColorToRGB(tmp));
+
+  ChartLC->Canvas->Pen->Style = CrossHairStyle;
+  ChartLC->Canvas->Pen->Mode = pmXor;
+  ChartLC->Canvas->Pen->Width = 1;
+  ChartLC->Canvas->MoveTo(ax,ChartLC->ChartRect.Top-ChartLC->Height3D);
+  ChartLC->Canvas->LineTo(ax,ChartLC->ChartRect.Bottom-ChartLC->Height3D);
+  ChartLC->Canvas->MoveTo(ChartLC->ChartRect.Left+ChartLC->Width3D,ay);
+  ChartLC->Canvas->LineTo(ChartLC->ChartRect.Right+ChartLC->Width3D,ay);
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::ChartLCMouseMove(TObject *Sender,
+      TShiftState Shift, int X, int Y)
+{
+  if (OldX != 1) {
+    DrawCross(OldX,OldY);  // draw old crosshair
+    OldX = -1;
+  }
+
+  // check if (mouse is inside Chart rectangle
+  if (PtInRect((RECT*)&ChartLC->ChartRect, Point(X-ChartLC->Width3D,Y+ChartLC->Height3D))) {
+    DrawCross(X,Y);  // draw crosshair at current position
+    // store old position
+    OldX = X;
+    OldY = Y;
+    // set label text
+    Series1->GetCursorValues(tmpX,tmpY);  // <-- get values under mouse cursor
+    Label1->Caption = Series1->GetVertAxis->LabelValue(tmpY)
+      + " " + Series1->GetHorizAxis->LabelValue(tmpX);
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::LineSeries1AfterDrawValues(TObject *Sender)
+{
+  OldX = -1;  // Reset old mouse position
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_AddSar1Click(TObject *Sender) // нажатие на кнопку "Добвить данные Sar1"
+{
+  if(c1)                                      // если нет запрета добавления строк в LV_Sar1
+  {
+    TListItem *Item = LV_Sar1->Items->Add();  // добавить новую строку LV_Sar1
+    // заполнить колонки значениями по умолчанию
+    Item->Caption = 0;                        // V полёта РСА [м/с]
+    Item->SubItems->Add(0);                   // Несущая частота [Мгц]
+    Item->SubItems->Add(0);                   // Направление полёта [град.]
+    Item->SubItems->Add(0);                   // Положение антенн РСА [град.]
+    Item->SubItems->Add(0);                   // Расстояние до цели [м]
+    c1=false;                                 // запретить добавление строк в LV_Sar1
+    B_AddSar1->Enabled=false;                 // отключить кнопку "Добвить данные Sar1"
+  }  
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::B_DeleteSar1Click(TObject *Sender) // нажатие на кнопку "Удалить данные Sar1"
+{
+  if (LV_Sar1->Selected != NULL)  // если выбранная строка LV_Sar1 не пуста
+  {
+    LV_Sar1->Selected->Delete();  // удалить выбранную строку
+    c1=true;                      // разрешить добавления строк в LV_Sar1
+    B_AddSar1->Enabled=true;      // включить кнопки "Добвить данные Sar1"
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::ChartLCDblClick(TObject *Sender)
+// двойной щелчок по графику компонента Chart
+{
+  if((edLCBT->Text!="")&&(cbLCnBT->Text!="")&&(StrToInt(Series1->GetVertAxis->LabelValue((int)tmpY))>100))
+  {
+    int Commx, Commy;
+
+    edLCx->Text=Series1->GetVertAxis->LabelValue((int)tmpY);
+    Commx=StrToInt(edLCx->Text);
+    XString[OldIndex]=Commx;
+
+    edLCy->Text=Series1->GetHorizAxis->LabelValue((int)tmpX);
+    Commy=StrToInt(edLCy->Text);
+    YString[OldIndex]=Commy;
+
+    DrawLC();                              // обновить график
+  }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::edLCBTChange(TObject *Sender)
+{
+  cbLCnBT->Enabled=true;                   // разрешить поле "Номер БТ"
+}
+//---------------------------------------------------------------------------
+void __fastcall TMain_Form::edLCBTClick(TObject *Sender)
+{
+  edLCBT->Color=clWindow;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::BitBtn1Click(TObject *Sender) // открыть карту
+{
+  if (OpenDialog2->Execute())
+  {
+    ChartLC->BackImage->LoadFromFile(OpenDialog2->FileName);
+    ChartLC->BackImageMode = TTeeBackImageMode(0);  // 0 - Stretch (растянуть)
+    ChartLC->BackImageInside = true;                // внутри осей X и Y
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::Button1Click(TObject *Sender)
+{
+  ChartLC->BackImage = 0; // очистить карту
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TMain_Form::ChartLCAfterDraw(TObject *Sender)
+{
+  ChartLC->Canvas->Pen->Style = psClear;
+  ChartLC->Canvas->Brush->Color=clRed;
+  ChartLC->Canvas->Brush->Style=bsDiagCross;
+  ChartLC->Canvas->Rectangle(42,386,590,435); 
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LE_EPRChange(TObject *Sender)
+{
+  int Comm;
+  if(LE_EPR->Text=="") LE_EPR->Text=0;
+  Comm=StrToInt(LE_EPR->Text);
+  EPRString[OldIndex]=Comm;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::LE_EPRExit(TObject *Sender)
+{
+  bool b;
+  int min=0;                                     // минимальное значение
+  int max=65025;                                 // максимальное значение
+  int delta=1;
+  String EdIzm="м^2";                            // единица измерения
+  String value;                                  // строка значения
+
+  value=LE_EPR->Text;                            // значение
+
+  b=IsValidInt(min,max,value,EdIzm);             // проверка правильности диапазона значений
+  if(b)                                          // если правильно
+  {
+    LE_EPR->Text=RoundValue(delta,value);
+    EPRString[OldIndex]=StrToInt(LE_EPR->Text);  // записать значение в массив
+  }
+  else
+  {
+    LE_EPR->SetFocus();                          // фокус на поле
+    ErrorForm->SetFocus();                       // вывод сообщения об ошибке
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::HelpAboutProgClick(TObject *Sender)
+{
+  F_Help->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMain_Form::HelpAboutItemClick(TObject *Sender)
+{
+  F_AboutBox->ShowModal();  
+}
+//---------------------------------------------------------------------------
+
+

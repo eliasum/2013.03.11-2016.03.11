@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="ADF4350.exe"/>
+    <OBJFILES value="ADF4350.obj Unit1.obj Unit2.obj About.obj Register1Settings.obj 
+      Register2Settings.obj Register3Settings.obj Register4Settings.obj 
+      Register5Settings.obj Registers.obj IFControl.obj"/>
+    <RESFILES value="ADF4350.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm About.dfm Register1Settings.dfm 
+      Register2Settings.dfm Register3Settings.dfm Register4Settings.dfm 
+      Register5Settings.dfm Registers.dfm IFControl.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="vclie.lib vclx.lib AppControlsCB6.lib Comm.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib Comm.lib AppControlsCB6.lib vclx.lib vclie.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      indy.bpi bcb2kaxserver.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="ADF4350.cpp"/>
+    <INCLUDEPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls"/>
+    <LIBPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot;;$(BCB)\Projects\Lib;&quot;C:\Program Files\Borland\CBuilder6\Projects&quot;;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects&quot; 
+      -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; -I$(BCB)\include 
+      -I$(BCB)\include\vcl -I$(BCB)\ExComp\CommPort -I$(BCB)\ExComp\AppControls 
+      -src_suffix cpp -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="ADF4350.res" FORMNAME="" UNITNAME="ADF4350.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="ADF4350.cpp" FORMNAME="" UNITNAME="ADF4350" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit1.cpp" FORMNAME="Form1" UNITNAME="Unit1" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit2.cpp" FORMNAME="Form2" UNITNAME="Unit2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="About.cpp" FORMNAME="Form3" UNITNAME="About" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Register1Settings.cpp" FORMNAME="Form4" UNITNAME="Register1Settings" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Register2Settings.cpp" FORMNAME="Form5" UNITNAME="Register2Settings" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Register3Settings.cpp" FORMNAME="Form6" UNITNAME="Register3Settings" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Register4Settings.cpp" FORMNAME="Form7" UNITNAME="Register4Settings" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Register5Settings.cpp" FORMNAME="Form8" UNITNAME="Register5Settings" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Registers.cpp" FORMNAME="Form9" UNITNAME="Registers" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="IFControl.cpp" FORMNAME="F_IFControl" UNITNAME="IFControl" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1049
+CodePage=1251
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=6
+Item0=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls
+Item1=C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ExComp\CommPort
+Item2=C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ExComp\CommPort
+Item3=C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls
+Item4=C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\include;$(BCB)\include\vcl
+Item5=$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=7
+Item0=$(BCB)\Projects\Lib;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls
+Item1=$(BCB)\Projects\Lib;C:\Program Files\Borland\CBuilder6\Projects;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\ExComp\CommPort
+Item2=$(BCB)\Projects\Lib;C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\ExComp\CommPort
+Item3=$(BCB)\Projects\Lib;C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\ExComp\CommPort;$(BCB)\ExComp\AppControls
+Item4=$(BCB)\Projects\Lib;C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\lib\obj;$(BCB)\lib
+Item5=C:\Program Files\Borland\CBuilder6\Projects;D:\Builder C++ projects\Project 5_ADF4350;$(BCB)\lib\obj;$(BCB)\lib
+Item6=$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

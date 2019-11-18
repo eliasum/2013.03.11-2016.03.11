@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>ADF4350/Release</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>98</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>980</ColumnWidth1><ColumnWidth2>261</ColumnWidth2><ColumnWidth3>65</ColumnWidth3></Build>
+    <TerminalIO/></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-11442-4100</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>ADF4350</ExpandedNode><ExpandedNode>ADF4350/source</ExpandedNode><ExpandedNode>ADF4350/source/main.c</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-16272-4828</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\main.c</Filename><XPos>0</XPos><YPos>39</YPos><SelStart>7079</SelStart><SelEnd>7079</SelEnd></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\main.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>366</SelStart><SelEnd>366</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\variables.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>618</SelStart><SelEnd>618</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\constants.h</Filename><XPos>0</XPos><YPos>31</YPos><SelStart>1505</SelStart><SelEnd>1505</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\definitions.h</Filename><XPos>0</XPos><YPos>117</YPos><SelStart>11676</SelStart><SelEnd>11676</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\terminal.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-01909eb0><key>iaridepm.enu1</key></Toolbar-01909eb0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>431</Bottom><Right>172</Right><x>-2</x><y>-2</y><xscreen>4</xscreen><yscreen>297</yscreen><sizeHorzCX>2928</sizeHorzCX><sizeHorzCY>438700</sizeHorzCY><sizeVertCX>127379</sizeVertCX><sizeVertCY>639586</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>199</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>201</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>296898</sizeHorzCY><sizeVertCX>2928</sizeVertCX><sizeVertCY>438700</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

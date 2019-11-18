@@ -1,0 +1,64 @@
+//---------------------------------------------------------------------------
+
+#ifndef SelfControlH
+#define SelfControlH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <ExtCtrls.hpp>
+//---------------------------------------------------------------------------
+class TF_SelfControl : public TForm
+{
+__published:	// IDE-managed Components
+	TPanel *Panel3;
+	TPanel *Panel4;
+	TPanel *Panel5;
+	TPanel *Panel10;
+	TPanel *Panel12;
+	TPanel *Panel11;
+	TPanel *Panel13;
+	TPanel *Panel14;
+	TPanel *Panel15;
+	TPanel *Panel16;
+	TPanel *Panel17;
+	TPanel *Panel18;
+	TPanel *Panel19;
+	TPanel *Panel20;
+	TPanel *Panel21;
+	TPanel *Panel22;
+	TPanel *Panel23;
+	TPanel *Panel24;
+	TPanel *Panel25;
+	TPanel *Panel26;
+	TPanel *Panel27;
+	TPanel *Panel2;
+	TPanel *Panel28;
+	TPanel *Panel29;
+	TPanel *Panel30;
+	TPanel *Panel9;
+	TPanel *Panel8;
+	TPanel *Panel31;
+	TPanel *Panel1;
+	TPanel *Panel6;
+	TPanel *Panel7;
+	TPanel *Panel32;
+	TPanel *Panel33;
+	TPanel *Panel34;
+	TPanel *Panel35;
+	TPanel *Panel36;
+	TPanel *Panel37;
+	TPanel *Panel38;
+	TPanel *Panel39;
+	TPanel *Panel40;
+	TPanel *Panel41;
+	TPanel *Panel42;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TF_SelfControl(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TF_SelfControl *F_SelfControl;
+//---------------------------------------------------------------------------
+#endif

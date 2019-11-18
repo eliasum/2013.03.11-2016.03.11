@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3549796077</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\definitions.h</file>
+      <file>$TOOLKIT_DIR$\INC\CLIB\sysmac.h</file>
+      <file>$TOOLKIT_DIR$\INC\ioavr.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\INC\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\ADF4350.d90</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$TOOLKIT_DIR$\INC\iom1280.h</file>
+      <file>$TOOLKIT_DIR$\LIB\CLIB\cl3s-ec_mul.r90</file>
+      <file>$PROJ_DIR$\..\constants.h</file>
+      <file>$TOOLKIT_DIR$\INC\iomacro.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\terminal.r90</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$TOOLKIT_DIR$\INC\CLIB\math.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\terminal.pbi</file>
+      <file>$PROJ_DIR$\..\main.h</file>
+      <file>$PROJ_DIR$\..\terminal.h</file>
+      <file>$PROJ_DIR$\..\variables.h</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\terminal.c</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm1280.xcl</file>
+      <file>$TOOLKIT_DIR$\INC\bitdefinitions\iom1280.inc</file>
+      <file>$PROJ_DIR$\Debug\Obj\ADF4350.pbd</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\ADF4350.d90</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 21 12 6 11 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 16 9 0 2 7 10 22 4 18 17 13 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16 9 0 2 7 10 22 4 18 17 13 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\terminal.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 17 0 2 7 10 22 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 0 2 7 10 22 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\ADF4350.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 3 15</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\definitions.h</file>
+      <file>$PROJ_DIR$\ADF4350_Release\Obj\ADF4350.pbd</file>
+      <file>$PROJ_DIR$\ADF4350_Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\ADF4350_HEX\ADF4350.hex</file>
+      <file>$PROJ_DIR$\ADF4350_Release\Obj\terminal.pbi</file>
+      <file>$TOOLKIT_DIR$\INC\CLIB\sysmac.h</file>
+      <file>$PROJ_DIR$\ADF4350_Release\List\main.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\ADF4350_Release\List\terminal.lst</file>
+      <file>$PROJ_DIR$\ADF4350_Release\Obj\terminal.r90</file>
+      <file>$PROJ_DIR$\ADF4350_Release\Obj\main.r90</file>
+      <file>$TOOLKIT_DIR$\INC\ioavr.h</file>
+      <file>$TOOLKIT_DIR$\INC\intrinsics.h</file>
+      <file>$PROJ_DIR$\Release\Obj\ADF4350.pbd</file>
+      <file>$TOOLKIT_DIR$\INC\iom1280.h</file>
+      <file>$TOOLKIT_DIR$\LIB\CLIB\cl3s-ec_mul.r90</file>
+      <file>$PROJ_DIR$\ADF4350_HEX\ADF4350_data.hex</file>
+      <file>$PROJ_DIR$\..\constants.h</file>
+      <file>$TOOLKIT_DIR$\INC\iomacro.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$TOOLKIT_DIR$\INC\CLIB\math.h</file>
+      <file>$PROJ_DIR$\ADF4350_HEX\ADF4350_eeprom.hex</file>
+      <file>$PROJ_DIR$\..\main.h</file>
+      <file>$PROJ_DIR$\..\terminal.h</file>
+      <file>$PROJ_DIR$\..\variables.h</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\terminal.c</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm1280.xcl</file>
+      <file>$TOOLKIT_DIR$\INC\bitdefinitions\iom1280.inc</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\ADF4350_Release\Obj\ADF4350.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 2 4</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\ADF4350_HEX\ADF4350.hex</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 16 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 27 19 10 9 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 3 16 21</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Obj\ADF4350.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 7</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 6 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 22 17 0 11 14 18 28 12 24 23 20 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22 17 0 11 14 18 28 12 24 23 20 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\terminal.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 8 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 23 0 11 14 18 28 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 0 11 14 18 28 12</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+</project>
+
+

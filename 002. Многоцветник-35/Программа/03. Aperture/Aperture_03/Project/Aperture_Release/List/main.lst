@@ -1,0 +1,1334 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.50.0.50277/W32 for Atmel AVR    03/Sep/2014  14:18:01 #
+# Copyright (C) 1996-2010 IAR Systems AB.                                     #
+#                                                                             #
+#    Source file  =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_03\mai #
+#                    n.c                                                      #
+#    Command line =  "d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_03\ma #
+#                    in.c" --cpu=m1280 -ms -o "d:\_IAR projects\002.          #
+#                    Aperture_IAR_ver.1\Aperture_03\Project\Aperture_Release\ #
+#                    Obj\" -D NDEBUG -lCN "d:\_IAR projects\002.              #
+#                    Aperture_IAR_ver.1\Aperture_03\Project\Aperture_Release\ #
+#                    List\" -y --initializers_in_flash -s2 --no_cse           #
+#                    --no_inline --no_code_motion --no_cross_call             #
+#                    --no_clustering --no_tbaa -DENABLE_BIT_DEFINITIONS -e    #
+#                    -I "F:\Program Files\IAR Systems\Embedded Workbench      #
+#                    5.4\avr\INC\" -I "F:\Program Files\IAR Systems\Embedded  #
+#                    Workbench 5.4\avr\INC\CLIB\" --eeprom_size 4096          #
+#    List file    =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_03\Pro #
+#                    ject\Aperture_Release\List\main.lst                      #
+#    Object file  =  d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_03\Pro #
+#                    ject\Aperture_Release\Obj\main.r90                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+d:\_IAR projects\002. Aperture_IAR_ver.1\Aperture_03\main.c
+      1          /************************************************************************************************************/
+      2          /*                                                                                                          */
+      3          /*                          Управляющая программа для ATmega1280 в проекте "Апертура"                       */
+      4          /*                                       Версия 1.2 (2014.07.18_14-38)                                      */
+      5          /*                                                                                                          */
+      6          /************************************************************************************************************/
+      7          #include "main.h"
+
+   \                                 In  segment NEAR_F, align 1, keep-with-next
+   \   unsigned char const __flash Title[51]
+   \                     Title:
+   \   00000000   444134463533       DC8 41H, 44H, 46H, 34H, 33H, 35H, 30H, 20H
+   \              2030        
+   \   00000008   202D69576564       DC8 2DH, 20H, 57H, 69H, 64H, 65H, 62H, 61H
+   \              6162        
+   \   00000010   646E53206E79       DC8 6EH, 64H, 20H, 53H, 79H, 6EH, 74H, 68H
+   \              6874        
+   \   00000018   73657A697265       DC8 65H, 73H, 69H, 7AH, 65H, 72H, 20H, 77H
+   \              7720        
+   \   00000020   746920686E49       DC8 69H, 74H, 68H, 20H, 49H, 6EH, 74H, 65H
+   \              6574        
+   \   00000028   726774616465       DC8 67H, 72H, 61H, 74H, 65H, 64H, 20H, 56H
+   \              5620        
+   \   00000030   4F4300             DC8 43H, 4FH, 0
+
+   \                                 In  segment ABSOLUTE, at 0x10a
+   \   <__C51> volatile __ext_io _A_DDRL
+   \                     _A_DDRL:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x107
+   \   <__C60> volatile __ext_io _A_DDRK
+   \                     _A_DDRK:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x104
+   \   <__C69> volatile __ext_io _A_DDRJ
+   \                     _A_DDRJ:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x101
+   \   <__C78> volatile __ext_io _A_DDRH
+   \                     _A_DDRH:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc6
+   \   <__C115> volatile __io _A_UDR0
+   \                     _A_UDR0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc4
+   \   <__C119> volatile __io _A_UBRR0
+   \                     _A_UBRR0:
+   \   00000000                      DS8 2
+
+   \                                 In  segment ABSOLUTE, at 0xc2
+   \   <__C123> volatile __io _A_UCSR0C
+   \                     _A_UCSR0C:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc1
+   \   <__C126> volatile __io _A_UCSR0B
+   \                     _A_UCSR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0xc0
+   \   <__C129> volatile __io _A_UCSR0A
+   \                     _A_UCSR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x6e
+   \   <__C293> volatile __io _A_TIMSK0
+   \                     _A_TIMSK0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x60
+   \   <__C325> volatile __io _A_WDTCSR
+   \                     _A_WDTCSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4e
+   \   <__C359> volatile __io _A_SPDR
+   \                     _A_SPDR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4d
+   \   <__C362> volatile __io _A_SPSR
+   \                     _A_SPSR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x4c
+   \   <__C365> volatile __io _A_SPCR
+   \                     _A_SPCR:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x46
+   \   <__C375> volatile __io _A_TCNT0
+   \                     _A_TCNT0:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x45
+   \   <__C378> volatile __io _A_TCCR0B
+   \                     _A_TCCR0B:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x44
+   \   <__C381> volatile __io _A_TCCR0A
+   \                     _A_TCCR0A:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x34
+   \   <__C425> volatile __io _A_PORTG
+   \                     _A_PORTG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x33
+   \   <__C428> volatile __io _A_DDRG
+   \                     _A_DDRG:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x30
+   \   <__C437> volatile __io _A_DDRF
+   \                     _A_DDRF:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2e
+   \   <__C443> volatile __io _A_PORTE
+   \                     _A_PORTE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2d
+   \   <__C446> volatile __io _A_DDRE
+   \                     _A_DDRE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2c
+   \   <__C449> volatile __io _A_PINE
+   \                     _A_PINE:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x2a
+   \   <__C455> volatile __io _A_DDRD
+   \                     _A_DDRD:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x27
+   \   <__C464> volatile __io _A_DDRC
+   \                     _A_DDRC:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x25
+   \   <__C470> volatile __io _A_PORTB
+   \                     _A_PORTB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x24
+   \   <__C473> volatile __io _A_DDRB
+   \                     _A_DDRB:
+   \   00000000                      DS8 1
+
+   \                                 In  segment ABSOLUTE, at 0x21
+   \   <__C482> volatile __io _A_DDRA
+   \                     _A_DDRA:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char count
+   \                     count:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile count_bod
+   \                     count_bod:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char volatile t_led_on
+   \                     t_led_on:
+   \   00000000                      DS8 1
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char R[68]
+   \                     R:
+   \   00000000                      DS8 68
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char StartControl[3]
+   \                     StartControl:
+   \   00000000                      DS8 3
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char StartTesting[3]
+   \                     StartTesting:
+   \   00000000                      DS8 3
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char StopControl[3]
+   \                     StopControl:
+   \   00000000                      DS8 3
+
+   \                                 In  segment NEAR_Z, align 1, keep-with-next
+   \   00000000                      REQUIRE `?<Segment init: NEAR_Z>`
+   \   unsigned char StopTesting[3]
+   \                     StopTesting:
+   \   00000000                      DS8 3
+      8          #include <math.h>     
+      9          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+     10          /*                                                                                                          */
+     11          /*                                        Главная функция программы                                         */
+     12          /*                                                                                                          */
+     13          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+   \                                 In  segment CODE, align 2, keep-with-next
+     14          void main( void )
+   \                     main:
+     15          {
+   \   00000000   ........           CALL    ?PROLOGUE4_L09
+     16            // задание интервала сброса WDT: 
+     17            __watchdog_reset();                        // WDTCSR = WDIF WDIE WDP3 WDCE WDE WDP2 WDP1 WDP0 (XXXX XXXX)
+   \   00000004   95A8               WDR
+     18            WDTCSR |= (1<<WDCE) | (1<<WDE);            // разрешение настройки/системного сброса WDT      (XXX1 1XXX)
+   \   00000006   9100....           LDS     R16, _A_WDTCSR
+   \   0000000A   6108               ORI     R16, 0x18
+   \   0000000C   9300....           STS     _A_WDTCSR, R16
+     19            WDTCSR  = (1<<WDE)  | (1<<WDP3);           // установка тайм-аута = 512K циклов (~ 4.0 с)     (0010 1000)  
+   \   00000010   E208               LDI     R16, 40
+   \   00000012   9300....           STS     _A_WDTCSR, R16
+     20            
+     21            // инициализация портов:
+     22            DDRA = (1<<IN1_01)|(1<<IN1_02)|(1<<IN1_03)|(1<<IN1_04)|(1<<IN1_05)|(1<<IN1_06)|(1<<IN1_07)|(1<<IN1_08); // выходы
+   \   00000016   EF0F               LDI     R16, 255
+   \   00000018   B901               OUT     0x01, R16
+     23            
+     24            PORTB = (1<<IN_SS0)|(1<<IN_LE)|(1<<IN_SS1)|(1<<IN_SS2); // 1 на выходе
+   \   0000001A   E701               LDI     R16, 113
+   \   0000001C   B905               OUT     0x05, R16
+     25            DDRB = (1<<IN_SS0)|(1<<IN_SCK)|(1<<IN_MOSI)|(1<<IN_SS1)|(1<<IN_SS2)|(1<<IN_LE); // выходы
+   \   0000001E   E707               LDI     R16, 119
+   \   00000020   B904               OUT     0x04, R16
+     26            
+     27            DDRC = (1<<IN1_09)|(1<<IN1_10)|(1<<IN1_11)|(1<<IN1_12)|(1<<IN1_13)|(1<<IN1_14)|(1<<IN1_15)|(1<<IN1_16); // выходы
+   \   00000022   EF0F               LDI     R16, 255
+   \   00000024   B907               OUT     0x07, R16
+     28          
+     29            DDRD = (1<<IN2_01)|(1<<IN2_02)|(1<<IN2_03)|(1<<IN2_04)|(1<<IN2_05)|(1<<IN2_06)|(1<<IN2_07)|(1<<IN2_08); // выходы
+   \   00000026   EF0F               LDI     R16, 255
+   \   00000028   B90A               OUT     0x0A, R16
+     30          
+     31            PORTE = (1<<RX)|(1<<TX); // подтяжка на питание или 1 на выходе
+   \   0000002A   E003               LDI     R16, 3
+   \   0000002C   B90E               OUT     0x0E, R16
+     32            DDRE = (1<<TX)|(1<<ADLIN1_D0)|(1<<ADLIN1_D1)|(1<<ADLIN1_D2)|(1<<ADLIN1_D3)|(1<<ADLIN1_D4)|(1<<ADLIN1_D5); // выходы
+   \   0000002E   EF0E               LDI     R16, 254
+   \   00000030   B90D               OUT     0x0D, R16
+     33          
+     34            DDRF = (1<<ADLIN1_D6)|(1<<ADLIN2_D0)|(1<<ADLIN2_D1)|(1<<ADLIN2_D2)|(1<<ADLIN2_D3)|(1<<ADLIN2_D4)|(1<<ADLIN2_D5)|(1<<ADLIN2_D6); // выходы
+   \   00000032   EF0F               LDI     R16, 255
+   \   00000034   BB00               OUT     0x10, R16
+     35            
+     36            PORTG = (1<<LED); // 1 на выходе
+   \   00000036   E200               LDI     R16, 32
+   \   00000038   BB04               OUT     0x14, R16
+     37            DDRG = (1<<IN4_09)|(1<<IN4_10)|(1<<IN4_11)|(1<<IN4_12)|(1<<IN4_13)|(1<<LED); // выходы
+   \   0000003A   E30F               LDI     R16, 63
+   \   0000003C   BB03               OUT     0x13, R16
+     38            
+     39            DDRH = (1<<IN2_09)|(1<<IN2_10)|(1<<IN2_11)|(1<<IN2_12)|(1<<IN2_13)|(1<<IN2_14)|(1<<IN2_15)|(1<<IN2_16); // выходы
+   \   0000003E   EF0F               LDI     R16, 255
+   \   00000040   9300....           STS     _A_DDRH, R16
+     40            
+     41            DDRJ = (1<<IN3_01)|(1<<IN3_02)|(1<<IN3_03)|(1<<IN3_04)|(1<<IN3_05)|(1<<IN3_06)|(1<<IN3_07)|(1<<IN3_08); // выходы
+   \   00000044   EF0F               LDI     R16, 255
+   \   00000046   9300....           STS     _A_DDRJ, R16
+     42          
+     43            DDRK = (1<<IN3_09)|(1<<IN3_10)|(1<<IN3_11)|(1<<IN3_12)|(1<<IN3_13)|(1<<IN3_14)|(1<<IN3_15)|(1<<IN3_16); // выходы
+   \   0000004A   EF0F               LDI     R16, 255
+   \   0000004C   9300....           STS     _A_DDRK, R16
+     44          
+     45            DDRL = (1<<IN4_01)|(1<<IN4_02)|(1<<IN4_03)|(1<<IN4_04)|(1<<IN4_05)|(1<<IN4_06)|(1<<IN4_07)|(1<<IN4_08); // выходы
+   \   00000050   EF0F               LDI     R16, 255
+   \   00000052   9300....           STS     _A_DDRL, R16
+     46          
+     47            count_bod = 1;                             // минимум 1 прерывание
+   \   00000056   E001               LDI     R16, 1
+   \   00000058   9300....           STS     count_bod, R16
+     48            t_led_on  = 0;                             // время индикации
+   \   0000005C   E000               LDI     R16, 0
+   \   0000005E   9300....           STS     t_led_on, R16
+     49            
+     50            __watchdog_reset();                        // 1-й "простой" cброс сторожевого таймера
+   \   00000062   95A8               WDR
+     51            __enable_interrupt();                      // прерывания разрешаем
+   \   00000064   9478               SEI
+     52            
+     53            // инициализация USART (57600):
+     54            UCSR0A = 0x00;                             // запрет настроек USART на время установки скорости передачи
+   \   00000066   E000               LDI     R16, 0
+   \   00000068   9300....           STS     _A_UCSR0A, R16
+     55            UCSR0B = 0x00;                             
+   \   0000006C   E000               LDI     R16, 0
+   \   0000006E   9300....           STS     _A_UCSR0B, R16
+     56            UCSR0C = 0x06;                             // размер слова данных 8 бит
+   \   00000072   E006               LDI     R16, 6
+   \   00000074   9300....           STS     _A_UCSR0C, R16
+     57            UBRR0L = UBBR_2K4L;                        // задание скорости 57600
+   \   00000078   E100               LDI     R16, 16
+   \   0000007A   9300....           STS     _A_UBRR0, R16
+     58            UBRR0H = UBBR_2K4H;   
+   \   0000007E   E000               LDI     R16, 0
+   \   00000080   930000C5           STS     197, R16
+     59            UCSR0B = 0x08;                             // разрешение передачи (TXENn = 1)
+   \   00000084   E008               LDI     R16, 8
+   \   00000086   9300....           STS     _A_UCSR0B, R16
+     60          
+     61            // инициализация Т/С0:
+     62            TCCR0B = 0x00;                             // останов Т/С0
+   \   0000008A   E000               LDI     R16, 0
+   \   0000008C   BD05               OUT     0x25, R16
+     63            TCNT0  = RELOAD_TIM0;                      // нач. знач-е
+   \   0000008E   E908               LDI     R16, 152
+   \   00000090   BD06               OUT     0x26, R16
+     64            TCCR0A = 0x00;
+   \   00000092   E000               LDI     R16, 0
+   \   00000094   BD04               OUT     0x24, R16
+     65            TCCR0B = START_TIM0;                       // таймер запускаем
+   \   00000096   E004               LDI     R16, 4
+   \   00000098   BD05               OUT     0x25, R16
+     66            TIMSK0 = 0x01;                             // Т/С0 <- источник прерываний
+   \   0000009A   E001               LDI     R16, 1
+   \   0000009C   9300....           STS     _A_TIMSK0, R16
+     67              
+     68            SPI_MasterInit();                          // инициализация SPI в режиме Master
+   \   000000A0   ....               RCALL   SPI_MasterInit
+     69          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     70                    
+     71                                             //Организация работы линии обмена                   
+     72                    
+     73          //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     74          /*
+     75            Перед началом передачи пакета данных всегда есть синхропауза (логическая 1). Это нужно для безошибочной работы
+     76            по линии, т.к. система асинхронная и ведомое устройство может включиться не одновременно с ведущим устройством. 
+     77            Даже если устройство включится уже после начала передачи ведущим, оно примет данные только после "полной" 
+     78            синхропаузы, которую будет ожидать. Длина синхропаузы больше, чем длина одного слова данных.
+     79            Применение асинхронной системы позволяет использовать простой канал связи, который гораздо дешевле, чем при 
+     80            синхронной системе. 
+     81          */    
+     82            for (;;)
+     83            {     
+     84              UCSR0B &= ~(1<<RXEN0);                   // отключение приемника USART
+   \                     ??main_0:
+   \   000000A2   910000C1           LDS     R16, 193
+   \   000000A6   7E0F               ANDI    R16, 0xEF
+   \   000000A8   930000C1           STS     193, R16
+     85              count_bod = CBOD;                        // счетчик БОД
+   \   000000AC   E004               LDI     R16, 4
+   \   000000AE   9300....           STS     count_bod, R16
+     86          
+     87              do
+     88              {
+     89                if (!(PINE & (1<<RX))) count_bod = CBOD;
+   \                     ??main_1:
+   \   000000B2   9960               SBIC    0x0C, 0x00
+   \   000000B4   C003               RJMP    ??main_2
+   \   000000B6   E004               LDI     R16, 4
+   \   000000B8   9300....           STS     count_bod, R16
+     90              } while (count_bod);                     // ожидание СИНХРО-ПАУЗЫ (всегда только перед командой)
+   \                     ??main_2:
+   \   000000BC   9100....           LDS     R16, count_bod
+   \   000000C0   2300               TST     R16
+   \   000000C2   F7B9               BRNE    ??main_1
+     91          /*
+     92              Выполнять присваивание count_bod = CBOD = 4, если RX = 0, пока count_bod - истина. Если же в течение четырёх
+     93              периодов переполнения таймера0 с частотой 600 Гц, т.е. 6.7 мс, будет выполнено условие RX = 1, тогда
+     94              программа уменьшит значение count_bod до нуля, условие while (count_bod) станет ложным и произойдёт 
+     95              выход из цикла do/while. Только теперь устройство включится на приём. Таким образом, значение синхропаузы 
+     96              составляет 6.7 мс. Начало приёма происходит при обнаружении старт-бита (логический 0).
+     97          */    
+     98              // приём данных по UART:
+     99          /*
+    100              Вперёд старший регистр. Вперёд старший байт.
+    101          */
+    102              UCSR0B |= (1<<RXEN0);                    // включение приемника USART
+   \   000000C4   910000C1           LDS     R16, 193
+   \   000000C8   6100               ORI     R16, 0x10
+   \   000000CA   930000C1           STS     193, R16
+    103               
+    104              while (!(UCSR0A & (1<<RXC0)));           // ждем завершение приема байта
+   \                     ??main_3:
+   \   000000CE   9100....           LDS     R16, _A_UCSR0A
+   \   000000D2   2F10               MOV     R17, R16
+   \   000000D4   FF17               SBRS    R17, 7
+   \   000000D6   CFFB               RJMP    ??main_3
+    105              
+    106              unsigned char var;                       // маркер передачи на контроллер
+    107              var=UDR0;                                // UDRn - USART I/O Data Register n
+   \   000000D8   9100....           LDS     R16, _A_UDR0
+   \   000000DC   2F80               MOV     R24, R16
+    108          
+    109              if(var==0xAA)                            // если маркер передачи на ППРМ-2
+   \   000000DE   3A8A               CPI     R24, 170
+   \   000000E0   F009               BREQ    $+2+2
+   \   000000E2   C0F9               RJMP    ??main_4
+    110              {       
+    111                for(int i=0; i<68; i++)                // приём 21-й команды по UART
+   \   000000E4   E0A0               LDI     R26, 0
+   \   000000E6   E0B0               LDI     R27, 0
+   \                     ??main_5:
+   \   000000E8   34A4               CPI     R26, 68
+   \   000000EA   E000               LDI     R16, 0
+   \   000000EC   07B0               CPC     R27, R16
+   \   000000EE   F46C               BRGE    ??main_6
+    112                {
+    113                  while (!(UCSR0A & (1<<RXC0)));       // ждем завершение приема байта
+   \                     ??main_7:
+   \   000000F0   9100....           LDS     R16, _A_UCSR0A
+   \   000000F4   2F10               MOV     R17, R16
+   \   000000F6   FF17               SBRS    R17, 7
+   \   000000F8   CFFB               RJMP    ??main_7
+    114                  R[i] = UDR0;                          
+   \   000000FA   9100....           LDS     R16, _A_UDR0
+   \   000000FE   01FD               MOVW    R31:R30, R27:R26
+   \   00000100   ....               SUBI    R30, LOW((-(R) & 0xFFFF))
+   \   00000102   ....               SBCI    R31, (-(R) & 0xFFFF) >> 8
+   \   00000104   8300               ST      Z, R16
+    115                }      
+   \   00000106   9611               ADIW    R27:R26, 1
+   \   00000108   CFEF               RJMP    ??main_5
+    116                
+    117                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \                     ??main_6:
+   \   0000010A   E302               LDI     R16, 50
+   \   0000010C   9300....           STS     t_led_on, R16
+    118                LED_ON;   
+   \   00000110   98A5               CBI     0x14, 0x05
+    119              
+    120                ClearBit(PORTB, IN_LE);                // разрешение загрузки
+   \   00000112   982E               CBI     0x05, 0x06
+    121                
+    122                // передача данных по SPI на ППРМ-2: 
+    123                // Режим "Работа":
+    124                // Команда "Параметры СВЧ тракта":
+    125                SPI_Write(0x03);                       // байт кода команды
+   \   00000114   E003               LDI     R16, 3
+   \   00000116   ....               RCALL   SPI_Write
+    126                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000118   E000               LDI     R16, 0
+   \   0000011A   ....               RCALL   SPI_Write
+    127                SPI_Write(R[2]);                       // второй байт пакета данных       
+   \   0000011C   9100....           LDS     R16, (R + 2)
+   \   00000120   ....               RCALL   SPI_Write
+    128                SPI_Write(R[3]);                       // третий байт пакета данных       
+   \   00000122   9100....           LDS     R16, (R + 3)
+   \   00000126   ....               RCALL   SPI_Write
+    129                SPI_Write(R[7]);                       // четвертый байт пакета данных  
+   \   00000128   9100....           LDS     R16, (R + 7)
+   \   0000012C   ....               RCALL   SPI_Write
+    130                
+    131                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000012E   9A2E               SBI     0x05, 0x06
+    132                delay_ms(1);
+   \   00000130   E90F               LDI     R16, 159
+   \   00000132   E01F               LDI     R17, 15
+   \   00000134   5001               SUBI    R16, 1
+   \   00000136   4010               SBCI    R17, 0
+   \   00000138   F7E9               BRNE    $-4
+   \   0000013A   C000               RJMP    $+2
+   \   0000013C   0000               NOP
+    133                ClearBit(PORTB, IN_LE);                // разрешение загрузки      
+   \   0000013E   982E               CBI     0x05, 0x06
+    134                
+    135                // Режим "Контроль":
+    136                // Команда "Коэффициент ослабления приёмника и передатчика ППРМ-2":      
+    137                SPI_Write(0xE3);                       // байт кода команды
+   \   00000140   EE03               LDI     R16, 227
+   \   00000142   ....               RCALL   SPI_Write
+    138                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000144   E000               LDI     R16, 0
+   \   00000146   ....               RCALL   SPI_Write
+    139                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   00000148   E000               LDI     R16, 0
+   \   0000014A   ....               RCALL   SPI_Write
+    140                SPI_Write(R[15]);                      // третий байт пакета данных       
+   \   0000014C   9100....           LDS     R16, (R + 15)
+   \   00000150   ....               RCALL   SPI_Write
+    141                SPI_Write(R[11]);                      // четвертый байт пакета данных      
+   \   00000152   9100....           LDS     R16, (R + 11)
+   \   00000156   ....               RCALL   SPI_Write
+    142                
+    143                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   00000158   9A2E               SBI     0x05, 0x06
+    144                delay_ms(1);
+   \   0000015A   E90F               LDI     R16, 159
+   \   0000015C   E01F               LDI     R17, 15
+   \   0000015E   5001               SUBI    R16, 1
+   \   00000160   4010               SBCI    R17, 0
+   \   00000162   F7E9               BRNE    $-4
+   \   00000164   C000               RJMP    $+2
+   \   00000166   0000               NOP
+    145                ClearBit(PORTB, IN_LE);                // разрешение загрузки   
+   \   00000168   982E               CBI     0x05, 0x06
+    146          
+    147                // Команда "Частота среза фильтра гетеродина приёмника и передатчика ППРМ-2":      
+    148                SPI_Write(0xE4);                       // байт кода команды
+   \   0000016A   EE04               LDI     R16, 228
+   \   0000016C   ....               RCALL   SPI_Write
+    149                SPI_Write(R[22]);                      // первый байт пакета данных      
+   \   0000016E   9100....           LDS     R16, (R + 22)
+   \   00000172   ....               RCALL   SPI_Write
+    150                SPI_Write(R[23]);                      // второй байт пакета данных       
+   \   00000174   9100....           LDS     R16, (R + 23)
+   \   00000178   ....               RCALL   SPI_Write
+    151                SPI_Write(R[18]);                      // третий байт пакета данных       
+   \   0000017A   9100....           LDS     R16, (R + 18)
+   \   0000017E   ....               RCALL   SPI_Write
+    152                SPI_Write(R[19]);                      // четвертый байт пакета данных   
+   \   00000180   9100....           LDS     R16, (R + 19)
+   \   00000184   ....               RCALL   SPI_Write
+    153                
+    154                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   00000186   9A2E               SBI     0x05, 0x06
+    155                delay_ms(1);
+   \   00000188   E90F               LDI     R16, 159
+   \   0000018A   E01F               LDI     R17, 15
+   \   0000018C   5001               SUBI    R16, 1
+   \   0000018E   4010               SBCI    R17, 0
+   \   00000190   F7E9               BRNE    $-4
+   \   00000192   C000               RJMP    $+2
+   \   00000194   0000               NOP
+    156                ClearBit(PORTB, IN_LE);                // разрешение загрузки        
+   \   00000196   982E               CBI     0x05, 0x06
+    157                
+    158                // Команда "Параметры СВЧ тракта":      
+    159                SPI_Write(0xE5);                       // байт кода команды
+   \   00000198   EE05               LDI     R16, 229
+   \   0000019A   ....               RCALL   SPI_Write
+    160                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   0000019C   E000               LDI     R16, 0
+   \   0000019E   ....               RCALL   SPI_Write
+    161                SPI_Write(R[35]);                      // второй байт пакета данных       
+   \   000001A0   9100....           LDS     R16, (R + 35)
+   \   000001A4   ....               RCALL   SPI_Write
+    162                SPI_Write(R[27]);                      // третий байт пакета данных       
+   \   000001A6   9100....           LDS     R16, (R + 27)
+   \   000001AA   ....               RCALL   SPI_Write
+    163                SPI_Write(R[31]);                      // четвертый байт пакета данных 
+   \   000001AC   9100....           LDS     R16, (R + 31)
+   \   000001B0   ....               RCALL   SPI_Write
+    164                
+    165                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   000001B2   9A2E               SBI     0x05, 0x06
+    166                delay_ms(1);
+   \   000001B4   E90F               LDI     R16, 159
+   \   000001B6   E01F               LDI     R17, 15
+   \   000001B8   5001               SUBI    R16, 1
+   \   000001BA   4010               SBCI    R17, 0
+   \   000001BC   F7E9               BRNE    $-4
+   \   000001BE   C000               RJMP    $+2
+   \   000001C0   0000               NOP
+    167                ClearBit(PORTB, IN_LE);                // разрешение загрузки        
+   \   000001C2   982E               CBI     0x05, 0x06
+    168          
+    169                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 6":      
+    170                SPI_Write(0xEB);                       // байт кода команды
+   \   000001C4   EE0B               LDI     R16, 235
+   \   000001C6   ....               RCALL   SPI_Write
+    171                SPI_Write(R[63]);                      // первый байт пакета данных      
+   \   000001C8   9100....           LDS     R16, (R + 63)
+   \   000001CC   ....               RCALL   SPI_Write
+    172                SPI_Write(R[65]);                      // второй байт пакета данных       
+   \   000001CE   9100....           LDS     R16, (R + 65)
+   \   000001D2   ....               RCALL   SPI_Write
+    173                SPI_Write(R[66]);                      // третий байт пакета данных       
+   \   000001D4   9100....           LDS     R16, (R + 66)
+   \   000001D8   ....               RCALL   SPI_Write
+    174                SPI_Write(R[67]);                      // четвертый байт пакета данных
+   \   000001DA   9100....           LDS     R16, (R + 67)
+   \   000001DE   ....               RCALL   SPI_Write
+    175                
+    176                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   000001E0   9A2E               SBI     0x05, 0x06
+    177                delay_ms(1);    
+   \   000001E2   E90F               LDI     R16, 159
+   \   000001E4   E01F               LDI     R17, 15
+   \   000001E6   5001               SUBI    R16, 1
+   \   000001E8   4010               SBCI    R17, 0
+   \   000001EA   F7E9               BRNE    $-4
+   \   000001EC   C000               RJMP    $+2
+   \   000001EE   0000               NOP
+    178                ClearBit(PORTB, IN_LE);                // разрешение загрузки  
+   \   000001F0   982E               CBI     0x05, 0x06
+    179          
+    180                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 5":      
+    181                SPI_Write(0xEA);                       // байт кода команды
+   \   000001F2   EE0A               LDI     R16, 234
+   \   000001F4   ....               RCALL   SPI_Write
+    182                SPI_Write(R[58]);                      // первый байт пакета данных      
+   \   000001F6   9100....           LDS     R16, (R + 58)
+   \   000001FA   ....               RCALL   SPI_Write
+    183                SPI_Write(R[59]);                      // второй байт пакета данных       
+   \   000001FC   9100....           LDS     R16, (R + 59)
+   \   00000200   ....               RCALL   SPI_Write
+    184                SPI_Write(R[61]);                      // третий байт пакета данных       
+   \   00000202   9100....           LDS     R16, (R + 61)
+   \   00000206   ....               RCALL   SPI_Write
+    185                SPI_Write(R[62]);                      // четвертый байт пакета данных  
+   \   00000208   9100....           LDS     R16, (R + 62)
+   \   0000020C   ....               RCALL   SPI_Write
+    186                
+    187                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000020E   9A2E               SBI     0x05, 0x06
+    188                delay_ms(1);
+   \   00000210   E90F               LDI     R16, 159
+   \   00000212   E01F               LDI     R17, 15
+   \   00000214   5001               SUBI    R16, 1
+   \   00000216   4010               SBCI    R17, 0
+   \   00000218   F7E9               BRNE    $-4
+   \   0000021A   C000               RJMP    $+2
+   \   0000021C   0000               NOP
+    189                ClearBit(PORTB, IN_LE);                // разрешение загрузки  
+   \   0000021E   982E               CBI     0x05, 0x06
+    190          
+    191                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 4":      
+    192                SPI_Write(0xE9);                       // байт кода команды
+   \   00000220   EE09               LDI     R16, 233
+   \   00000222   ....               RCALL   SPI_Write
+    193                SPI_Write(R[53]);                      // первый байт пакета данных      
+   \   00000224   9100....           LDS     R16, (R + 53)
+   \   00000228   ....               RCALL   SPI_Write
+    194                SPI_Write(R[54]);                      // второй байт пакета данных       
+   \   0000022A   9100....           LDS     R16, (R + 54)
+   \   0000022E   ....               RCALL   SPI_Write
+    195                SPI_Write(R[55]);                      // третий байт пакета данных       
+   \   00000230   9100....           LDS     R16, (R + 55)
+   \   00000234   ....               RCALL   SPI_Write
+    196                SPI_Write(R[57]);                      // четвертый байт пакета данных 
+   \   00000236   9100....           LDS     R16, (R + 57)
+   \   0000023A   ....               RCALL   SPI_Write
+    197          
+    198                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000023C   9A2E               SBI     0x05, 0x06
+    199                delay_ms(1);
+   \   0000023E   E90F               LDI     R16, 159
+   \   00000240   E01F               LDI     R17, 15
+   \   00000242   5001               SUBI    R16, 1
+   \   00000244   4010               SBCI    R17, 0
+   \   00000246   F7E9               BRNE    $-4
+   \   00000248   C000               RJMP    $+2
+   \   0000024A   0000               NOP
+    200                ClearBit(PORTB, IN_LE);                // разрешение загрузки         
+   \   0000024C   982E               CBI     0x05, 0x06
+    201          
+    202                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 3":      
+    203                SPI_Write(0xE8);                       // байт кода команды
+   \   0000024E   EE08               LDI     R16, 232
+   \   00000250   ....               RCALL   SPI_Write
+    204                SPI_Write(R[47]);                      // первый байт пакета данных      
+   \   00000252   9100....           LDS     R16, (R + 47)
+   \   00000256   ....               RCALL   SPI_Write
+    205                SPI_Write(R[49]);                      // второй байт пакета данных       
+   \   00000258   9100....           LDS     R16, (R + 49)
+   \   0000025C   ....               RCALL   SPI_Write
+    206                SPI_Write(R[50]);                      // третий байт пакета данных       
+   \   0000025E   9100....           LDS     R16, (R + 50)
+   \   00000262   ....               RCALL   SPI_Write
+    207                SPI_Write(R[51]);                      // четвертый байт пакета данных   
+   \   00000264   9100....           LDS     R16, (R + 51)
+   \   00000268   ....               RCALL   SPI_Write
+    208          
+    209                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000026A   9A2E               SBI     0x05, 0x06
+    210                delay_ms(1);
+   \   0000026C   E90F               LDI     R16, 159
+   \   0000026E   E01F               LDI     R17, 15
+   \   00000270   5001               SUBI    R16, 1
+   \   00000272   4010               SBCI    R17, 0
+   \   00000274   F7E9               BRNE    $-4
+   \   00000276   C000               RJMP    $+2
+   \   00000278   0000               NOP
+    211                ClearBit(PORTB, IN_LE);                // разрешение загрузки          
+   \   0000027A   982E               CBI     0x05, 0x06
+    212                
+    213                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 2":      
+    214                SPI_Write(0xE7);                       // байт кода команды
+   \   0000027C   EE07               LDI     R16, 231
+   \   0000027E   ....               RCALL   SPI_Write
+    215                SPI_Write(R[42]);                      // первый байт пакета данных      
+   \   00000280   9100....           LDS     R16, (R + 42)
+   \   00000284   ....               RCALL   SPI_Write
+    216                SPI_Write(R[43]);                      // второй байт пакета данных       
+   \   00000286   9100....           LDS     R16, (R + 43)
+   \   0000028A   ....               RCALL   SPI_Write
+    217                SPI_Write(R[45]);                      // третий байт пакета данных       
+   \   0000028C   9100....           LDS     R16, (R + 45)
+   \   00000290   ....               RCALL   SPI_Write
+    218                SPI_Write(R[46]);                      // четвертый байт пакета данных 
+   \   00000292   9100....           LDS     R16, (R + 46)
+   \   00000296   ....               RCALL   SPI_Write
+    219          
+    220                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   00000298   9A2E               SBI     0x05, 0x06
+    221                delay_ms(1);
+   \   0000029A   E90F               LDI     R16, 159
+   \   0000029C   E01F               LDI     R17, 15
+   \   0000029E   5001               SUBI    R16, 1
+   \   000002A0   4010               SBCI    R17, 0
+   \   000002A2   F7E9               BRNE    $-4
+   \   000002A4   C000               RJMP    $+2
+   \   000002A6   0000               NOP
+    222                ClearBit(PORTB, IN_LE);                // разрешение загрузки         
+   \   000002A8   982E               CBI     0x05, 0x06
+    223                
+    224                // Команда "Рабочие регистры синтезатора платы ППРМ-2. Пакет 1":      
+    225                SPI_Write(0xE6);                       // байт кода команды
+   \   000002AA   EE06               LDI     R16, 230
+   \   000002AC   ....               RCALL   SPI_Write
+    226                SPI_Write(R[37]);                      // первый байт пакета данных      
+   \   000002AE   9100....           LDS     R16, (R + 37)
+   \   000002B2   ....               RCALL   SPI_Write
+    227                SPI_Write(R[38]);                      // второй байт пакета данных       
+   \   000002B4   9100....           LDS     R16, (R + 38)
+   \   000002B8   ....               RCALL   SPI_Write
+    228                SPI_Write(R[39]);                      // третий байт пакета данных       
+   \   000002BA   9100....           LDS     R16, (R + 39)
+   \   000002BE   ....               RCALL   SPI_Write
+    229                SPI_Write(R[41]);                      // четвертый байт пакета данных   
+   \   000002C0   9100....           LDS     R16, (R + 41)
+   \   000002C4   ....               RCALL   SPI_Write
+    230                
+    231                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   000002C6   9A2E               SBI     0x05, 0x06
+    232                delay_ms(1);     
+   \   000002C8   E90F               LDI     R16, 159
+   \   000002CA   E01F               LDI     R17, 15
+   \   000002CC   5001               SUBI    R16, 1
+   \   000002CE   4010               SBCI    R17, 0
+   \   000002D0   F7E9               BRNE    $-4
+   \   000002D2   C000               RJMP    $+2
+   \   000002D4   0000               NOP
+    233              }
+    234              
+    235              if(var==0xBB)                            // если маркер передачи на ППРМ-2
+   \                     ??main_4:
+   \   000002D6   3B8B               CPI     R24, 187
+   \   000002D8   F559               BRNE    ??main_8
+    236              { 
+    237                for(int i=0; i<4; i++)                 // приём 4-х байтовой команды по UART
+   \   000002DA   E0A0               LDI     R26, 0
+   \   000002DC   E0B0               LDI     R27, 0
+   \                     ??main_9:
+   \   000002DE   30A4               CPI     R26, 4
+   \   000002E0   E000               LDI     R16, 0
+   \   000002E2   07B0               CPC     R27, R16
+   \   000002E4   F46C               BRGE    ??main_10
+    238                {
+    239                  while (!(UCSR0A & (1<<RXC0)));       // ждем завершение приема байта
+   \                     ??main_11:
+   \   000002E6   9100....           LDS     R16, _A_UCSR0A
+   \   000002EA   2F10               MOV     R17, R16
+   \   000002EC   FF17               SBRS    R17, 7
+   \   000002EE   CFFB               RJMP    ??main_11
+    240                  StartControl[i] = UDR0;                          
+   \   000002F0   9100....           LDS     R16, _A_UDR0
+   \   000002F4   01FD               MOVW    R31:R30, R27:R26
+   \   000002F6   ....               SUBI    R30, LOW((-(StartControl) & 0xFFFF))
+   \   000002F8   ....               SBCI    R31, (-(StartControl) & 0xFFFF) >> 8
+   \   000002FA   8300               ST      Z, R16
+    241                }      
+   \   000002FC   9611               ADIW    R27:R26, 1
+   \   000002FE   CFEF               RJMP    ??main_9
+    242                
+    243                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \                     ??main_10:
+   \   00000300   E302               LDI     R16, 50
+   \   00000302   9300....           STS     t_led_on, R16
+    244                LED_ON;   
+   \   00000306   98A5               CBI     0x14, 0x05
+    245              
+    246                ClearBit(PORTB, IN_LE);                // разрешение загрузки
+   \   00000308   982E               CBI     0x05, 0x06
+    247                
+    248                // передача данных по SPI на ППРМ-2: 
+    249                // Режим "Работа":
+    250                // Команда "Начать работу":
+    251                SPI_Write(0x01);                       // байт кода команды
+   \   0000030A   E001               LDI     R16, 1
+   \   0000030C   ....               RCALL   SPI_Write
+    252                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   0000030E   E000               LDI     R16, 0
+   \   00000310   ....               RCALL   SPI_Write
+    253                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   00000312   E000               LDI     R16, 0
+   \   00000314   ....               RCALL   SPI_Write
+    254                SPI_Write(0x00);                       // третий байт пакета данных       
+   \   00000316   E000               LDI     R16, 0
+   \   00000318   ....               RCALL   SPI_Write
+    255                SPI_Write(StartControl[2]);            // четвертый байт пакета данных  
+   \   0000031A   9100....           LDS     R16, (StartControl + 2)
+   \   0000031E   ....               RCALL   SPI_Write
+    256                
+    257                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   00000320   9A2E               SBI     0x05, 0x06
+    258                delay_ms(1);        
+   \   00000322   E90F               LDI     R16, 159
+   \   00000324   E01F               LDI     R17, 15
+   \   00000326   5001               SUBI    R16, 1
+   \   00000328   4010               SBCI    R17, 0
+   \   0000032A   F7E9               BRNE    $-4
+   \   0000032C   C000               RJMP    $+2
+   \   0000032E   0000               NOP
+    259              }    
+    260              
+    261              if(var==0xCC)                            // если маркер передачи на ППРМ-2
+   \                     ??main_8:
+   \   00000330   3C8C               CPI     R24, 204
+   \   00000332   F559               BRNE    ??main_12
+    262              { 
+    263                for(int i=0; i<4; i++)                 // приём 4-х байтовой команды по UART
+   \   00000334   E0A0               LDI     R26, 0
+   \   00000336   E0B0               LDI     R27, 0
+   \                     ??main_13:
+   \   00000338   30A4               CPI     R26, 4
+   \   0000033A   E000               LDI     R16, 0
+   \   0000033C   07B0               CPC     R27, R16
+   \   0000033E   F46C               BRGE    ??main_14
+    264                {
+    265                  while (!(UCSR0A & (1<<RXC0)));       // ждем завершение приема байта
+   \                     ??main_15:
+   \   00000340   9100....           LDS     R16, _A_UCSR0A
+   \   00000344   2F10               MOV     R17, R16
+   \   00000346   FF17               SBRS    R17, 7
+   \   00000348   CFFB               RJMP    ??main_15
+    266                  StartTesting[i] = UDR0;                          
+   \   0000034A   9100....           LDS     R16, _A_UDR0
+   \   0000034E   01FD               MOVW    R31:R30, R27:R26
+   \   00000350   ....               SUBI    R30, LOW((-(StartTesting) & 0xFFFF))
+   \   00000352   ....               SBCI    R31, (-(StartTesting) & 0xFFFF) >> 8
+   \   00000354   8300               ST      Z, R16
+    267                }      
+   \   00000356   9611               ADIW    R27:R26, 1
+   \   00000358   CFEF               RJMP    ??main_13
+    268                
+    269                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \                     ??main_14:
+   \   0000035A   E302               LDI     R16, 50
+   \   0000035C   9300....           STS     t_led_on, R16
+    270                LED_ON;   
+   \   00000360   98A5               CBI     0x14, 0x05
+    271              
+    272                ClearBit(PORTB, IN_LE);                // разрешение загрузки
+   \   00000362   982E               CBI     0x05, 0x06
+    273                
+    274                // передача данных по SPI на ППРМ-2: 
+    275                // Режим "Контроль":
+    276                // Команда "Начать работу":
+    277                SPI_Write(0xE1);                       // байт кода команды
+   \   00000364   EE01               LDI     R16, 225
+   \   00000366   ....               RCALL   SPI_Write
+    278                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   00000368   E000               LDI     R16, 0
+   \   0000036A   ....               RCALL   SPI_Write
+    279                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   0000036C   E000               LDI     R16, 0
+   \   0000036E   ....               RCALL   SPI_Write
+    280                SPI_Write(0x00);                       // третий байт пакета данных       
+   \   00000370   E000               LDI     R16, 0
+   \   00000372   ....               RCALL   SPI_Write
+    281                SPI_Write(StartTesting[2]);            // четвертый байт пакета данных  
+   \   00000374   9100....           LDS     R16, (StartTesting + 2)
+   \   00000378   ....               RCALL   SPI_Write
+    282                
+    283                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000037A   9A2E               SBI     0x05, 0x06
+    284                delay_ms(1);        
+   \   0000037C   E90F               LDI     R16, 159
+   \   0000037E   E01F               LDI     R17, 15
+   \   00000380   5001               SUBI    R16, 1
+   \   00000382   4010               SBCI    R17, 0
+   \   00000384   F7E9               BRNE    $-4
+   \   00000386   C000               RJMP    $+2
+   \   00000388   0000               NOP
+    285              } 
+    286          
+    287              if(var==0xDD)                            // если маркер передачи на ППРМ-2
+   \                     ??main_12:
+   \   0000038A   3D8D               CPI     R24, 221
+   \   0000038C   F559               BRNE    ??main_16
+    288              { 
+    289                for(int i=0; i<4; i++)                 // приём 4-х байтовой команды по UART
+   \   0000038E   E0A0               LDI     R26, 0
+   \   00000390   E0B0               LDI     R27, 0
+   \                     ??main_17:
+   \   00000392   30A4               CPI     R26, 4
+   \   00000394   E000               LDI     R16, 0
+   \   00000396   07B0               CPC     R27, R16
+   \   00000398   F46C               BRGE    ??main_18
+    290                {
+    291                  while (!(UCSR0A & (1<<RXC0)));       // ждем завершение приема байта
+   \                     ??main_19:
+   \   0000039A   9100....           LDS     R16, _A_UCSR0A
+   \   0000039E   2F10               MOV     R17, R16
+   \   000003A0   FF17               SBRS    R17, 7
+   \   000003A2   CFFB               RJMP    ??main_19
+    292                  StopControl[i] = UDR0;                          
+   \   000003A4   9100....           LDS     R16, _A_UDR0
+   \   000003A8   01FD               MOVW    R31:R30, R27:R26
+   \   000003AA   ....               SUBI    R30, LOW((-(StopControl) & 0xFFFF))
+   \   000003AC   ....               SBCI    R31, (-(StopControl) & 0xFFFF) >> 8
+   \   000003AE   8300               ST      Z, R16
+    293                }      
+   \   000003B0   9611               ADIW    R27:R26, 1
+   \   000003B2   CFEF               RJMP    ??main_17
+    294                
+    295                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \                     ??main_18:
+   \   000003B4   E302               LDI     R16, 50
+   \   000003B6   9300....           STS     t_led_on, R16
+    296                LED_ON;   
+   \   000003BA   98A5               CBI     0x14, 0x05
+    297              
+    298                ClearBit(PORTB, IN_LE);                // разрешение загрузки
+   \   000003BC   982E               CBI     0x05, 0x06
+    299                
+    300                // передача данных по SPI на ППРМ-2: 
+    301                // Режим "Работа":
+    302                // Команда "Закончить работу":
+    303                SPI_Write(0x02);                       // байт кода команды
+   \   000003BE   E002               LDI     R16, 2
+   \   000003C0   ....               RCALL   SPI_Write
+    304                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   000003C2   E000               LDI     R16, 0
+   \   000003C4   ....               RCALL   SPI_Write
+    305                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   000003C6   E000               LDI     R16, 0
+   \   000003C8   ....               RCALL   SPI_Write
+    306                SPI_Write(0x00);                       // третий байт пакета данных       
+   \   000003CA   E000               LDI     R16, 0
+   \   000003CC   ....               RCALL   SPI_Write
+    307                SPI_Write(StopControl[2]);             // четвертый байт пакета данных  
+   \   000003CE   9100....           LDS     R16, (StopControl + 2)
+   \   000003D2   ....               RCALL   SPI_Write
+    308                
+    309                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   000003D4   9A2E               SBI     0x05, 0x06
+    310                delay_ms(1);        
+   \   000003D6   E90F               LDI     R16, 159
+   \   000003D8   E01F               LDI     R17, 15
+   \   000003DA   5001               SUBI    R16, 1
+   \   000003DC   4010               SBCI    R17, 0
+   \   000003DE   F7E9               BRNE    $-4
+   \   000003E0   C000               RJMP    $+2
+   \   000003E2   0000               NOP
+    311              }    
+    312          
+    313              if(var==0xEE)                            // если маркер передачи на ППРМ-2
+   \                     ??main_16:
+   \   000003E4   3E8E               CPI     R24, 238
+   \   000003E6   F559               BRNE    ??main_20
+    314              { 
+    315                for(int i=0; i<4; i++)                 // приём 4-х байтовой команды по UART
+   \   000003E8   E0A0               LDI     R26, 0
+   \   000003EA   E0B0               LDI     R27, 0
+   \                     ??main_21:
+   \   000003EC   30A4               CPI     R26, 4
+   \   000003EE   E000               LDI     R16, 0
+   \   000003F0   07B0               CPC     R27, R16
+   \   000003F2   F46C               BRGE    ??main_22
+    316                {
+    317                  while (!(UCSR0A & (1<<RXC0)));       // ждем завершение приема байта
+   \                     ??main_23:
+   \   000003F4   9100....           LDS     R16, _A_UCSR0A
+   \   000003F8   2F10               MOV     R17, R16
+   \   000003FA   FF17               SBRS    R17, 7
+   \   000003FC   CFFB               RJMP    ??main_23
+    318                  StopTesting[i] = UDR0;                          
+   \   000003FE   9100....           LDS     R16, _A_UDR0
+   \   00000402   01FD               MOVW    R31:R30, R27:R26
+   \   00000404   ....               SUBI    R30, LOW((-(StopTesting) & 0xFFFF))
+   \   00000406   ....               SBCI    R31, (-(StopTesting) & 0xFFFF) >> 8
+   \   00000408   8300               ST      Z, R16
+    319                }      
+   \   0000040A   9611               ADIW    R27:R26, 1
+   \   0000040C   CFEF               RJMP    ??main_21
+    320                
+    321                t_led_on  = T_LED_ON;                  // время подсвечивания
+   \                     ??main_22:
+   \   0000040E   E302               LDI     R16, 50
+   \   00000410   9300....           STS     t_led_on, R16
+    322                LED_ON;   
+   \   00000414   98A5               CBI     0x14, 0x05
+    323              
+    324                ClearBit(PORTB, IN_LE);                // разрешение загрузки
+   \   00000416   982E               CBI     0x05, 0x06
+    325                
+    326                // передача данных по SPI на ППРМ-2: 
+    327                // Режим "Контроль":
+    328                // Команда "Закончить работу":
+    329                SPI_Write(0xE2);                       // байт кода команды
+   \   00000418   EE02               LDI     R16, 226
+   \   0000041A   ....               RCALL   SPI_Write
+    330                SPI_Write(0x00);                       // первый байт пакета данных      
+   \   0000041C   E000               LDI     R16, 0
+   \   0000041E   ....               RCALL   SPI_Write
+    331                SPI_Write(0x00);                       // второй байт пакета данных       
+   \   00000420   E000               LDI     R16, 0
+   \   00000422   ....               RCALL   SPI_Write
+    332                SPI_Write(0x00);                       // третий байт пакета данных       
+   \   00000424   E000               LDI     R16, 0
+   \   00000426   ....               RCALL   SPI_Write
+    333                SPI_Write(StopTesting[2]);             // четвертый байт пакета данных  
+   \   00000428   9100....           LDS     R16, (StopTesting + 2)
+   \   0000042C   ....               RCALL   SPI_Write
+    334                
+    335                SetBit(PORTB, IN_LE);                  // запрет загрузки      
+   \   0000042E   9A2E               SBI     0x05, 0x06
+    336                delay_ms(1);        
+   \   00000430   E90F               LDI     R16, 159
+   \   00000432   E01F               LDI     R17, 15
+   \   00000434   5001               SUBI    R16, 1
+   \   00000436   4010               SBCI    R17, 0
+   \   00000438   F7E9               BRNE    $-4
+   \   0000043A   C000               RJMP    $+2
+   \   0000043C   0000               NOP
+    337              }    
+    338              __watchdog_reset();
+   \                     ??main_20:
+   \   0000043E   95A8               WDR
+   \   00000440   CE30               RJMP    ??main_0
+   \   00000442                      REQUIRE _A_DDRL
+   \   00000442                      REQUIRE _A_DDRK
+   \   00000442                      REQUIRE _A_DDRJ
+   \   00000442                      REQUIRE _A_DDRH
+   \   00000442                      REQUIRE _A_UDR0
+   \   00000442                      REQUIRE _A_UBRR0
+   \   00000442                      REQUIRE _A_UCSR0C
+   \   00000442                      REQUIRE _A_UCSR0B
+   \   00000442                      REQUIRE _A_UCSR0A
+   \   00000442                      REQUIRE _A_TIMSK0
+   \   00000442                      REQUIRE _A_WDTCSR
+   \   00000442                      REQUIRE _A_TCNT0
+   \   00000442                      REQUIRE _A_TCCR0B
+   \   00000442                      REQUIRE _A_TCCR0A
+   \   00000442                      REQUIRE _A_PORTG
+   \   00000442                      REQUIRE _A_DDRG
+   \   00000442                      REQUIRE _A_DDRF
+   \   00000442                      REQUIRE _A_PORTE
+   \   00000442                      REQUIRE _A_DDRE
+   \   00000442                      REQUIRE _A_PINE
+   \   00000442                      REQUIRE _A_DDRD
+   \   00000442                      REQUIRE _A_DDRC
+   \   00000442                      REQUIRE _A_PORTB
+   \   00000442                      REQUIRE _A_DDRB
+   \   00000442                      REQUIRE _A_DDRA
+    339            }
+    340          }
+    341          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    342          /*                                                                                                          */
+    343          /*                                               Подпрограммы                                               */
+    344          /*                                                                                                          */
+    345          /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    346          #pragma vector=TIMER0_OVF_vect         // директива определяет вектор функции прерывания, описание которой следует за ней                 
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    347          __interrupt void timer0_ovf_isr(void)  // функция прерывания по переполнению таймера0 
+   \                     timer0_ovf_isr:
+    348          {
+   \   00000000   932A               ST      -Y, R18
+   \   00000002   931A               ST      -Y, R17
+   \   00000004   930A               ST      -Y, R16
+   \   00000006   B71F               IN      R17, 0x3F
+   \   00000008   B72B               IN      R18, 0x3B
+    349            //TIMER0 has overflowed
+    350            TCNT0  = RELOAD_TIM0;                // reload counter value
+   \   0000000A   E908               LDI     R16, 152
+   \   0000000C   BD06               OUT     0x26, R16
+    351          
+    352            if (count_bod)  count_bod--;
+   \   0000000E   9100....           LDS     R16, count_bod
+   \   00000012   2300               TST     R16
+   \   00000014   F029               BREQ    ??timer0_ovf_isr_0
+   \   00000016   9100....           LDS     R16, count_bod
+   \   0000001A   950A               DEC     R16
+   \   0000001C   9300....           STS     count_bod, R16
+    353          
+    354            if(t_led_on)  t_led_on--;            // время подсвечивания --
+   \                     ??timer0_ovf_isr_0:
+   \   00000020   9100....           LDS     R16, t_led_on
+   \   00000024   2300               TST     R16
+   \   00000026   F031               BREQ    ??timer0_ovf_isr_1
+   \   00000028   9100....           LDS     R16, t_led_on
+   \   0000002C   950A               DEC     R16
+   \   0000002E   9300....           STS     t_led_on, R16
+   \   00000032   C001               RJMP    ??timer0_ovf_isr_2
+    355            else          LED_OFF;               // LED-OFF
+   \                     ??timer0_ovf_isr_1:
+   \   00000034   9AA5               SBI     0x14, 0x05
+    356          /*
+    357            Частота переполнения таймера0 SYSTEM_TICK выбрана 600 Гц. Поэтому период переполнения таймера0 Tovf 
+    358            составляет 1.7 мс, а константа перезагрузки 'TIM0' составляет RELOAD_TIM0 = 152(0x98). Подпрограмма 
+    359            обработки прерывания по переполнению таймера0 вызывается каждые 1.7 мс, заново загружает константу 
+    360            перезагрузки 'TIM0' и каждый раз уменьшает значение count_bod и t_led_on на единицу, пока значение 
+    361            count_bod > 0 и t_led_on > 0. 
+    362            Время горения светодиода будет T_LED_ON*Tovf = 120*1.7мс = 0.2c.
+    363          */
+    364          }
+   \                     ??timer0_ovf_isr_2:
+   \   00000036   BF2B               OUT     0x3B, R18
+   \   00000038   BF1F               OUT     0x3F, R17
+   \   0000003A   9109               LD      R16, Y+
+   \   0000003C   9119               LD      R17, Y+
+   \   0000003E   9129               LD      R18, Y+
+   \   00000040   9518               RETI
+   \   00000042                      REQUIRE _A_TCNT0
+   \   00000042                      REQUIRE _A_PORTG
+    365          
+    366          // Подпрограмма инициализации SPI в режиме Master
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    367          void SPI_MasterInit(void)
+   \                     SPI_MasterInit:
+    368          {
+    369          /* 
+    370            - Разрешение SPI в режиме мастера,
+    371            - DORD = 1 - первым передаётся младший бит,
+    372            - CPHA = 0 - обработка данных производится по переднему спадающему фронту импульсов сигнала SCK,
+    373            - установка скорости обмена fck/128=16МГц/128=125кГц 
+    374          */
+    375            SPCR = (1<<SPE)|(1<<DORD)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0);
+   \   00000000   E703               LDI     R16, 115
+   \   00000002   BD0C               OUT     0x2C, R16
+    376          }
+   \   00000004   9508               RET
+   \   00000006                      REQUIRE _A_SPCR
+    377          
+    378          // Подпрограмма записи по SPI
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    379          void SPI_Write(unsigned char dataout)
+   \                     SPI_Write:
+    380          {
+    381            // Запись байта в регист данных ведущего (инициализация передачи)
+    382            SPDR = dataout;
+   \   00000000   BD0E               OUT     0x2E, R16
+    383            // Ожидание завершения передачи (пока бит SPIF не установлен)
+    384            while(!(SPSR & (1<<SPIF)));
+   \                     ??SPI_Write_0:
+   \   00000002   B51D               IN      R17, 0x2D
+   \   00000004   2F21               MOV     R18, R17
+   \   00000006   FF27               SBRS    R18, 7
+   \   00000008   CFFC               RJMP    ??SPI_Write_0
+    385          }
+   \   0000000A   9508               RET
+   \   0000000C                      REQUIRE _A_SPDR
+   \   0000000C                      REQUIRE _A_SPSR
+
+   \                                 In  segment INTVEC, offset 0x5c, root
+   \                     `??timer0_ovf_isr??INTVEC 92`:
+   \   0000005C   ........           JMP     timer0_ovf_isr
+
+   Maximum stack usage in bytes:
+
+     Function            CSTACK RSTACK
+     --------            ------ ------
+     SPI_MasterInit          0      2
+     SPI_Write               0      2
+     main                    4      2
+       -> SPI_MasterInit     4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+       -> SPI_Write          4      2
+     timer0_ovf_isr          3      2
+
+
+   Segment part sizes:
+
+     Function/Label              Bytes
+     --------------              -----
+     Title                         51
+     _A_DDRL                        1
+     _A_DDRK                        1
+     _A_DDRJ                        1
+     _A_DDRH                        1
+     _A_UDR0                        1
+     _A_UBRR0                       2
+     _A_UCSR0C                      1
+     _A_UCSR0B                      1
+     _A_UCSR0A                      1
+     _A_TIMSK0                      1
+     _A_WDTCSR                      1
+     _A_SPDR                        1
+     _A_SPSR                        1
+     _A_SPCR                        1
+     _A_TCNT0                       1
+     _A_TCCR0B                      1
+     _A_TCCR0A                      1
+     _A_PORTG                       1
+     _A_DDRG                        1
+     _A_DDRF                        1
+     _A_PORTE                       1
+     _A_DDRE                        1
+     _A_PINE                        1
+     _A_DDRD                        1
+     _A_DDRC                        1
+     _A_PORTB                       1
+     _A_DDRB                        1
+     _A_DDRA                        1
+     count                          1
+     count_bod                      1
+     t_led_on                       1
+     R                             68
+     StartControl                   3
+     StartTesting                   3
+     StopControl                    3
+     StopTesting                    3
+     main                        1090
+     timer0_ovf_isr                66
+     SPI_MasterInit                 6
+     SPI_Write                     12
+     ??timer0_ovf_isr??INTVEC 92    4
+      Others                        7
+
+ 
+    29 bytes in segment ABSOLUTE
+ 1 174 bytes in segment CODE
+     7 bytes in segment INITTAB
+     4 bytes in segment INTVEC
+    51 bytes in segment NEAR_F
+    83 bytes in segment NEAR_Z
+ 
+ 1 225 bytes of CODE memory (+ 11 bytes shared)
+    83 bytes of DATA memory (+ 29 bytes shared)
+
+Errors: none
+Warnings: none
